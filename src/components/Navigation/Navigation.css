@@ -1,0 +1,59 @@
+/* ============ NAVIGATION ============ */
+.navbar {
+  background: var(--dark);
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 40px;
+}
+
+.nav-item {
+  padding: 18px 0;
+  cursor: pointer;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid transparent;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+button.nav-item {
+  background: var(--dark);
+  border: none;
+  color: var(--light);
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-item:hover {
+  color: var(--accent);
+}
+
+.nav-item.active {
+  color: var(--secondary);
+  border-bottom-color: var(--accent);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .navbar-container {
+    gap: 10px;
+    overflow-x: auto;
+  }
+
+  .nav-item {
+    white-space: nowrap;
+    font-size: 12px;
+  }
+}

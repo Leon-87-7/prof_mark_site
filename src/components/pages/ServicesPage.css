@@ -1,0 +1,103 @@
+.cards-grid .card {
+  border-top: 4px solid transparent;
+}
+
+.cards-grid .card:nth-child(1) {
+  border-top-color: var(--secondary);
+}
+
+.cards-grid .card:nth-child(1) .card-header {
+  color: var(--secondary);
+}
+
+.cards-grid .card:nth-child(2) {
+  border-top-color: var(--danger);
+}
+
+.cards-grid .card:nth-child(2) .card-header {
+  color: var(--danger);
+}
+
+.cards-grid .card:nth-child(3) {
+  border-top-color: var(--warning);
+}
+
+.cards-grid .card:nth-child(3) .card-header {
+  color: var(--warning);
+}
+
+.cards-grid .card:nth-child(4) {
+  border-top-color: var(--accent);
+}
+
+.cards-grid .card:nth-child(4) .card-header {
+  color: var(--accent);
+}
+
+.service-detail {
+  background: #eafaf1;
+  border-left: 4px solid var(--accent);
+  padding: 30px;
+  border-radius: 5px;
+  margin: 30px 0;
+}
+
+.service-detail h3 {
+  color: var(--accent);
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.service-detail h4 {
+  margin-top: 20px;
+}
+
+.service-detail h4:first-of-type {
+  margin-top: 0;
+}
+
+.service-detail .btn {
+  margin-top: 20px;
+}
+
+.pricing-card {
+  background: #fadbd8;
+}
+
+.pricing-card:nth-child(1) {
+  background: #fadbd8;
+}
+
+.pricing-card:nth-child(1) .pricing-amount {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--danger);
+  margin: 15px 0;
+}
+
+.pricing-card:nth-child(2) {
+  background: #fdebd0;
+}
+
+.pricing-card:nth-child(2) .pricing-amount {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--warning);
+  margin: 15px 0;
+}
+
+.pricing-card:nth-child(3) {
+  background: #eafaf1;
+}
+
+.pricing-card:nth-child(3) .pricing-amount {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--accent);
+  margin: 15px 0;
+}
+
+.pricing-note {
+  font-size: 12px;
+  color: var(--text-light);
+}
