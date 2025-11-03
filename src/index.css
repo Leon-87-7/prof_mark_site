@@ -1,9 +1,47 @@
-/* Minimal reset - most styles are in styles/App.css */
-body {
+/* ============ GLOBAL FOUNDATION LAYER ============ */
+
+/* ============ GLOBAL RESET ============ */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* ============ CSS VARIABLES ============ */
+:root {
+  --primary: #000000;
+  --secondary: #188BF6;
+  --accent: #D2BB71;
+  --danger: #e74c3c;
+  --warning: #f39c12;
+  --light: #F7F7F7;
+  --dark: #2B2B2B;
+  --text: #000000;
+  --text-light: #666666;
+  --border: #E0E0E0;
+  --white: #fffde7;
+}
+
+/* ============ ROOT & BODY ============ */
 #root {
   width: 100%;
   min-height: 100vh;
+}
+
+body {
+  font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  background: var(--white);
+}
+
+/* ============ TYPOGRAPHY ============ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 }

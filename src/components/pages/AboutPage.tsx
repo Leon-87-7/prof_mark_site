@@ -1,5 +1,6 @@
 import React from 'react';
 import type { PageType } from '../../types';
+import './AboutPage.css';
 
 interface AboutPageProps {
   onBookingClick: () => void;

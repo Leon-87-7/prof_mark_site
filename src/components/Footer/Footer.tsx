@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import { type PageType } from '../Navigation/Navigation';
+import { type PageType } from '../../types';
 
 interface FooterProps {
   onPageChange: (page: PageType) => void;

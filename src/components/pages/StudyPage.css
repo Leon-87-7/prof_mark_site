@@ -59,6 +59,7 @@
   background: #16a085;
 }
 
+/* StudyPage specific overrides */
 .cards-grid .card-content h3 {
   font-size: 14px;
 }
@@ -67,20 +68,6 @@
   font-size: 12px;
   color: var(--text-light);
   margin: 10px 0;
-}
-
-.service-detail {
-  background: #eafaf1;
-  border-left: 4px solid var(--accent);
-  padding: 30px;
-  border-radius: 5px;
-  margin: 30px 0;
-}
-
-.service-detail h3 {
-  color: var(--accent);
-  margin-bottom: 15px;
-  font-size: 18px;
 }
 
 .subscribe-form {
