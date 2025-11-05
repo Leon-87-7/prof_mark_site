@@ -1,5 +1,6 @@
 import React from 'react';
 import './ClinicsPage.css';
+import { Clock, MapPinSimpleAreaIcon } from '@phosphor-icons/react';
 
 interface ClinicsPageProps {
   onBookingClick: () => void;
@@ -24,22 +25,39 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
           <div className="clinic-header">🏥 HAIFA CLINIC</div>
           <div className="clinic-content">
             <div className="clinic-item">
-              <strong>📍 Location</strong>
-              123 Medical Street, Haifa, Israel
+              <strong>
+                <MapPinSimpleAreaIcon
+                  size={20}
+                  weight="bold"
+                  className="icon-item"
+                />{' '}
+                Location
+              </strong>
+              Ben Gurion Blvd 4, Haifa, Israel
             </div>
+
             <div className="clinic-item">
-              <strong>📞 Phone</strong>
-              +972 (0)4 123-4567
-            </div>
-            <div className="clinic-item">
-              <strong>📧 Email</strong>
-              haifa@clinicemail.com
-            </div>
-            <div className="clinic-item">
-              <strong>🕐 Hours</strong>
+              <strong>
+                <Clock
+                  size={20}
+                  weight="bold"
+                  className="icon-item"
+                />{' '}
+                Hours
+              </strong>
               Mon-Fri: 8am-6pm | Sat: 9am-1pm
             </div>
-            <div className="clinic-map">🗺️ Interactive Map</div>
+            <div className="clinic-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7974.140186045572!2d34.98753709438236!3d32.82636995941275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151dbbcb7737a60f%3A0x80c6b3e567825840!2z15HXmdeqINeU16jXldek15DXmdedINeU157Xldep15HXlCDXlNeS16jXnteg15nXqg!5e0!3m2!1sen!2sil!4v1762345297808!5m2!1sen!2sil"
+                width="612.5"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
             <div className="clinic-item">
               <strong>Services Available:</strong>
               <br />
@@ -67,22 +85,39 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
           </div>
           <div className="clinic-content">
             <div className="clinic-item">
-              <strong>📍 Location</strong>
-              456 Health Avenue, Kiryat Motzkin, Israel
+              <strong>
+                <MapPinSimpleAreaIcon
+                  size={20}
+                  weight="bold"
+                  className="icon-item"
+                />{' '}
+                Location
+              </strong>
+              Ussishkin St 6, Kiryat Motzkin, Israel
             </div>
+
             <div className="clinic-item">
-              <strong>📞 Phone</strong>
-              +972 (0)4 765-4321
-            </div>
-            <div className="clinic-item">
-              <strong>📧 Email</strong>
-              kiryat@clinicemail.com
-            </div>
-            <div className="clinic-item">
-              <strong>🕐 Hours</strong>
+              <strong>
+                <Clock
+                  size={20}
+                  weight="bold"
+                  className="icon-item"
+                />{' '}
+                Hours
+              </strong>
               Mon-Thu: 9am-5pm | Fri: 9am-2pm
             </div>
-            <div className="clinic-map">🗺️ Interactive Map</div>
+            <div className="clinic-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3352.5603948495004!2d35.0790442!3d32.830411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151db721dd3b6b0f%3A0xd52f2166163ca1e0!2sUssishkin%20St%206%2C%20Kiryat%20Motzkin!5e0!3m2!1sen!2sil!4v1762344839939!5m2!1sen!2sil"
+                width="612"
+                height="300"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
             <div className="clinic-item">
               <strong>Services Available:</strong>
               <br />
@@ -129,7 +164,7 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
         </div>
       </div>
 
-      <div className="section">
+      {/* <div className="section">
         <h2 className="section-title">Team Members</h2>
         <div className="cards-grid">
           <div className="card">
@@ -165,7 +200,7 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
