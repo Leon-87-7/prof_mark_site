@@ -1,6 +1,7 @@
 import React from 'react';
 import './Footer.css';
 import { type PageType } from '../../types';
+import { MapPinSimple, Phone, At } from '@phosphor-icons/react';
 
 interface FooterProps {
   onPageChange: (page: PageType) => void;
@@ -25,10 +26,32 @@ const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
         </div>
         <div className="footer-section">
           <h4>CONTACT</h4>
-          <p>📍 Haifa & Kiryat Motzkin, Israel</p>
-          <p>📞 +972 (0)4 123-4567</p>
-          <p>📧 info@clinicemail.com</p>
-          <p>24/7 Emergency Line Available</p>
+          <p>
+            <MapPinSimple
+              size={20}
+              weight="fill"
+              color="var(--secondary)"
+              className="icon-item"
+            />{' '}
+            Haifa & K.Motzkin, Israel
+          </p>
+          <p>
+            <Phone
+              size={20}
+              weight="fill"
+              color="var(--secondary)"
+              className="icon-item"
+            />{' '}
+            +972 (0)4 873-2227
+          </p>
+          <p>
+            <At
+              size={20}
+              color="var(--secondary)"
+              className="icon-item"
+            />{' '}
+            info@clinicat.com
+          </p>
         </div>
         <div className="footer-section">
           <h4>INFORMATION</h4>
@@ -83,7 +106,7 @@ const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
           reserved.
         </p>
         <p>
-          Haifa & Kiryat Motzkin, Israel | info@clinicemail.com | +972
+          Haifa & Kiryat Motzkin, Israel | info@clinicat.com | +972
           (0)4 123-4567
         </p>
       </div>
