@@ -10,31 +10,35 @@
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 40px;
 }
 
-.nav-item {
+button.nav-item {
   padding: 18px 0;
   cursor: pointer;
   font-weight: 400;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
-  color: #FFFFFF;
+  color: var(--light);
   transition: all 0.3s ease;
+  border: none;
   border-bottom: 3px solid transparent;
   position: relative;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6rem;
+  background: var(--dark);
 }
 
-button.nav-item {
+/* button.nav-item {
   background: var(--dark);
   border: none;
   color: var(--light);
   font: inherit;
   cursor: pointer;
-  padding: 0;
-}
+  padding: 18px 0;
+} */
 
 .nav-item:hover {
   color: var(--accent);
