@@ -4,12 +4,11 @@
   /* Gradient overlay on left side for text readability */
   background-image:
     linear-gradient(to right,
-      rgba(0, 0, 0, 0.7) 0%,
-      rgba(0, 0, 0, 0.5) 30%,
-      rgba(0, 0, 0, 0.3) 50%,
-      rgba(0, 0, 0, 0.1) 70%,
-      transparent 100%
-    ),
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.6) 30%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.2) 70%,
+      transparent 100%),
     url(../../assets/hero_image_mark_02.jpg);
   background-size: cover;
   background-position: center;
@@ -68,9 +67,7 @@
 }
 
 .highlighted-text {
-  /* font-style: italic; */
   text-decoration: underline;
-  /* font-weight: 400; */
   font-size: 1.3rem;
 
 }
@@ -109,26 +106,6 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* 
-.hero-image {
-  background: white;
-  padding: 40px;
-  border-radius: 2px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  min-height: 450px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 2px dashed var(--border);
-}
-
-.placeholder {
-  font-size: 60px;
-  margin-bottom: 16px;
-} */
-
 .cta-buttons {
   display: flex;
   gap: 16px;
@@ -136,11 +113,21 @@
   flex-wrap: wrap;
 }
 
+.credentials {
+  padding: 30px 40px 20px 0px;
+  margin-bottom: 40px;
+}
+
+.mentorship {
+  padding: 30px 40px 20px 0px;
+  margin-bottom: 40px;
+}
+
 .testimonials {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
-  margin: 40px 0;
+  margin-bottom: 40px;
 }
 
 .testimonial {
@@ -153,12 +140,12 @@
 
 .stars {
   color: var(--accent);
-  font-size: 16px;
+  font-size: 1rem;
   margin-bottom: 16px;
 }
 
 .testimonial-text {
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: var(--text-light);
   margin-bottom: 20px;
   font-style: italic;
@@ -166,7 +153,7 @@
 }
 
 .testimonial-author {
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: var(--primary);
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
@@ -182,7 +169,7 @@
   }
 
   .hero-content h1 {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
   .cta-buttons {

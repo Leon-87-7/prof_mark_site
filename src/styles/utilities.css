@@ -14,7 +14,7 @@
   border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-family: 'Montserrat', sans-serif;
   transition: all 0.3s ease;
   text-decoration: none;
@@ -86,7 +86,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 48px;
+  font-size: 3rem;
   background: var(--light);
 }
 
@@ -97,13 +97,13 @@
 .card-content h3 {
   color: var(--primary);
   margin-bottom: 12px;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
 }
 
 .card-content p {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--text-light);
   margin-bottom: 16px;
   line-height: 1.7;
@@ -111,7 +111,7 @@
 
 .card-link {
   color: var(--accent);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -134,7 +134,7 @@
 }
 
 .section-title {
-  font-size: 36px;
+  font-size: 2.25rem;
   color: var(--primary);
   margin-bottom: 24px;
   padding-bottom: 0;
@@ -164,7 +164,7 @@
 .service-detail h3 {
   color: var(--accent);
   margin-bottom: 15px;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 .service-detail h4 {
@@ -194,7 +194,7 @@
 .column h4 {
   color: var(--primary);
   margin-bottom: 16px;
-  font-size: 18px;
+  font-size: 1.3rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
 }
@@ -205,7 +205,7 @@
 }
 
 .column ul li {
-  font-size: 14px;
+  font-size: 1.125rem;
   color: var(--text-light);
 }
 

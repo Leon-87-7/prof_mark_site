@@ -58,7 +58,7 @@ function App(): ReactElement {
 
   return (
     <>
-      <Header onBookingClick={handleBookingOpen} />
+      <Header onPageChange={handlePageChange} />
       <Navigation
         activePage={currentPage}
         onPageChange={handlePageChange}

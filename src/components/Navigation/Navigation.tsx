@@ -5,10 +5,13 @@ interface NavigationProps extends PageChangeCallbacks {
   activePage: PageType;
 }
 
-const Navigation = ({ activePage, onPageChange }: NavigationProps) => {
+const Navigation = ({
+  activePage,
+  onPageChange,
+}: NavigationProps) => {
   const navItems = [
     { label: 'About', page: 'home' as const },
-    { label: 'Clinics', page: 'clinics' as const },
+    // { label: 'Clinics', page: 'clinics' as const },
     { label: 'Services', page: 'services' as const },
     { label: 'Innovation', page: 'innovation' as const },
     { label: 'Guides', page: 'guides' as const },
@@ -16,8 +19,14 @@ const Navigation = ({ activePage, onPageChange }: NavigationProps) => {
   ];
 
   return (
-    <nav className="navbar" aria-label="Main navigation">
-      <div className="navbar-container" role="tablist">
+    <nav
+      className="navbar"
+      aria-label="Main navigation"
+    >
+      <div
+        className="navbar-container"
+        role="tablist"
+      >
         {navItems.map((item) => (
           <button
             key={item.page}

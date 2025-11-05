@@ -1,8 +1,9 @@
 /* ============ NAVIGATION ============ */
 .navbar {
-  background: var(--dark);
-  padding: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: var(--primary);
+  position: sticky;
+  top: 101px;
+  z-index: 90;
 }
 
 .navbar-container {
@@ -20,7 +21,7 @@ button.nav-item {
   cursor: pointer;
   font-weight: 400;
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--light);
   transition: all 0.3s ease;
   border: none;
@@ -28,7 +29,7 @@ button.nav-item {
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.6rem;
-  background: var(--dark);
+  background: transparent;
 }
 
 /* button.nav-item {
@@ -58,6 +59,6 @@ button.nav-item {
 
   .nav-item {
     white-space: nowrap;
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 }
