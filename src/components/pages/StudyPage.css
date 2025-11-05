@@ -30,8 +30,8 @@
   margin-top: 0;
 }
 
-.card-header-colored {
-  color: white;
+.card-header-rounded {
+  color: var(--white);
   border-radius: 10px 10px 0 0;
 }
 
