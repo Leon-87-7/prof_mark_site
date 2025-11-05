@@ -8,16 +8,18 @@ const Header = ({ onBookingClick }: HeaderProps) => {
     <header className="header">
       <div className="header-container">
         <div className="logo">
-          <div
+          {/* <div
             className="logo-icon"
             role="img"
             aria-label="Hospital"
           >
             🏥
-          </div>
+          </div> */}
           <div>
             <div>Prof. Mark Eidelman</div>
-            <div className="logo-subtitle">Orthopedic Specialist</div>
+            <div className="logo-subtitle">
+              Pediatric Orthopedic Specialist
+            </div>
           </div>
         </div>
         <div className="header-right">

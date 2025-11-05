@@ -33,7 +33,12 @@ function App(): ReactElement {
   const renderPage = (): ReactElement => {
     switch (currentPage) {
       case 'home':
-        return <AboutPage onBookingClick={handleBookingOpen} onPageChange={handlePageChange} />;
+        return (
+          <AboutPage
+            onBookingClick={handleBookingOpen}
+            onPageChange={handlePageChange}
+          />
+        );
       case 'clinics':
         return <ClinicsPage onBookingClick={handleBookingOpen} />;
       case 'services':
@@ -54,12 +59,22 @@ function App(): ReactElement {
   return (
     <>
       <Header onBookingClick={handleBookingOpen} />
-      <Navigation activePage={currentPage} onPageChange={handlePageChange} />
-      <main className="container" id="main-content" role="main">
+      <Navigation
+        activePage={currentPage}
+        onPageChange={handlePageChange}
+      />
+      <main
+        className="container"
+        id="main-content"
+        role="main"
+      >
         {renderPage()}
       </main>
       <Footer onPageChange={handlePageChange} />
-      <BookingModal isOpen={isBookingModalOpen} onClose={handleBookingClose} />
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={handleBookingClose}
+      />
     </>
   );
 }
