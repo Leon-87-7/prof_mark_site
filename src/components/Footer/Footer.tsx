@@ -64,7 +64,7 @@ const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
           <a onClick={() => alert('Accessibility')}>Accessibility</a>
           <a onClick={() => alert('Sitemap')}>Sitemap</a>
         </div>
-        <div className="footer-section">
+        {/* <div className="footer-section">
           <h4>FOLLOW US</h4>
           <p>Connect on social media</p>
           <p style={{ fontSize: '20px', marginTop: '10px' }}>
@@ -98,17 +98,14 @@ const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
               📷
             </a>
           </p>
-        </div>
+        </div> */}
       </div>
       <div className="footer-bottom">
         <p>
           © 2025 Prof. Mark Eidelman Orthopedic Clinic. All rights
           reserved.
         </p>
-        <p>
-          Haifa & Kiryat Motzkin, Israel | info@clinicat.com | +972
-          (0)4 123-4567
-        </p>
+        <p>Haifa, Israel | info@clinicat.com | +972 (0)4 873-2227</p>
       </div>
     </div>
   );
