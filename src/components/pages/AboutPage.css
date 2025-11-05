@@ -1,10 +1,35 @@
 /* AboutPage specific styles */
 
 .hero {
-  /* background: var(--light); */
+  /* Gradient overlay on left side for text readability */
+  background-image:
+    linear-gradient(to right,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.5) 30%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.1) 70%,
+      transparent 100%
+    ),
+    url(../../assets/hero_image_mark_02.jpg);
+  background-size: cover;
+  background-position: center;
   padding: 80px 40px;
   border-radius: 0;
-  margin: 0;
+  /* Break out of container to be full width */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.hero-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
@@ -12,21 +37,42 @@
 }
 
 .hero-content h1 {
-  font-size: 48px;
-  color: var(--primary);
-  margin-bottom: 16px;
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 1rem;
   line-height: 1.1;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   letter-spacing: -1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content h3 {
+  font-size: 1.75rem;
+  color: white;
+  margin-bottom: 1.2rem;
+  line-height: 1.1;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: -1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
-  font-size: 16px;
-  color: var(--text-light);
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.95);
   margin-bottom: 24px;
   line-height: 1.7;
   width: 65ch;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.highlighted-text {
+  /* font-style: italic; */
+  text-decoration: underline;
+  /* font-weight: 400; */
+  font-size: 1.3rem;
+
 }
 
 .hero-stats {
@@ -37,7 +83,7 @@
 }
 
 .stat-card {
-  background: white;
+  background: hsla(0, 0%, 100%, 0.6);
   padding: 24px;
   border-radius: 2px;
   text-align: center;
@@ -46,22 +92,24 @@
 }
 
 .stat-card .number {
-  font-size: 36px;
+  font-size: 2.25rem;
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
   color: var(--accent);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   margin-bottom: 8px;
 }
 
 .stat-card .label {
-  font-size: 11px;
+  font-size: 0.8rem;
   color: var(--text-light);
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
+/* 
 .hero-image {
   background: white;
   padding: 40px;
@@ -79,7 +127,7 @@
 .placeholder {
   font-size: 60px;
   margin-bottom: 16px;
-}
+} */
 
 .cta-buttons {
   display: flex;
@@ -125,7 +173,7 @@
 }
 
 @media (max-width: 768px) {
-  .hero {
+  .hero-wrapper {
     grid-template-columns: 1fr;
   }
 

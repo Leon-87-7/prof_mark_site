@@ -14,56 +14,66 @@ const AboutPage: React.FC<AboutPageProps> = ({
   return (
     <div className="page active">
       <div className="hero">
-        <div className="hero-content">
-          <h1>Leading Paediatric Orthopaedist</h1>
-          <p>Limb Lengthening & Deformity Correction Specialist</p>
-          <p>
-            With 25+ years of expertise and over 1,000 successful
-            surgeries, Prof. Mark Eidelman is your trusted partner in
-            orthopedic care. Pioneering surgical techniques and
-            mentoring the next generation of surgeons globally.
-          </p>
-          <div className="hero-stats">
-            <div className="stat-card">
-              <div className="number">25+</div>
-              <div className="label">Years Experience</div>
+        <div className="hero-wrapper">
+          <div className="hero-content">
+            <h1>Leading the Future of Pediatric Orthopedics</h1>
+            <h3>
+              Limb Lengthening & Deformity Correction Specialist
+            </h3>
+            <p>
+              <b>Prof. Mark Eidelman</b> brings over{' '}
+              <b>25 years of specialized expertise</b> and 3,000
+              successful surgeries to pediatric care. As a global
+              authority dedicated to complex deformity correction and
+              limb lengthening,{' '}
+              <span className="highlighted-text">
+                he helps children achieve balanced leg length, ideal
+                stature, and a happy, fulfilling life.
+              </span>{' '}
+              Pioneering techniques. Global mentorship.
+            </p>
+            <div className="hero-stats">
+              <div className="stat-card">
+                <div className="number">25+</div>
+                <div className="label">Years Experience</div>
+              </div>
+              <div className="stat-card">
+                <div className="number">3000+</div>
+                <div className="label">Surgeries</div>
+              </div>
+              <div className="stat-card">
+                <div className="number">50+</div>
+                <div className="label">Trained</div>
+              </div>
             </div>
-            <div className="stat-card">
-              <div className="number">1000+</div>
-              <div className="label">Surgeries</div>
-            </div>
-            <div className="stat-card">
-              <div className="number">50+</div>
-              <div className="label">Trained</div>
+            <div className="cta-buttons">
+              <button
+                className="btn btn-primary"
+                onClick={onBookingClick}
+              >
+                Book Consultation
+              </button>
+              <button
+                className="btn btn-secondary"
+                onClick={() => onPageChange('clinics')}
+              >
+                Explore Clinics
+              </button>
+              <button
+                className="btn btn-tertiary"
+                onClick={() => onPageChange('innovation')}
+              >
+                Surgical Innovation
+              </button>
             </div>
           </div>
-          <div className="cta-buttons">
-            <button
-              className="btn btn-primary"
-              onClick={onBookingClick}
-            >
-              Book Consultation
-            </button>
-            <button
-              className="btn btn-secondary"
-              onClick={() => onPageChange('clinics')}
-            >
-              Explore Clinics
-            </button>
-            <button
-              className="btn btn-tertiary"
-              onClick={() => onPageChange('innovation')}
-            >
-              Surgical Innovation
-            </button>
-          </div>
-        </div>
-        <div className="hero-image">
-          <div className="placeholder">👨‍⚕️</div>
-          <p>Prof. Mark Eidelman, MD</p>
-          <p style={{ fontSize: '12px', color: 'var(--text-light)' }}>
-            Professional Photo
-          </p>
+          {/* <div className="hero-image">
+            <div className="placeholder">👨‍⚕️</div>
+            <p>Prof. Mark Eidelman, MD</p>
+            <p style={{ fontSize: '12px', color: 'var(--text-light)' }}>
+              Professional Photo
+            </p>
+          </div> */}
         </div>
       </div>
 
