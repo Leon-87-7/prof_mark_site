@@ -68,6 +68,11 @@
   color: var(--accent);
 }
 
+.contact-text {
+  font-size: 0.8rem;
+  color: var(--secondary);
+}
+
 .btn-book {
   background: var(--accent);
   color: var(--primary);

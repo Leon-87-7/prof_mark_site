@@ -25,7 +25,9 @@ const Header = ({ onBookingClick }: HeaderProps) => {
         <div className="header-right">
           <div className="contact-info">
             <div className="phone">+972 (0)4 123-4567</div>
-            <div>24/7 Emergency Line</div>
+            {/* <p className="contact-text">
+              leave a message <br /> we'll get back to you shortly
+            </p> */}
           </div>
           <button
             className="btn-book"
