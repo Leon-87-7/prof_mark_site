@@ -5,28 +5,37 @@ interface ServicesPageProps {
   onBookingClick: () => void;
 }
 
-const ServicesPage: React.FC<ServicesPageProps> = ({ onBookingClick }) => {
+const ServicesPage: React.FC<ServicesPageProps> = ({
+  onBookingClick,
+}) => {
   return (
     <div className="page active">
       <div className="section">
         <h2 className="section-title">Our Services</h2>
         <p className="section-subtitle">
-          Comprehensive orthopedic care specializing in limb lengthening, length discrepancy correction, and complex
+          Comprehensive orthopedic care specializing in limb
+          lengthening, length discrepancy correction, and complex
           deformity reconstruction.
         </p>
       </div>
 
       <div className="cards-grid">
         <div className="card">
-          <div className="card-header">
-            📏
-          </div>
+          <div className="card-header">📏</div>
           <div className="card-content">
             <h3>Cosmetic Limb Lengthening</h3>
-            <p>Enhance height through bilateral leg lengthening surgery. Achieve 5-8cm height gain with natural-looking results.</p>
+            <p>
+              Enhance height through bilateral leg lengthening
+              surgery. Achieve 5-8cm height gain with natural-looking
+              results.
+            </p>
             <span
               className="card-link"
-              onClick={() => alert('Service Detail: Cosmetic Limb Lengthening - 5-8cm height gain, 12-month total recovery, from $120,000 CAD')}
+              onClick={() =>
+                alert(
+                  'Service Detail: Cosmetic Limb Lengthening - 5-8cm height gain, 12-month total recovery, from $120,000 NIS'
+                )
+              }
             >
               Learn More →
             </span>
@@ -34,15 +43,20 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBookingClick }) => {
         </div>
 
         <div className="card">
-          <div className="card-header">
-            ⚖️
-          </div>
+          <div className="card-header">⚖️</div>
           <div className="card-content">
             <h3>Limb Length Discrepancy</h3>
-            <p>Correct unequal limb lengths from injury, infection, or illness. Restore balance and eliminate pain.</p>
+            <p>
+              Correct unequal limb lengths from injury, infection, or
+              illness. Restore balance and eliminate pain.
+            </p>
             <span
               className="card-link"
-              onClick={() => alert('Service Detail: Limb Length Discrepancy (LLD) - Personalized correction based on cause and severity')}
+              onClick={() =>
+                alert(
+                  'Service Detail: Limb Length Discrepancy (LLD) - Personalized correction based on cause and severity'
+                )
+              }
             >
               Learn More →
             </span>
@@ -50,15 +64,20 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBookingClick }) => {
         </div>
 
         <div className="card">
-          <div className="card-header">
-            🔨
-          </div>
+          <div className="card-header">🔨</div>
           <div className="card-content">
             <h3>Deformity Reconstruction</h3>
-            <p>Correct acquired deformities of bones and joints. Complex cases using advanced surgical techniques.</p>
+            <p>
+              Correct acquired deformities of bones and joints.
+              Complex cases using advanced surgical techniques.
+            </p>
             <span
               className="card-link"
-              onClick={() => alert('Service Detail: Deformity Reconstruction - Treatment for complex acquired deformities')}
+              onClick={() =>
+                alert(
+                  'Service Detail: Deformity Reconstruction - Treatment for complex acquired deformities'
+                )
+              }
             >
               Learn More →
             </span>
@@ -66,15 +85,20 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBookingClick }) => {
         </div>
 
         <div className="card">
-          <div className="card-header">
-            👧
-          </div>
+          <div className="card-header">👧</div>
           <div className="card-content">
             <h3>Pediatric Orthopedic</h3>
-            <p>Specialized care for children's bone and joint conditions. Gentle approach with excellent outcomes.</p>
+            <p>
+              Specialized care for children's bone and joint
+              conditions. Gentle approach with excellent outcomes.
+            </p>
             <span
               className="card-link"
-              onClick={() => alert('Service Detail: Pediatric Orthopedics - Specialized treatment for children')}
+              onClick={() =>
+                alert(
+                  'Service Detail: Pediatric Orthopedics - Specialized treatment for children'
+                )
+              }
             >
               Learn More →
             </span>
@@ -88,8 +112,10 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBookingClick }) => {
           <div className="column">
             <h4>What is Cosmetic Limb Lengthening?</h4>
             <p>
-              Cosmetic stature lengthening is a procedure that increases height by lengthening both legs simultaneously.
-              It's the safest and most effective way to achieve significant height gain.
+              Cosmetic stature lengthening is a procedure that
+              increases height by lengthening both legs
+              simultaneously. It's the safest and most effective way
+              to achieve significant height gain.
             </p>
             <h4>Who is it for?</h4>
             <ul>
@@ -117,7 +143,10 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBookingClick }) => {
             </ul>
           </div>
         </div>
-        <button className="btn btn-primary" onClick={onBookingClick}>
+        <button
+          className="btn btn-primary"
+          onClick={onBookingClick}
+        >
           Book Consultation
         </button>
       </div>
@@ -128,28 +157,28 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onBookingClick }) => {
           <div className="card pricing-card">
             <div className="card-content">
               <h3>Femur Lengthening</h3>
-              <p className="pricing-amount">
-                $120,000 CAD
+              <p className="pricing-amount">$120,000 NIS</p>
+              <p className="pricing-note">
+                Includes 3 months physical therapy
               </p>
-              <p className="pricing-note">Includes 3 months physical therapy</p>
             </div>
           </div>
           <div className="card pricing-card">
             <div className="card-content">
               <h3>Tibia Lengthening</h3>
-              <p className="pricing-amount">
-                $95,000 CAD
+              <p className="pricing-amount">$95,000 NIS</p>
+              <p className="pricing-note">
+                Includes 3 months physical therapy
               </p>
-              <p className="pricing-note">Includes 3 months physical therapy</p>
             </div>
           </div>
           <div className="card pricing-card">
             <div className="card-content">
               <h3>Device Removal</h3>
-              <p className="pricing-amount">
-                $15,000 CAD
+              <p className="pricing-amount">$15,000 NIS</p>
+              <p className="pricing-note">
+                Minor procedure, 1 night stay
               </p>
-              <p className="pricing-note">Minor procedure, 1 night stay</p>
             </div>
           </div>
         </div>

@@ -11,7 +11,9 @@
 :root {
   --primary: #000000;
   --secondary: #188BF6;
+  --tertiary: #D5573B;
   --accent: #D2BB71;
+  --accent-light: #fcefda;
   --danger: #e74c3c;
   --warning: #f39c12;
   --light: #F7F7F7;
@@ -19,7 +21,9 @@
   --text: #000000;
   --text-light: #666666;
   --border: #E0E0E0;
-  --white: #fffde7;
+  --white: #fff6f5;
+  --tab-link-light: #118888;
+  --tab-link-dark: #0f6b6b;
 }
 
 /* ============ ROOT & BODY ============ */

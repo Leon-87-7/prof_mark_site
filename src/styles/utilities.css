@@ -110,7 +110,7 @@
 }
 
 .card-link {
-  color: var(--accent);
+  color: var(--tab-link-light);
   font-size: 0.8125rem;
   font-weight: 700;
   cursor: pointer;
@@ -121,7 +121,7 @@
 }
 
 .card-link:hover {
-  color: var(--secondary);
+  color: var(--tab-link-dark);
 }
 
 /* ============ SECTIONS ============ */
