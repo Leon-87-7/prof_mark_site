@@ -1,28 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
-import { type PageType } from '../../types';
 import { MapPinSimple, Phone, At } from '@phosphor-icons/react';
 
-interface FooterProps {
-  onPageChange: (page: PageType) => void;
-}
-
-const Footer: React.FC<FooterProps> = ({ onPageChange }) => {
+const Footer: React.FC = () => {
   return (
     <div className="footer">
       <div className="footer-container">
         <div className="footer-section">
           <h4>QUICK LINKS</h4>
-          <a onClick={() => onPageChange('home')}>
-            About Prof. Eidelman
-          </a>
-          <a onClick={() => onPageChange('clinics')}>My Clinics</a>
-          <a onClick={() => onPageChange('services')}>Our Services</a>
-          <a onClick={() => onPageChange('innovation')}>
-            Surgical Innovation
-          </a>
-          <a onClick={() => onPageChange('guides')}>Patient Guides</a>
-          <a onClick={() => onPageChange('study')}>Study Area</a>
+          <Link to="/">About Prof. Eidelman</Link>
+          <Link to="/clinics">My Clinics</Link>
+          <Link to="/services">Our Services</Link>
+          <Link to="/innovation">Surgical Innovation</Link>
+          <Link to="/guides">Patient Guides</Link>
+          <Link to="/study">Study Area</Link>
         </div>
         <div className="footer-section">
           <h4>CONTACT</h4>

@@ -1,16 +1,15 @@
 import React from 'react';
-import type { PageType } from '../../types';
+import { useNavigate } from 'react-router-dom';
 import './AboutPage.css';
 
 interface AboutPageProps {
   onBookingClick: () => void;
-  onPageChange: (page: PageType) => void;
 }
 
 const AboutPage: React.FC<AboutPageProps> = ({
   // onBookingClick,
-  onPageChange,
 }) => {
+  const navigate = useNavigate();
   return (
     <div className="page active">
       <div className="hero">
@@ -49,19 +48,19 @@ const AboutPage: React.FC<AboutPageProps> = ({
             <div className="cta-buttons">
               <button
                 className="btn btn-primary"
-                onClick={() => onPageChange('clinics')}
+                onClick={() => navigate('/clinics')}
               >
                 Explore Clinics
               </button>
               <button
                 className="btn btn-secondary"
-                onClick={() => onPageChange('guides')}
+                onClick={() => navigate('/guides')}
               >
                 Patient Guides
               </button>
               <button
                 className="btn btn-tertiary"
-                onClick={() => onPageChange('innovation')}
+                onClick={() => navigate('/innovation')}
               >
                 Surgical Innovation
               </button>
