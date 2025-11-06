@@ -1,12 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Header.css';
-import type { PageType } from '../../types';
 import { CalendarDots, CaretDown } from '@phosphor-icons/react';
 import 'flag-icons/css/flag-icons.min.css';
-
-interface HeaderProps {
-  onPageChange: (page: PageType) => void;
-}
 
 type Language = 'en' | 'he' | 'ru';
 
@@ -22,7 +18,8 @@ const languages: LanguageOption[] = [
   { code: 'ru', name: 'Русский', flag: 'ru' },
 ];
 
-const Header = ({ onPageChange }: HeaderProps) => {
+const Header = () => {
+  const navigate = useNavigate();
   const [selectedLanguage, setSelectedLanguage] =
     useState<Language>('en');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -112,7 +109,7 @@ const Header = ({ onPageChange }: HeaderProps) => {
           </div>
           <button
             className="btn-book"
-            onClick={() => onPageChange('clinics')}
+            onClick={() => navigate('/clinics')}
             aria-label="Book consultation now"
           >
             <CalendarDots

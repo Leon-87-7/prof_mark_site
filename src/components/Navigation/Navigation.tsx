@@ -1,21 +1,14 @@
 import './Navigation.css';
-import type { PageType, PageChangeCallbacks } from '../../types';
+import { NavLink } from 'react-router-dom';
 
-interface NavigationProps extends PageChangeCallbacks {
-  activePage: PageType;
-}
-
-const Navigation = ({
-  activePage,
-  onPageChange,
-}: NavigationProps) => {
+const Navigation = () => {
   const navItems = [
-    { label: 'About', page: 'home' as const },
-    // { label: 'Clinics', page: 'clinics' as const },
-    { label: 'Services', page: 'services' as const },
-    { label: 'Innovation', page: 'innovation' as const },
-    { label: 'Guides', page: 'guides' as const },
-    { label: 'Study Area', page: 'study' as const },
+    { label: 'About', path: '/' },
+    // { label: 'Clinics', path: '/clinics' },
+    { label: 'Services', path: '/services' },
+    { label: 'Innovation', path: '/innovation' },
+    { label: 'Guides', path: '/guides' },
+    { label: 'Study Area', path: '/study' },
   ];
 
   return (
@@ -23,21 +16,16 @@ const Navigation = ({
       className="navbar"
       aria-label="Main navigation"
     >
-      <div
-        className="navbar-container"
-        role="tablist"
-      >
+      <div className="navbar-container">
         {navItems.map((item) => (
-          <button
-            key={item.page}
-            role="tab"
-            aria-selected={activePage === item.page}
-            aria-controls={`${item.page}-content`}
-            className={`nav-item ${activePage === item.page ? 'active' : ''}`}
-            onClick={() => onPageChange(item.page)}
+          <NavLink
+            key={item.path}
+            to={item.path}
+            className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+            end={item.path === '/'}
           >
             {item.label}
-          </button>
+          </NavLink>
         ))}
       </div>
     </nav>

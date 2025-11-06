@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import type { ReactElement } from 'react';
-import type { PageType } from './types';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/App.css';
 import Header from './components/Header/Header';
 import Navigation from './components/Navigation/Navigation';
 import Footer from './components/Footer/Footer';
 import BookingModal from './components/BookingModal/BookingModal';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import AboutPage from './components/pages/AboutPage';
 import ClinicsPage from './components/pages/ClinicsPage';
 import ServicesPage from './components/pages/ServicesPage';
@@ -14,13 +15,7 @@ import GuidesPage from './components/pages/GuidesPage';
 import StudyPage from './components/pages/StudyPage';
 
 function App(): ReactElement {
-  const [currentPage, setCurrentPage] = useState<PageType>('home');
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-
-  const handlePageChange = (page: PageType): void => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   const handleBookingOpen = (): void => {
     setIsBookingModalOpen(true);
@@ -30,52 +25,31 @@ function App(): ReactElement {
     setIsBookingModalOpen(false);
   };
 
-  const renderPage = (): ReactElement => {
-    switch (currentPage) {
-      case 'home':
-        return (
-          <AboutPage
-            onBookingClick={handleBookingOpen}
-            onPageChange={handlePageChange}
-          />
-        );
-      case 'clinics':
-        return <ClinicsPage onBookingClick={handleBookingOpen} />;
-      case 'services':
-        return <ServicesPage onBookingClick={handleBookingOpen} />;
-      case 'innovation':
-        return <InnovationPage />;
-      case 'guides':
-        return <GuidesPage />;
-      case 'study':
-        return <StudyPage />;
-      default:
-        // Exhaustiveness check
-        const _exhaustive: never = currentPage;
-        return _exhaustive;
-    }
-  };
-
   return (
-    <>
-      <Header onPageChange={handlePageChange} />
-      <Navigation
-        activePage={currentPage}
-        onPageChange={handlePageChange}
-      />
+    <BrowserRouter>
+      <ScrollToTop />
+      <Header />
+      <Navigation />
       <main
         className="container"
         id="main-content"
         role="main"
       >
-        {renderPage()}
+        <Routes>
+          <Route path="/" element={<AboutPage onBookingClick={handleBookingOpen} />} />
+          <Route path="/clinics" element={<ClinicsPage onBookingClick={handleBookingOpen} />} />
+          <Route path="/services" element={<ServicesPage onBookingClick={handleBookingOpen} />} />
+          <Route path="/innovation" element={<InnovationPage />} />
+          <Route path="/guides" element={<GuidesPage />} />
+          <Route path="/study" element={<StudyPage />} />
+        </Routes>
       </main>
-      <Footer onPageChange={handlePageChange} />
+      <Footer />
       <BookingModal
         isOpen={isBookingModalOpen}
         onClose={handleBookingClose}
       />
-    </>
+    </BrowserRouter>
   );
 }
 
