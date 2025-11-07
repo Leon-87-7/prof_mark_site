@@ -1,5 +1,6 @@
 .search-container {
-  margin: 30px 0;
+  max-width: 1200px;
+  margin: 30px auto;
   padding: 20px;
   background: #ecf0f1;
   border-radius: 5px;
@@ -30,9 +31,29 @@
   margin-top: 0;
 }
 
+.colored-headers-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: var(--card-gap);
+}
+
+/* Remove border and round the card itself to match header */
+.cards-grid.study-cards .card {
+  border: none;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cards-grid.study-cards .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 8px rgba(210, 187, 113, 0.4);
+  border-color: var(--accent);
+}
+
 .card-header-rounded {
-  color: var(--white);
-  border-radius: 10px 10px 0 0;
+  border-radius: 20px 20px 0 0;
 }
 
 .card-header-blue {
@@ -71,6 +92,7 @@
 }
 
 .subscribe-form {
+
   display: flex;
   gap: 10px;
   margin-top: 15px;

@@ -3,12 +3,12 @@ import './InnovationPage.css';
 
 const InnovationPage: React.FC = () => {
   return (
-    <div className="page active">
+    <div className="page active colored-top-border">
       <div className="section">
         <h2 className="section-title">Surgical Innovation</h2>
         <p className="section-subtitle">
-          Pioneering research, advanced surgical techniques, and global mentorship advancing the field of orthopedic
-          surgery.
+          Pioneering research, advanced surgical techniques, and
+          global mentorship advancing the field of orthopedic surgery.
         </p>
       </div>
 
@@ -17,8 +17,18 @@ const InnovationPage: React.FC = () => {
           <div className="card-header">🔬</div>
           <div className="card-content">
             <h3>Pioneering Techniques</h3>
-            <p>Developed innovative surgical approaches that improve patient outcomes and reduce complication rates.</p>
-            <span className="card-link" onClick={() => alert('Innovation: Advanced surgical techniques with 99%+ success rate')}>
+            <p>
+              Developed innovative surgical approaches that improve
+              patient outcomes and reduce complication rates.
+            </p>
+            <span
+              className="card-link"
+              onClick={() =>
+                alert(
+                  'Innovation: Advanced surgical techniques with 99%+ success rate'
+                )
+              }
+            >
               View Details →
             </span>
           </div>
@@ -28,10 +38,17 @@ const InnovationPage: React.FC = () => {
           <div className="card-header">📚</div>
           <div className="card-content">
             <h3>Research & Publications</h3>
-            <p>40+ peer-reviewed articles published in leading medical journals worldwide.</p>
+            <p>
+              40+ peer-reviewed articles published in leading medical
+              journals worldwide.
+            </p>
             <span
               className="card-link"
-              onClick={() => alert('40+ publications in leading journals including Journal of Orthopedic Surgery, Limb Lengthening & Reconstruction')}
+              onClick={() =>
+                alert(
+                  '40+ publications in leading journals including Journal of Orthopedic Surgery, Limb Lengthening & Reconstruction'
+                )
+              }
             >
               View Publications →
             </span>
@@ -42,10 +59,17 @@ const InnovationPage: React.FC = () => {
           <div className="card-header">🎓</div>
           <div className="card-content">
             <h3>Mentorship Program</h3>
-            <p>International fellowship training and surgical technique workshops for next-generation surgeons.</p>
+            <p>
+              International fellowship training and surgical technique
+              workshops for next-generation surgeons.
+            </p>
             <span
               className="card-link"
-              onClick={() => alert('Mentorship: 50+ surgeons trained, annual fellowship program, surgical workshops 2x yearly')}
+              onClick={() =>
+                alert(
+                  'Mentorship: 50+ surgeons trained, annual fellowship program, surgical workshops 2x yearly'
+                )
+              }
             >
               Apply →
             </span>
@@ -56,10 +80,17 @@ const InnovationPage: React.FC = () => {
           <div className="card-header">🌍</div>
           <div className="card-content">
             <h3>Global Collaborations</h3>
-            <p>Research partnerships and collaborative cases with leading orthopedic centers worldwide.</p>
+            <p>
+              Research partnerships and collaborative cases with
+              leading orthopedic centers worldwide.
+            </p>
             <span
               className="card-link"
-              onClick={() => alert('Collaborations with top centers in Canada, USA, Europe, Egypt, and Asia')}
+              onClick={() =>
+                alert(
+                  'Collaborations with top centers in Canada, USA, Europe, Egypt, and Asia'
+                )
+              }
             >
               View Network →
             </span>
@@ -91,7 +122,7 @@ const InnovationPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="section">
+      <div className="section recent-publications">
         <h2 className="section-title">Recent Publications</h2>
         <div className="cards-grid">
           <div className="card">
@@ -101,19 +132,23 @@ const InnovationPage: React.FC = () => {
                 <em>Journal of Orthopedic Surgery</em>
               </p>
               <p>
-                Key findings on improving patient outcomes through innovative surgical approaches.
+                Key findings on improving patient outcomes through
+                innovative surgical approaches.
               </p>
               <span className="card-link">Read Article →</span>
             </div>
           </div>
           <div className="card">
             <div className="card-content">
-              <h3>Complication Prevention in Deformity Correction (2023)</h3>
+              <h3>
+                Complication Prevention in Deformity Correction (2023)
+              </h3>
               <p>
                 <em>Limb Lengthening & Reconstruction</em>
               </p>
               <p>
-                Analysis of 500+ cases showing best practices for minimal complications.
+                Analysis of 500+ cases showing best practices for
+                minimal complications.
               </p>
               <span className="card-link">Read Article →</span>
             </div>
@@ -125,7 +160,8 @@ const InnovationPage: React.FC = () => {
                 <em>Medical Education Review</em>
               </p>
               <p>
-                Framework for training next-generation surgeons in orthopedic specialties.
+                Framework for training next-generation surgeons in
+                orthopedic specialties.
               </p>
               <span className="card-link">Read Article →</span>
             </div>

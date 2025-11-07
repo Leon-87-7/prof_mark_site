@@ -1,23 +1,29 @@
-.cards-grid .card {
+/* Scoped to Services and innovation pages only - use a parent class wrapper */
+.colored-top-border .cards-grid .card {
   border-top: 3px solid transparent;
 }
 
-.cards-grid .card:nth-child(odd) {
+.colored-top-border .cards-grid .card:nth-child(odd) {
   border-top-color: var(--tab-link-light);
 }
 
-.cards-grid .card:nth-child(odd) .card-header {
+.colored-top-border .cards-grid .card:nth-child(odd) .card-header {
   color: var(--tab-link-light);
 }
 
-.cards-grid .card:nth-child(even) {
+.colored-top-border .cards-grid .card:nth-child(even) {
   border-top-color: var(--tertiary);
 }
 
-.cards-grid .card:nth-child(even) .card-header {
+.colored-top-border .cards-grid .card:nth-child(even) .card-header {
   color: var(--tertiary);
 }
 
+.pricing-section {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
 
 
 .cards-grid .card.pricing-card {

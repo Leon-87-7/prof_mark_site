@@ -9,7 +9,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({
   onBookingClick,
 }) => {
   return (
-    <div className="page active">
+    <div className="page active colored-top-border">
       <div className="section">
         <h2 className="section-title">Our Services</h2>
         <p className="section-subtitle">
@@ -151,7 +151,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({
         </button>
       </div>
 
-      <div className="section">
+      <div className="section pricing-section">
         <h2 className="section-title">Pricing Information</h2>
         <div className="cards-grid">
           <div className="card pricing-card">

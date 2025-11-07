@@ -28,13 +28,7 @@ const StudyPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="section">
-        <h2 className="section-title section-title-small">
-          Featured Resources
-        </h2>
-      </div>
-
-      <div className="cards-grid">
+      <div className="cards-grid colored-headers-cards study-cards">
         <div className="card">
           <div className="card-header card-header-rounded card-header-blue">
             📄
@@ -62,7 +56,9 @@ const StudyPage: React.FC = () => {
         </div>
 
         <div className="card">
-          <div className="card-header  card-header-red">📊</div>
+          <div className="card-header card-header-rounded card-header-red">
+            📊
+          </div>
           <div className="card-content">
             <h3>Severe LLD Correction</h3>
             <p>
@@ -86,7 +82,9 @@ const StudyPage: React.FC = () => {
         </div>
 
         <div className="card">
-          <div className="card-header  card-header-orange">🎥</div>
+          <div className="card-header card-header-rounded card-header-orange">
+            🎥
+          </div>
           <div className="card-content">
             <h3>Surgical Innovation Lecture</h3>
             <p>
@@ -111,7 +109,9 @@ const StudyPage: React.FC = () => {
         </div>
 
         <div className="card">
-          <div className="card-header  card-header-green">📚</div>
+          <div className="card-header card-header-rounded card-header-green">
+            📚
+          </div>
           <div className="card-content">
             <h3>Research on Complication Prevention</h3>
             <p>
@@ -135,7 +135,9 @@ const StudyPage: React.FC = () => {
         </div>
 
         <div className="card">
-          <div className="card-header  card-header-purple">📄</div>
+          <div className="card-header card-header-rounded card-header-purple">
+            📄
+          </div>
           <div className="card-content">
             <h3>Pediatric Orthopedic Approaches</h3>
             <p>
@@ -159,7 +161,9 @@ const StudyPage: React.FC = () => {
         </div>
 
         <div className="card">
-          <div className="card-header  card-header-teal">📊</div>
+          <div className="card-header card-header-rounded card-header-teal">
+            📊
+          </div>
           <div className="card-content">
             <h3>International Patient Success Story</h3>
             <p>
