@@ -7,6 +7,11 @@
   box-sizing: border-box;
 }
 
+/* ============ BASE FONT SIZE ============ */
+html {
+  font-size: 16px;
+}
+
 /* ============ CSS VARIABLES ============ */
 :root {
   --primary: #000000;
