@@ -6,9 +6,11 @@ interface AboutPageProps {
   onBookingClick: () => void;
 }
 
-const AboutPage: React.FC<AboutPageProps> = ({
-  // onBookingClick,
-}) => {
+const AboutPage: React.FC<AboutPageProps> = (
+  {
+    // onBookingClick,
+  }
+) => {
   const navigate = useNavigate();
   return (
     <div className="page active">
@@ -97,32 +99,35 @@ const AboutPage: React.FC<AboutPageProps> = ({
         </div>
       </div>
 
-      <h2 className="section-title">Testimonials</h2>
-      <div className="testimonials">
-        <div className="testimonial">
-          <div className="stars">★★★★★</div>
-          <div className="testimonial-text">
-            "Prof. Eidelman's expertise and compassionate approach
-            transformed my life. The results exceeded all my
-            expectations."
+      <div className="testimonials-wrapper">
+        <h2 className="section-title">Testimonials</h2>
+        <div className="testimonials">
+          <div className="testimonial">
+            <div className="stars">★★★★★</div>
+            <div className="testimonial-text">
+              "Prof. Eidelman's expertise and compassionate approach
+              transformed my life. The results exceeded all my
+              expectations."
+            </div>
+            <div className="testimonial-author">Sarah M., Canada</div>
           </div>
-          <div className="testimonial-author">Sarah M., Canada</div>
-        </div>
-        <div className="testimonial">
-          <div className="stars">★★★★★</div>
-          <div className="testimonial-text">
-            "The most professional and caring surgeon I could ask for.
-            I highly recommend Prof. Eidelman without hesitation."
+          <div className="testimonial">
+            <div className="stars">★★★★★</div>
+            <div className="testimonial-text">
+              "The most professional and caring surgeon I could ask
+              for. I highly recommend Prof. Eidelman without
+              hesitation."
+            </div>
+            <div className="testimonial-author">David K., USA</div>
           </div>
-          <div className="testimonial-author">David K., USA</div>
-        </div>
-        <div className="testimonial">
-          <div className="stars">★★★★★</div>
-          <div className="testimonial-text">
-            "My daughter's surgery was a complete success. We trust
-            Prof. Eidelman completely with our family's care."
+          <div className="testimonial">
+            <div className="stars">★★★★★</div>
+            <div className="testimonial-text">
+              "My daughter's surgery was a complete success. We trust
+              Prof. Eidelman completely with our family's care."
+            </div>
+            <div className="testimonial-author">Maria R., Spain</div>
           </div>
-          <div className="testimonial-author">Maria R., Spain</div>
         </div>
       </div>
 

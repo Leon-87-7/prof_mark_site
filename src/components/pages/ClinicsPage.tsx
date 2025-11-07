@@ -11,41 +11,34 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
 }) => {
   return (
     <div className="page active">
-      <div className="section">
-        <h2 className="section-title">My Clinics</h2>
-        <p className="section-subtitle">
-          Two conveniently located facilities serving patients across
-          Israel and internationally with state-of-the-art surgical
-          capabilities and comprehensive post-operative care.
-        </p>
-      </div>
-
       <div className="clinics-grid">
         <div className="clinic-card">
           <div className="clinic-header">🏥 HAIFA CLINIC</div>
           <div className="clinic-content">
-            <div className="clinic-item">
-              <strong>
-                <MapPinSimpleAreaIcon
-                  size={20}
-                  weight="bold"
-                  className="icon-item"
-                />{' '}
-                Location
-              </strong>
-              Ben Gurion Blvd 4, Haifa, Israel
-            </div>
+            <div className="clinic-items">
+              <div className="clinic-item">
+                <strong>
+                  <MapPinSimpleAreaIcon
+                    size={20}
+                    weight="bold"
+                    className="icon-item"
+                  />{' '}
+                  Location
+                </strong>
+                Ben Gurion Blvd 4, Haifa, Israel
+              </div>
 
-            <div className="clinic-item">
-              <strong>
-                <Clock
-                  size={20}
-                  weight="bold"
-                  className="icon-item"
-                />{' '}
-                Hours
-              </strong>
-              Mon-Fri: 8am-6pm | Sat: 9am-1pm
+              <div className="clinic-item">
+                <strong>
+                  <Clock
+                    size={20}
+                    weight="bold"
+                    className="icon-item"
+                  />{' '}
+                  Hours
+                </strong>
+                Mon-Fri: 8am-6pm | Sat: 9am-1pm
+              </div>
             </div>
             <div className="clinic-map">
               <iframe
@@ -58,17 +51,20 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
-            <div className="clinic-item">
-              <strong>Services Available:</strong>
-              <br />
-              • Full surgical facility
-              <br />
-              • Physical therapy rooms
-              <br />
-              • In-person consultations
-              <br />
-              • Post-operative care
-              <br />• Patient accommodation support
+            <hr />
+            <h5 className="clinic-services-title">
+              Services Available:
+            </h5>
+            <div className="clinic-item-services">
+              <ul>
+                <li>Full surgical facility</li>
+                <li>Physical therapy rooms</li>
+                <li>In-person consultations</li>
+              </ul>
+              <ul>
+                <li>Post-operative care</li>
+                <li>Patient accommodation support</li>
+              </ul>
             </div>
             <button
               className="btn btn-primary"
@@ -84,28 +80,30 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
             🏥 KIRYAT MOTZKIN CLINIC
           </div>
           <div className="clinic-content">
-            <div className="clinic-item">
-              <strong>
-                <MapPinSimpleAreaIcon
-                  size={20}
-                  weight="bold"
-                  className="icon-item"
-                />{' '}
-                Location
-              </strong>
-              Ussishkin St 6, Kiryat Motzkin, Israel
-            </div>
+            <div className="clinic-items">
+              <div className="clinic-item">
+                <strong>
+                  <MapPinSimpleAreaIcon
+                    size={20}
+                    weight="bold"
+                    className="icon-item"
+                  />{' '}
+                  Location
+                </strong>
+                Ussishkin St 6, Kiryat Motzkin, Israel
+              </div>
 
-            <div className="clinic-item">
-              <strong>
-                <Clock
-                  size={20}
-                  weight="bold"
-                  className="icon-item"
-                />{' '}
-                Hours
-              </strong>
-              Mon-Thu: 9am-5pm | Fri: 9am-2pm
+              <div className="clinic-item">
+                <strong>
+                  <Clock
+                    size={20}
+                    weight="bold"
+                    className="icon-item"
+                  />{' '}
+                  Hours
+                </strong>
+                Mon-Thu: 9am-5pm | Fri: 9am-2pm
+              </div>
             </div>
             <div className="clinic-map">
               <iframe
@@ -118,17 +116,20 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
-            <div className="clinic-item">
-              <strong>Services Available:</strong>
-              <br />
-              • Initial consultations
-              <br />
-              • Follow-up appointments
-              <br />
-              • Physical therapy
-              <br />
-              • Patient education
-              <br />• Wellness support
+            <hr />
+            <h5 className="clinic-services-title">
+              Services Available:
+            </h5>
+            <div className="clinic-item-services">
+              <ul>
+                <li>Initial consultations</li>
+                <li>Follow-up appointments</li>
+                <li>Physical therapy</li>
+              </ul>
+              <ul>
+                <li>Patient education</li>
+                <li>Wellness support</li>
+              </ul>
             </div>
             <button
               className="btn btn-primary"

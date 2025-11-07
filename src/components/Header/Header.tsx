@@ -115,7 +115,7 @@ const Header = () => {
             <CalendarDots
               size={22}
               className="icon-item"
-              color="var(--dark)"
+              color="var(--tab-link-dark)"
               weight="duotone"
             />
             <span style={{ padding: '8px 0', fontSize: '1rem' }}>

@@ -1,10 +1,10 @@
 /* InnovationPage specific overrides */
 .cards-grid .card-content h3 {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
 }
 
 .cards-grid .card-content p {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   color: var(--text-light);
-  margin: 10px 0;
+  margin: 8px 0;
 }

@@ -1,5 +1,5 @@
 .cards-grid .card {
-  border-top: 4px solid transparent;
+  border-top: 3px solid transparent;
 }
 
 .cards-grid .card:nth-child(odd) {
@@ -26,13 +26,13 @@
 }
 
 .cards-grid .pricing-card .pricing-amount {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: var(--secondary);
-  margin: 15px 0;
+  margin: 12px 0;
 }
 
 .cards-grid .pricing-card .pricing-note {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   color: var(--text-light);
 }
