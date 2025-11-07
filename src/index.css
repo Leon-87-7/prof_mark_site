@@ -9,10 +9,16 @@
 
 /* ============ BASE FONT SIZE ============ */
 html {
-  font-size: 16px;
+  <<<<<<< HEAD font-size: 16px;
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  =======font-size: 16px !important;
+  -webkit-text-size-adjust: 100% !important;
+  -moz-text-size-adjust: 100% !important;
+  -ms-text-size-adjust: 100% !important;
+  text-size-adjust: 100% !important;
+  >>>>>>>1ca11404a090be20e43fb6798c3efc7ec1b4c5bd
 }
 
 /* ============ CSS VARIABLES ============ */
