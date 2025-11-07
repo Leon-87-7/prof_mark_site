@@ -7,6 +7,14 @@
   box-sizing: border-box;
 }
 
+/* ============ BASE FONT SIZE ============ */
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 /* ============ CSS VARIABLES ============ */
 :root {
   --primary: #000000;
@@ -37,6 +45,7 @@ body {
   color: var(--text);
   line-height: 1.6;
   background: var(--white);
+  font-size: 1rem;
 }
 
 /* ============ TYPOGRAPHY ============ */
