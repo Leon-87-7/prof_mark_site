@@ -37,7 +37,7 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
                   />{' '}
                   Hours
                 </strong>
-                Mon-Fri: 8am-6pm | Sat: 9am-1pm
+                Sunday: 4pm-7pm
               </div>
             </div>
             <div className="clinic-map">
@@ -102,7 +102,7 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
                   />{' '}
                   Hours
                 </strong>
-                Mon-Thu: 9am-5pm | Fri: 9am-2pm
+                Thursday: 4pm-7pm
               </div>
             </div>
             <div className="clinic-map">

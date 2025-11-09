@@ -131,7 +131,7 @@ const AboutPage: React.FC<AboutPageProps> = (
         </div>
       </div>
 
-      <div className="mentorship colored-top-border">
+      {/* <div className="mentorship colored-top-border">
         <h2 className="section-title">Mentorship & Impact</h2>
         <p className="section-subtitle">
           Prof. Eidelman has trained and mentored leading surgeons
@@ -180,7 +180,7 @@ const AboutPage: React.FC<AboutPageProps> = (
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

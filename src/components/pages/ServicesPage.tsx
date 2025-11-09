@@ -106,18 +106,21 @@ const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
       </div>
 
-      <div className="service-detail">
+      <div
+        className="service-detail"
+        style={{ paddingLeft: '3rem' }}
+      >
         <h3>Featured Service: Cosmetic Limb Lengthening</h3>
         <div className="two-column">
           <div className="column">
             <h4>What is Cosmetic Limb Lengthening?</h4>
-            <p>
+            <p style={{ maxWidth: '55ch' }}>
               Cosmetic stature lengthening is a procedure that
               increases height by lengthening both legs
               simultaneously. It's the safest and most effective way
               to achieve significant height gain.
             </p>
-            <h4>Who is it for?</h4>
+            <h4 style={{ marginTop: '5rem' }}>Who is it for?</h4>
             <ul>
               <li>Adults seeking height increase</li>
               <li>5-8cm lengthening achievable</li>
@@ -151,7 +154,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({
         </button>
       </div>
 
-      <div className="section pricing-section">
+      {/* <div className="section pricing-section">
         <h2 className="section-title">Pricing Information</h2>
         <div className="cards-grid">
           <div className="card pricing-card">
@@ -182,7 +185,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
