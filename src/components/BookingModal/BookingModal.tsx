@@ -107,7 +107,9 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
 
     // Simulate API call
     setTimeout(() => {
-      alert("✓ Thank you! Your inquiry has been submitted. Prof. Eidelman's team will contact you within 24 hours.");
+      alert(
+        "✓ Thank you! Your inquiry has been submitted. Prof. Eidelman's team will contact you within 24 hours."
+      );
       setIsSubmitting(false);
       resetForm();
       onClose();
@@ -126,7 +128,11 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
     setErrors({});
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
@@ -136,7 +142,9 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
     }
   };
 
-  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleBackdropClick = (
+    e: React.MouseEvent<HTMLDivElement>
+  ) => {
     if (e.target === e.currentTarget) {
       onClose();
     }
@@ -152,7 +160,10 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
       aria-modal="true"
       aria-labelledby="modal-title"
     >
-      <div className="modal-content" ref={modalRef}>
+      <div
+        className="modal-content"
+        ref={modalRef}
+      >
         <button
           className="close-icon"
           onClick={onClose}
@@ -162,11 +173,24 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
           ✕
         </button>
 
-        <h2 id="modal-title" className="modal-header">
-          <span role="img" aria-label="Calendar">📅</span> Book a Consultation
+        <h2
+          id="modal-title"
+          className="modal-header"
+        >
+          <span
+            role="img"
+            aria-label="Calendar"
+          >
+            📅
+          </span>{' '}
+          Book a Consultation
         </h2>
 
-        <form className="modal-body" onSubmit={handleSubmit} noValidate>
+        <form
+          className="modal-body"
+          onSubmit={handleSubmit}
+          noValidate
+        >
           <div className="form-group">
             <label htmlFor="name">Full Name *</label>
             <input
@@ -178,11 +202,17 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
               onChange={handleChange}
               placeholder="Enter your full name"
               aria-invalid={!!errors.name}
-              aria-describedby={errors.name ? 'name-error' : undefined}
+              aria-describedby={
+                errors.name ? 'name-error' : undefined
+              }
               required
             />
             {errors.name && (
-              <span id="name-error" className="error-message" role="alert">
+              <span
+                id="name-error"
+                className="error-message"
+                role="alert"
+              >
                 {errors.name}
               </span>
             )}
@@ -198,11 +228,17 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
               onChange={handleChange}
               placeholder="your@email.com"
               aria-invalid={!!errors.email}
-              aria-describedby={errors.email ? 'email-error' : undefined}
+              aria-describedby={
+                errors.email ? 'email-error' : undefined
+              }
               required
             />
             {errors.email && (
-              <span id="email-error" className="error-message" role="alert">
+              <span
+                id="email-error"
+                className="error-message"
+                role="alert"
+              >
                 {errors.email}
               </span>
             )}
@@ -218,11 +254,17 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
               onChange={handleChange}
               placeholder="+972 (0)4..."
               aria-invalid={!!errors.phone}
-              aria-describedby={errors.phone ? 'phone-error' : undefined}
+              aria-describedby={
+                errors.phone ? 'phone-error' : undefined
+              }
               required
             />
             {errors.phone && (
-              <span id="phone-error" className="error-message" role="alert">
+              <span
+                id="phone-error"
+                className="error-message"
+                role="alert"
+              >
                 {errors.phone}
               </span>
             )}
@@ -230,7 +272,12 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
 
           <div className="form-group">
             <label htmlFor="clinic">Preferred Clinic</label>
-            <select id="clinic" name="clinic" value={formData.clinic} onChange={handleChange}>
+            <select
+              id="clinic"
+              name="clinic"
+              value={formData.clinic}
+              onChange={handleChange}
+            >
               <option>Haifa Clinic</option>
               <option>Kiryat Motzkin Clinic</option>
               <option>Virtual Consultation</option>
@@ -239,7 +286,12 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
 
           <div className="form-group">
             <label htmlFor="service">Service Interest</label>
-            <select id="service" name="service" value={formData.service} onChange={handleChange}>
+            <select
+              id="service"
+              name="service"
+              value={formData.service}
+              onChange={handleChange}
+            >
               <option>Cosmetic Limb Lengthening</option>
               <option>Limb Length Discrepancy</option>
               <option>Deformity Reconstruction</option>
@@ -259,10 +311,21 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
           </div>
 
           <div className="modal-footer">
-            <button type="button" className="close-btn" onClick={onClose} disabled={isSubmitting}>
+            <button
+              type="button"
+              className="close-btn"
+              onClick={onClose}
+              disabled={isSubmitting}
+            >
               Cancel
             </button>
-            <button type="submit" className="submit-btn" disabled={isSubmitting}>
+            <button
+              type="submit"
+              className="submit-btn btn-dis"
+              // disabled={isSubmitting}
+              disabled={true}
+              data-tooltip="Form submission is currently disabled"
+            >
               {isSubmitting ? 'Submitting...' : 'Send Inquiry'}
             </button>
           </div>

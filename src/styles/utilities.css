@@ -57,6 +57,73 @@
   transform: translateY(-1px);
 }
 
+.btn-dis-above,
+.btn-dis-below {
+  cursor: wait;
+}
+
+/* Tooltip styles */
+
+/*=========== Disabled Button Tooltip ============ */
+/*----------- Above Button ----------*/
+.btn-dis-above[data-tooltip]:disabled::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1001;
+  text-transform: capitalize;
+}
+
+.btn-dis-above[data-tooltip]:disabled:hover::before,
+.btn-dis-above[data-tooltip]:disabled:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.btn-dis-above[data-tooltip]:disabled:hover::after {
+  transform: translateX(-50%) translateY(2px);
+}
+
+/*----------- Below Button ----------*/
+.btn-dis-below[data-tooltip]:disabled::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: normal;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1001;
+  text-transform: capitalize;
+}
+
+
+.btn-dis-below[data-tooltip]:disabled:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(12px);
+}
+
+.btn-dis-below[data-tooltip]:disabled:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(6px);
+}
+
 /* ============ CARDS ============ */
 .cards-grid {
   display: grid;

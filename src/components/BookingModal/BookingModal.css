@@ -32,6 +32,7 @@
     transform: translateY(-50px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -136,6 +137,7 @@
   font-size: 0.85rem;
   font-weight: bold;
   transition: all 0.2s ease;
+  position: relative;
 }
 
 .submit-btn:hover:not(:disabled) {

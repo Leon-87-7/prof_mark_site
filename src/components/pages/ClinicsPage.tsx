@@ -67,8 +67,10 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
               </ul>
             </div>
             <button
-              className="btn btn-primary"
+              className="btn btn-primary btn-dis-above"
               onClick={onBookingClick}
+              data-tooltip="call to book"
+              disabled
             >
               Schedule Haifa Consultation
             </button>
@@ -132,8 +134,10 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
               </ul>
             </div>
             <button
-              className="btn btn-primary"
+              className="btn btn-primary btn-dis-above"
               onClick={onBookingClick}
+              data-tooltip="call to book"
+              disabled
             >
               Schedule Kiryat Motzkin Consultation
             </button>
@@ -157,8 +161,10 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
             <li>Second opinion consultations</li>
           </ul>
           <button
-            className="btn btn-secondary"
+            className="btn btn-secondary btn-dis-below"
             onClick={onBookingClick}
+            data-tooltip="call to book"
+            disabled
           >
             Schedule Virtual Consultation
           </button>
