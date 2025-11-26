@@ -47,7 +47,7 @@ const Navigation = () => {
     >
       <div className="navbar-mobile-header">
         <button
-          className={`hamburger-menu ${isMenuOpen ? 'hidden' : ''}`}
+          className={`hamburger-menu ${isMenuOpen ? 'open' : ''}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle navigation menu"
           aria-expanded={isMenuOpen}

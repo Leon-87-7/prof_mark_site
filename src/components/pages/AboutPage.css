@@ -174,7 +174,8 @@
         rgba(0, 0, 0, 0.75) 50%,
         rgba(0, 0, 0, 0.65) 100%),
       url(../../assets/hero_image_mark_02.jpg);
-    height: 81vh;
+    min-height: 81vh;
+    height: auto;
   }
 
   .hero-wrapper {
