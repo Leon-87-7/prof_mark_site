@@ -14,10 +14,6 @@
   display: none;
 }
 
-.navbar-language-selector {
-  display: none;
-}
-
 .hamburger-menu {
   display: none;
   flex-direction: column;
@@ -100,6 +96,8 @@ a.nav-item {
     display: flex;
     justify-content: flex-start;
     padding: 0 20px;
+    position: sticky;
+    top: 110px;
   }
 
   .navbar-mobile-header {
@@ -171,104 +169,5 @@ a.nav-item {
     border-left-color: var(--accent);
     border-bottom-color: transparent;
     background: rgba(255, 255, 255, 0.08);
-  }
-
-  /* Language selector in hamburger menu */
-  .navbar-language-selector {
-    display: block;
-    width: 100%;
-    padding: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: auto;
-    position: relative;
-  }
-
-  .navbar-language-button {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-    background: var(--dark);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
-    padding: 12px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    color: var(--text-light);
-    font-weight: 500;
-    font-family: 'Lato', sans-serif;
-    transition: all 0.2s ease;
-  }
-
-  .navbar-language-button:hover {
-    background: rgba(255, 255, 255, 0.05);
-  }
-
-  .navbar-language-button .fi {
-    font-size: 1.1rem;
-    width: 22px;
-    height: 16px;
-    border-radius: 2px;
-  }
-
-  .navbar-language-name {
-    flex: 1;
-    text-align: left;
-  }
-
-  .navbar-language-button .navbar-caret {
-    transition: transform 0.2s ease;
-    color: var(--secondary);
-  }
-
-  .navbar-language-button .navbar-caret.open {
-    transform: rotate(180deg);
-  }
-
-  .navbar-language-dropdown {
-    position: absolute;
-    bottom: calc(100% + 8px);
-    left: 20px;
-    right: 20px;
-    background: var(--dark);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    overflow: hidden;
-  }
-
-  .navbar-language-option {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    padding: 12px;
-    border: none;
-    background: var(--dark);
-    cursor: pointer;
-    font-family: 'Lato', sans-serif;
-    font-size: 0.85rem;
-    color: var(--light);
-    font-weight: 500;
-    text-align: left;
-    transition: background-color 0.2s ease;
-  }
-
-  .navbar-language-option:hover {
-    background: var(--primary);
-    color: var(--secondary);
-  }
-
-  .navbar-language-option.active {
-    background: var(--accent);
-    color: var(--primary);
-  }
-
-  .navbar-language-option .fi {
-    font-size: 1.1rem;
-    width: 22px;
-    height: 16px;
-    border-radius: 2px;
   }
 }
