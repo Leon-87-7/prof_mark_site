@@ -47,14 +47,19 @@ const Navigation = () => {
     >
       <div className="navbar-mobile-header">
         <button
-          className={`hamburger-menu ${isMenuOpen ? 'open' : ''}`}
+          className="hamburger-menu"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle navigation menu"
           aria-expanded={isMenuOpen}
         >
-          <span className="hamburger-line"></span>
-          <span className="hamburger-line"></span>
-          <span className="hamburger-line"></span>
+          <div id="nav-icon2" className={isMenuOpen ? 'open' : ''}>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </button>
         <a
           href="tel:+97248732227"
