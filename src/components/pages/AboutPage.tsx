@@ -33,6 +33,7 @@ const AboutPage: React.FC<AboutPageProps> = (
               </span>{' '}
               Pioneering techniques. Global mentorship.
             </p>
+
             <div className="hero-stats">
               <div className="stat-card">
                 <div className="number">25+</div>
