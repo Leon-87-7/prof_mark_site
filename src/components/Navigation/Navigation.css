@@ -97,7 +97,8 @@ a.nav-item {
     justify-content: flex-start;
     padding: 0 20px;
     position: sticky;
-    top: 110px;
+    top: 80px;
+    margin-top: 0;
   }
 
   .navbar-mobile-header {
@@ -169,5 +170,27 @@ a.nav-item {
     border-left-color: var(--accent);
     border-bottom-color: transparent;
     background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+@media (max-width: 423px) {
+  .navbar {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 20px;
+    position: sticky;
+    top: 109px;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 376px) {
+  .navbar {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 20px;
+    position: sticky;
+    top: 132px;
+    margin-top: 0;
   }
 }

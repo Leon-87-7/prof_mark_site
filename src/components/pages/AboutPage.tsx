@@ -33,6 +33,21 @@ const AboutPage: React.FC<AboutPageProps> = (
               </span>{' '}
               Pioneering techniques. Global mentorship.
             </p>
+
+            <div className="hero-stats">
+              <div className="stat-card">
+                <div className="number">25+</div>
+                <div className="label">Years Experience</div>
+              </div>
+              <div className="stat-card">
+                <div className="number">3000+</div>
+                <div className="label">Surgeries</div>
+              </div>
+              <div className="stat-card">
+                <div className="number">50+</div>
+                <div className="label">Trained</div>
+              </div>
+            </div>
             <div className="cta-buttons">
               <button
                 className="btn btn-primary"
@@ -52,20 +67,6 @@ const AboutPage: React.FC<AboutPageProps> = (
               >
                 Surgical Innovation
               </button>
-            </div>
-            <div className="hero-stats">
-              <div className="stat-card">
-                <div className="number">25+</div>
-                <div className="label">Years Experience</div>
-              </div>
-              <div className="stat-card">
-                <div className="number">3000+</div>
-                <div className="label">Surgeries</div>
-              </div>
-              <div className="stat-card">
-                <div className="number">50+</div>
-                <div className="label">Trained</div>
-              </div>
             </div>
           </div>
         </div>
