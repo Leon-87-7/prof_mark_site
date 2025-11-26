@@ -169,3 +169,18 @@
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(210, 187, 113, 0.3);
 }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .contact-info .phone {
+    display: none;
+  }
+
+  .language-selector {
+    display: none;
+  }
+
+  .header-right {
+    gap: 0;
+  }
+}
