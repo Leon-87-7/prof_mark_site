@@ -156,8 +156,10 @@ a.nav-item {
     justify-content: flex-start;
     padding: 0 20px;
     position: sticky;
-    top: 80px;
+    top: 0;
     margin-top: 0;
+    z-index: 100;
+    min-height: 50px;
   }
 
   .navbar-mobile-header {
@@ -165,12 +167,13 @@ a.nav-item {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    height: 50px;
   }
 
   .navbar-phone {
     display: block;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--accent);
     text-decoration: none;
     font-family: 'Lato', sans-serif;
@@ -183,22 +186,67 @@ a.nav-item {
 
   .hamburger-menu {
     display: flex;
-    margin: 10px 0;
+    margin: 0;
+    padding: 5px;
+  }
+
+  #nav-icon2 {
+    width: 35px;
+    height: 30px;
+  }
+
+  #nav-icon2 span {
+    height: 3px;
+  }
+
+  #nav-icon2 span:nth-child(1),
+  #nav-icon2 span:nth-child(2) {
+    top: 6px;
+  }
+
+  #nav-icon2 span:nth-child(3),
+  #nav-icon2 span:nth-child(4) {
+    top: 13px;
+  }
+
+  #nav-icon2 span:nth-child(5),
+  #nav-icon2 span:nth-child(6) {
+    top: 20px;
+  }
+
+  #nav-icon2.open span:nth-child(1) {
+    left: 3px;
+    top: 5px;
+  }
+
+  #nav-icon2.open span:nth-child(2) {
+    left: calc(50% - 3px);
+    top: 5px;
+  }
+
+  #nav-icon2.open span:nth-child(5) {
+    left: 3px;
+    top: 19px;
+  }
+
+  #nav-icon2.open span:nth-child(6) {
+    left: calc(50% - 3px);
+    top: 19px;
   }
 
 
   .navbar-container {
-    position: fixed;
-    top: 80px;
+    position: absolute;
+    top: 0;
     left: -100%;
     width: 250px;
-    height: calc(100vh - 80px);
+    height: 100vh;
     background: var(--primary);
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     gap: 0;
-    padding: 75px 0 20px 0;
+    padding: 51px 0 20px 0;
     transition: left 0.3s ease;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
@@ -235,13 +283,14 @@ a.nav-item {
     justify-content: flex-start;
     padding: 0 20px;
     position: sticky;
-    top: 109px;
+    top: 0;
     margin-top: 0;
+    z-index: 100;
   }
 
   .navbar-container {
-    top: 109px;
-    height: calc(100vh - 109px);
+    top: 0;
+    height: 100vh;
   }
 }
 
@@ -251,12 +300,13 @@ a.nav-item {
     justify-content: flex-start;
     padding: 0 20px;
     position: sticky;
-    top: 132px;
+    top: 0;
     margin-top: 0;
+    z-index: 100;
   }
 
   .navbar-container {
-    top: 132px;
-    height: calc(100vh - 132px);
+    top: 0;
+    height: 100vh;
   }
 }
