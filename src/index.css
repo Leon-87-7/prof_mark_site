@@ -21,7 +21,8 @@ html {
   --primary: #000000;
   --secondary: #188BF6;
   --tertiary: #D5573B;
-  --accent: #D2BB71;
+  --accent: hsl(46, 51%, 63%);
+  --accentB: hsl(46, 71%, 53%);
   --accent-light: #fcefda;
   --danger: #e74c3c;
   --warning: #f39c12;

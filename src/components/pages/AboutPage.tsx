@@ -62,7 +62,7 @@ const AboutPage: React.FC<AboutPageProps> = (
                 Patient Guides
               </button>
               <button
-                className="btn btn-tertiary"
+                className="btn btn-tertiary btn-tertiary-mobile"
                 onClick={() => navigate('/innovation')}
               >
                 Surgical Innovation
