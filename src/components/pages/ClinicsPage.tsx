@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './ClinicsPage.css';
 import { Clock, MapPinSimpleAreaIcon } from '@phosphor-icons/react';
 
@@ -9,6 +9,17 @@ interface ClinicsPageProps {
 const ClinicsPage: React.FC<ClinicsPageProps> = ({
   onBookingClick,
 }) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="page active">
       <div className="clinics-grid">
@@ -66,14 +77,23 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
                 <li>Patient accommodation support</li>
               </ul>
             </div>
-            <button
-              className="btn btn-primary btn-dis-above"
-              onClick={onBookingClick}
-              data-tooltip="call to book"
-              disabled
-            >
-              Schedule Haifa Consultation
-            </button>
+            {isMobile ? (
+              <a
+                href="tel:+97248732227"
+                className="btn btn-primary"
+              >
+                Schedule Haifa Consultation
+              </a>
+            ) : (
+              <button
+                className="btn btn-primary btn-dis-above"
+                onClick={onBookingClick}
+                data-tooltip="call to book"
+                disabled
+              >
+                Schedule Haifa Consultation
+              </button>
+            )}
           </div>
         </div>
 
@@ -133,14 +153,23 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
                 <li>Wellness support</li>
               </ul>
             </div>
-            <button
-              className="btn btn-primary btn-dis-above"
-              onClick={onBookingClick}
-              data-tooltip="call to book"
-              disabled
-            >
-              Schedule Kiryat Motzkin Consultation
-            </button>
+            {isMobile ? (
+              <a
+                href="tel:+97248732227"
+                className="btn btn-primary"
+              >
+                Schedule Kiryat Motzkin Consultation
+              </a>
+            ) : (
+              <button
+                className="btn btn-primary btn-dis-above"
+                onClick={onBookingClick}
+                data-tooltip="call to book"
+                disabled
+              >
+                Schedule Kiryat Motzkin Consultation
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -160,54 +189,25 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
             <li>Post-operative follow-ups from home</li>
             <li>Second opinion consultations</li>
           </ul>
-          <button
-            className="btn btn-secondary btn-dis-below"
-            onClick={onBookingClick}
-            data-tooltip="call to book"
-            disabled
-          >
-            Schedule Virtual Consultation
-          </button>
+          {isMobile ? (
+            <a
+              href="tel:+97248732227"
+              className="btn btn-secondary"
+            >
+              Schedule Virtual Consultation
+            </a>
+          ) : (
+            <button
+              className="btn btn-secondary btn-dis-below"
+              onClick={onBookingClick}
+              data-tooltip="call to book"
+              disabled
+            >
+              Schedule Virtual Consultation
+            </button>
+          )}
         </div>
       </div>
-
-      {/* <div className="section">
-        <h2 className="section-title">Team Members</h2>
-        <div className="cards-grid">
-          <div className="card">
-            <div className="card-header">👨‍⚕️</div>
-            <div className="card-content">
-              <h3>Prof. Mark Eidelman</h3>
-              <p>Chief Surgeon & Founder</p>
-              <p>25+ years orthopedic expertise</p>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-header">👩‍⚕️</div>
-            <div className="card-content">
-              <h3>Dr. Rachel Cohen</h3>
-              <p>Associate Surgeon</p>
-              <p>Limb lengthening specialist</p>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-header">🧑‍⚕️</div>
-            <div className="card-content">
-              <h3>David Levy, PT</h3>
-              <p>Lead Physiotherapist</p>
-              <p>Post-op rehabilitation expert</p>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-header">👩‍⚕️</div>
-            <div className="card-content">
-              <h3>Yael Moran, RN</h3>
-              <p>Surgical Nurse Coordinator</p>
-              <p>Patient care specialist</p>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };
