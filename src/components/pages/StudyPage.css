@@ -43,6 +43,7 @@
 .cards-grid.study-cards .card {
   border: none;
   border-radius: 20px 20px 0 0;
+  border-bottom: var(--borderB) 1px solid;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -103,4 +104,12 @@
   padding: 10px;
   border: 1px solid var(--border);
   border-radius: 5px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .colored-headers-cards {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }

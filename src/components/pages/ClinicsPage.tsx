@@ -6,19 +6,52 @@ interface ClinicsPageProps {
   onBookingClick: () => void;
 }
 
-const ClinicsPage: React.FC<ClinicsPageProps> = ({
+const MOBILE_BREAKPOINT = 768;
+const BOOKING_PHONE = '+97248732227';
+
+const ClinicsPage = ({
   onBookingClick,
-}) => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+}: ClinicsPageProps): React.ReactElement => {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined'
+      ? window.innerWidth <= MOBILE_BREAKPOINT
+      : false
+  );
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
     };
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const renderBookingButton = (
+    isMobile: boolean,
+    buttonText: string,
+    buttonClass: string,
+    tooltipClass: string,
+    onBookingClick: () => void
+  ): React.ReactElement => {
+    return isMobile ? (
+      <a
+        href={`tel:${BOOKING_PHONE}`}
+        className={buttonClass}
+      >
+        {buttonText}
+      </a>
+    ) : (
+      <button
+        className={`${buttonClass} ${tooltipClass}`}
+        onClick={onBookingClick}
+        data-tooltip="call to book"
+        disabled
+      >
+        {buttonText}
+      </button>
+    );
+  };
 
   return (
     <div className="page active">
@@ -77,22 +110,12 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
                 <li>Patient accommodation support</li>
               </ul>
             </div>
-            {isMobile ? (
-              <a
-                href="tel:+97248732227"
-                className="btn btn-primary"
-              >
-                Schedule Haifa Consultation
-              </a>
-            ) : (
-              <button
-                className="btn btn-primary btn-dis-above"
-                onClick={onBookingClick}
-                data-tooltip="call to book"
-                disabled
-              >
-                Schedule Haifa Consultation
-              </button>
+            {renderBookingButton(
+              isMobile,
+              'Schedule Haifa Consultation',
+              'btn btn-primary',
+              'tooltip-above',
+              onBookingClick
             )}
           </div>
         </div>
@@ -153,22 +176,12 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
                 <li>Wellness support</li>
               </ul>
             </div>
-            {isMobile ? (
-              <a
-                href="tel:+97248732227"
-                className="btn btn-primary"
-              >
-                Schedule Kiryat Motzkin Consultation
-              </a>
-            ) : (
-              <button
-                className="btn btn-primary btn-dis-above"
-                onClick={onBookingClick}
-                data-tooltip="call to book"
-                disabled
-              >
-                Schedule Kiryat Motzkin Consultation
-              </button>
+            {renderBookingButton(
+              isMobile,
+              'Schedule Kiryat Motzkin Consultation',
+              'btn btn-primary',
+              'tooltip-above',
+              onBookingClick
             )}
           </div>
         </div>
@@ -189,22 +202,12 @@ const ClinicsPage: React.FC<ClinicsPageProps> = ({
             <li>Post-operative follow-ups from home</li>
             <li>Second opinion consultations</li>
           </ul>
-          {isMobile ? (
-            <a
-              href="tel:+97248732227"
-              className="btn btn-secondary"
-            >
-              Schedule Virtual Consultation
-            </a>
-          ) : (
-            <button
-              className="btn btn-secondary btn-dis-below"
-              onClick={onBookingClick}
-              data-tooltip="call to book"
-              disabled
-            >
-              Schedule Virtual Consultation
-            </button>
+          {renderBookingButton(
+            isMobile,
+            'Schedule Virtual Consultation',
+            'btn btn-secondary',
+            'tooltip-below',
+            onBookingClick
           )}
         </div>
       </div>
