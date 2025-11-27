@@ -36,12 +36,32 @@ function App(): ReactElement {
         role="main"
       >
         <Routes>
-          <Route path="/" element={<AboutPage onBookingClick={handleBookingOpen} />} />
-          <Route path="/clinics" element={<ClinicsPage onBookingClick={handleBookingOpen} />} />
-          <Route path="/services" element={<ServicesPage onBookingClick={handleBookingOpen} />} />
-          <Route path="/innovation" element={<InnovationPage />} />
-          <Route path="/guides" element={<GuidesPage />} />
-          <Route path="/study" element={<StudyPage />} />
+          <Route
+            path="/"
+            element={<AboutPage onBookingClick={handleBookingOpen} />}
+          />
+          <Route
+            path="/clinics"
+            element={<ClinicsPage />}
+          />
+          <Route
+            path="/services"
+            element={
+              <ServicesPage onBookingClick={handleBookingOpen} />
+            }
+          />
+          <Route
+            path="/innovation"
+            element={<InnovationPage />}
+          />
+          <Route
+            path="/guides"
+            element={<GuidesPage />}
+          />
+          <Route
+            path="/study"
+            element={<StudyPage />}
+          />
         </Routes>
       </main>
       <Footer />
