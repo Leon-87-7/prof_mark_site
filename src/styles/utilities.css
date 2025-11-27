@@ -57,16 +57,16 @@
   transform: translateY(-1px);
 }
 
-.btn-dis-above,
-.btn-dis-below {
-  cursor: wait;
+.tooltip-above,
+.tooltip-below {
+  cursor: not-allowed;
 }
 
 /* Tooltip styles */
 
 /*=========== Disabled Button Tooltip ============ */
 /*----------- Above Button ----------*/
-.btn-dis-above[data-tooltip]:disabled::before {
+.tooltip-above[data-tooltip]:disabled::before {
   content: attr(data-tooltip);
   position: absolute;
   bottom: 100%;
@@ -82,18 +82,18 @@
   text-transform: capitalize;
 }
 
-.btn-dis-above[data-tooltip]:disabled:hover::before,
-.btn-dis-above[data-tooltip]:disabled:hover::after {
+.tooltip-above[data-tooltip]:disabled:hover::before,
+.tooltip-above[data-tooltip]:disabled:hover::after {
   opacity: 1;
   transform: translateX(-50%) translateY(-4px);
 }
 
-.btn-dis-above[data-tooltip]:disabled:hover::after {
+.tooltip-above[data-tooltip]:disabled:hover::after {
   transform: translateX(-50%) translateY(2px);
 }
 
 /*----------- Below Button ----------*/
-.btn-dis-below[data-tooltip]:disabled::before {
+.tooltip-below[data-tooltip]:disabled::before {
   content: attr(data-tooltip);
   position: absolute;
   top: 90%;
@@ -114,12 +114,12 @@
 }
 
 
-.btn-dis-below[data-tooltip]:disabled:hover::before {
+.tooltip-below[data-tooltip]:disabled:hover::before {
   opacity: 1;
   transform: translateX(-50%) translateY(12px);
 }
 
-.btn-dis-below[data-tooltip]:disabled:hover::after {
+.tooltip-below[data-tooltip]:disabled:hover::after {
   opacity: 1;
   transform: translateX(-50%) translateY(6px);
 }
@@ -298,6 +298,26 @@
 @media (max-width: 768px) {
   .two-column {
     grid-template-columns: 1fr;
+  }
+
+  .section {
+    background: var(--white);
+    padding: 24px 32px;
+    border-radius: 0;
+    /* margin: 0 0 16px 0; */
+    box-shadow: none;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+    text-align: center;
+    padding-bottom: 0;
+    border-bottom: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.4px;
   }
 }
 
