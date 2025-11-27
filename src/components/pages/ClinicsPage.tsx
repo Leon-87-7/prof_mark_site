@@ -2,16 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './ClinicsPage.css';
 import { Clock, MapPinSimpleAreaIcon } from '@phosphor-icons/react';
 
-interface ClinicsPageProps {
-  onBookingClick: () => void;
-}
-
 const MOBILE_BREAKPOINT = 768;
 const BOOKING_PHONE = '+97248732227';
 
-const ClinicsPage = ({
-  onBookingClick,
-}: ClinicsPageProps): React.ReactElement => {
+const ClinicsPage = (): React.ReactElement => {
   const [isMobile, setIsMobile] = useState(
     typeof window !== 'undefined'
       ? window.innerWidth <= MOBILE_BREAKPOINT
@@ -32,7 +26,6 @@ const ClinicsPage = ({
     buttonText: string,
     buttonClass: string,
     tooltipClass: string
-    // onBookingClick: () => void
   ): React.ReactElement => {
     return isMobile ? (
       <a
@@ -44,7 +37,6 @@ const ClinicsPage = ({
     ) : (
       <button
         className={`${buttonClass} ${tooltipClass}`}
-        onClick={onBookingClick}
         data-tooltip="call to book"
         disabled
       >
