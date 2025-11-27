@@ -39,7 +39,6 @@
   gap: var(--card-gap);
 }
 
-/* Remove border and round the card itself to match header */
 .cards-grid.study-cards .card {
   border: none;
   border-radius: 20px 20px 0 0;

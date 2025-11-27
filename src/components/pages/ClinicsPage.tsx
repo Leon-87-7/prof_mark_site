@@ -31,8 +31,8 @@ const ClinicsPage = ({
     isMobile: boolean,
     buttonText: string,
     buttonClass: string,
-    tooltipClass: string,
-    onBookingClick: () => void
+    tooltipClass: string
+    // onBookingClick: () => void
   ): React.ReactElement => {
     return isMobile ? (
       <a
@@ -114,8 +114,7 @@ const ClinicsPage = ({
               isMobile,
               'Schedule Haifa Consultation',
               'btn btn-primary',
-              'tooltip-above',
-              onBookingClick
+              'tooltip-above'
             )}
           </div>
         </div>
@@ -180,8 +179,7 @@ const ClinicsPage = ({
               isMobile,
               'Schedule Kiryat Motzkin Consultation',
               'btn btn-primary',
-              'tooltip-above',
-              onBookingClick
+              'tooltip-above'
             )}
           </div>
         </div>
@@ -206,8 +204,7 @@ const ClinicsPage = ({
             isMobile,
             'Schedule Virtual Consultation',
             'btn btn-secondary',
-            'tooltip-below',
-            onBookingClick
+            'tooltip-below'
           )}
         </div>
       </div>
