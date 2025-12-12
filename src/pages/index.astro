@@ -1,0 +1,125 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import OptimizedImage from '@/components/OptimizedImage.astro';
+import heroImage from '../assets/images/hero/hero_image_mark_02.jpg';
+---
+
+<BaseLayout
+  title="Prof. Mark Eidelman - Pediatric Orthopedic Specialist"
+  description="Leading the Future of Pediatric Orthopedics - Over 25 years of specialized expertise in limb lengthening and deformity correction"
+>
+  <div class="page active">
+    <div class="hero">
+      <div class="hero-wrapper">
+        <div class="hero-content">
+          <h1>Leading the Future of Pediatric Orthopedics</h1>
+          <h3>
+            Limb Lengthening & Deformity Correction Specialist
+          </h3>
+          <p>
+            <b>Prof. Mark Eidelman</b> brings over{' '}
+            <b>25 years of specialized expertise</b> and 3,000
+            successful surgeries to pediatric care. As a global
+            authority dedicated to complex deformity correction and
+            limb lengthening,{' '}
+            <span class="highlighted-text">
+              he helps children achieve balanced leg length, ideal
+              stature, and a happy, fulfilling life.
+            </span>{' '}
+            Pioneering techniques. Global mentorship.
+          </p>
+
+          <div class="hero-stats">
+            <div class="stat-card">
+              <div class="number">25+</div>
+              <div class="label">Years Experience</div>
+            </div>
+            <div class="stat-card">
+              <div class="number">3000+</div>
+              <div class="label">Surgeries</div>
+            </div>
+            <div class="stat-card">
+              <div class="number">50+</div>
+              <div class="label">Trained</div>
+            </div>
+          </div>
+          <div class="cta-buttons">
+            <a href="/clinics" class="btn btn-primary">
+              Explore Clinics
+            </a>
+            <a href="/guides" class="btn btn-secondary">
+              Patient Guides
+            </a>
+            <a href="/innovation" class="btn btn-tertiary about-hero-btn-tertiary-mobile">
+              Surgical Innovation
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="credentials">
+      <h2 class="section-title">Professional Credentials</h2>
+      <div class="two-column">
+        <div class="column">
+          <h4>Education & Training</h4>
+          <ul>
+            <li>MD - Hebrew University</li>
+            <li>Residency - Orthopedic Surgery</li>
+            <li>
+              Fellowship - International Center for Limb Lengthening
+            </li>
+            <li>
+              Board Certified - Israeli Board of Orthopedic Surgery
+            </li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Specializations</h4>
+          <ul>
+            <li>Pediatric Orthopedics</li>
+            <li>Limb Lengthening Surgery</li>
+            <li>Complex Deformity Correction</li>
+            <li>Advanced Surgical Techniques</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonials-wrapper">
+      <h2 class="section-title">Testimonials</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          <div class="testimonial-author">Sarah M., Canada</div>
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-text">
+            "Prof. Eidelman's expertise and compassionate approach
+            transformed my life. The results exceeded all my
+            expectations."
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-author">David K., USA</div>
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-text">
+            "The most professional and caring surgeon I could ask
+            for. I highly recommend Prof. Eidelman without
+            hesitation."
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-author">Maria R., Spain</div>
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-text">
+            "My daughter's surgery was a complete success. We trust
+            Prof. Eidelman completely with our family's care."
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  @import '../components/pages/AboutPage.css';
+</style>

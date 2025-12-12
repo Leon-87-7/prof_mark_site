@@ -1,0 +1,221 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Patient Guides - Prof. Mark Eidelman"
+  description="Comprehensive resources to prepare for and recover from your treatment, including downloadable guides, exercises, and FAQs."
+>
+  <div class="page active">
+    <div class="section">
+      <h2 class="section-title">Patient Guides</h2>
+      <p class="section-subtitle">
+        Comprehensive resources to prepare for and recover from your
+        treatment, including downloadable guides, exercises, and
+        FAQs.
+      </p>
+    </div>
+
+    <div class="guides-buttons">
+      <button
+        class="btn btn-primary"
+        onclick="alert('Pre-Surgery Guide showing preparation checklist, medications, exercises')"
+      >
+        📋 Pre-Surgery Guide
+      </button>
+      <button
+        class="btn btn-secondary"
+        onclick="alert('Post-Surgery Guide showing first week recovery, pain management, wound care')"
+      >
+        📋 Post-Surgery Guide
+      </button>
+      <button
+        class="btn btn-tertiary black-text"
+        onclick="alert('Physical Therapy exercises with detailed instructions and video guides')"
+      >
+        📋 PT Exercises
+      </button>
+      <button
+        class="btn btn-primary"
+        onclick="alert('Complete recovery timeline tracking your progress through each phase')"
+      >
+        📋 Recovery Timeline
+      </button>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title section-title-small">
+        Pre-Surgery Guides
+      </h2>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-header">✅</div>
+          <div class="card-content">
+            <h3>Pre-Surgery Checklist</h3>
+            <p>
+              Complete checklist for medical clearance, medications,
+              fasting, and pre-operative preparation.
+            </p>
+            <button
+              class="btn btn-primary"
+              onclick="alert('Downloading: Pre-Surgery-Checklist.pdf')"
+            >
+              ⬇️ Download PDF
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">💪</div>
+          <div class="card-content">
+            <h3>Pre-Surgery Exercises</h3>
+            <p>
+              Prescribed stretching and strengthening routines to
+              prepare your body for surgery.
+            </p>
+            <button
+              class="btn btn-primary"
+              onclick="alert('Downloading: Pre-Surgery-Exercises.pdf')"
+            >
+              ⬇️ Download PDF
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">❓</div>
+          <div class="card-content">
+            <h3>Questions to Ask</h3>
+            <p>
+              Important questions to discuss with Prof. Eidelman
+              during your consultation.
+            </p>
+            <button
+              class="btn btn-primary"
+              onclick="alert('Downloading: Questions-to-Ask-Your-Surgeon.pdf')"
+            >
+              ⬇️ Download PDF
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title section-title-small">
+        Post-Surgery Guides
+      </h2>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-header">📅</div>
+          <div class="card-content">
+            <h3>First Week Recovery</h3>
+            <p>
+              Hospital stay expectations, pain management, and
+              immediate post-operative care instructions.
+            </p>
+            <button
+              class="btn btn-primary"
+              onclick="alert('Downloading: First-Week-Recovery-Guide.pdf')"
+            >
+              ⬇️ Download PDF
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">📈</div>
+          <div class="card-content">
+            <h3>Lengthening Phase</h3>
+            <p>
+              Detailed guide for the 12-week lengthening phase
+              including exercises and bi-weekly check-ups.
+            </p>
+            <button
+              class="btn btn-primary"
+              onclick="alert('Downloading: Lengthening-Phase-Guide.pdf')"
+            >
+              ⬇️ Download PDF
+            </button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">🏥</div>
+          <div class="card-content">
+            <h3>PT During Recovery</h3>
+            <p>
+              Physical therapy schedule, at-home exercises with
+              videos, and progress tracking.
+            </p>
+            <button
+              class="btn btn-primary"
+              onclick="alert('Downloading: Physical-Therapy-Guide.pdf')"
+            >
+              ⬇️ Download PDF
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-detail">
+      <h3>📦 Download All Guides</h3>
+      <p>
+        Get a complete bundle of all guides, exercise sheets,
+        tracking logs, and resources in one convenient package.
+      </p>
+      <button
+        class="btn btn-primary"
+        onclick="alert('Downloading: Complete-Patient-Guides-Bundle.zip (25MB)')"
+      >
+        ⬇️ Download Complete Bundle (ZIP)
+      </button>
+    </div>
+
+    <div class="section colored-top-border">
+      <h2 class="section-title section-title-small">
+        Frequently Asked Questions
+      </h2>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-content">
+            <h3>How long is recovery?</h3>
+            <p>
+              Total recovery is approximately 12 months, with most
+              patients returning to normal activities by month 6-8.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h3>What are the risks?</h3>
+            <p>
+              Complication rate is &lt;2% with proper care. Common
+              concerns are addressed during consultation.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h3>Can I fly after surgery?</h3>
+            <p>
+              Flying is typically allowed 2-3 weeks after surgery
+              with proper precautions. We provide detailed travel
+              guidelines.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h3>What's the maximum gain?</h3>
+            <p>
+              Most patients achieve 5-8cm safely. The exact amount
+              depends on individual bone tolerance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  @import '../components/pages/GuidesPage.css';
+</style>

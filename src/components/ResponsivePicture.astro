@@ -1,0 +1,46 @@
+---
+import { Picture } from 'astro:assets';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  widths?: number[];
+  sizes?: string;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+  formats?: ('avif' | 'webp' | 'png' | 'jpg')[];
+  quality?: number;
+}
+
+const {
+  src,
+  alt,
+  widths = [400, 800, 1200],
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px',
+  loading = 'lazy',
+  class: className,
+  formats = ['avif', 'webp'],
+  quality = 80,
+  ...rest
+} = Astro.props;
+---
+
+<Picture
+  src={src}
+  alt={alt}
+  widths={widths}
+  sizes={sizes}
+  loading={loading}
+  class={className}
+  formats={formats}
+  quality={quality}
+  {...rest}
+/>
+
+<style>
+  /* Ensure images are responsive by default */
+  :global(img) {
+    max-width: 100%;
+    height: auto;
+  }
+</style>

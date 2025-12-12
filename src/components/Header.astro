@@ -1,0 +1,132 @@
+---
+import LanguageSelector from './LanguageSelector';
+import { CalendarDots } from '@phosphor-icons/react';
+---
+
+<header class="header">
+  <div class="header-container">
+    <div class="logo">
+      <div>
+        <div>Prof. Mark Eidelman</div>
+        <div class="logo-subtitle">
+          Pediatric Orthopedic Specialist
+        </div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="contact-info">
+        <div class="phone">+972 (0)4 873-2227</div>
+        <LanguageSelector variant="header" client:load />
+      </div>
+      <a href="/clinics" class="btn-book">
+        <CalendarDots
+              size={22}
+              className="icon-item"
+              color="var(--tab-link-dark)"
+              weight="duotone"
+            />
+        <span style="padding: 8px 0; font-size: 1rem;">
+          CONTACT US
+        </span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* ============ HEADER ============ */
+  .header {
+    background: var(--primary);
+    color: var(--secondary);
+    padding: 18px 0 10px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-subtitle {
+    font-size: 0.85rem;
+    color: var(--secondary);
+    font-weight: 400;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .contact-info {
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .contact-info .phone {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent);
+  }
+
+  .btn-book {
+    background: var(--accent);
+    color: var(--primary);
+    border: none;
+    padding: 0px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-book:hover {
+    background: #C5AE5F;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(210, 187, 113, 0.3);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    .header {
+      position: relative;
+    }
+
+    .contact-info .phone {
+      display: none;
+    }
+
+    .header-right {
+      gap: 0;
+    }
+  }
+</style>

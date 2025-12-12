@@ -1,0 +1,158 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BookingButton from '@/components/BookingButton';
+import MapPinLine from 'phosphor-astro/MapPinLine.astro';
+import Timer  from 'phosphor-astro/Timer.astro';
+---
+
+<BaseLayout
+  title="Clinics - Prof. Mark Eidelman"
+  description="Visit Prof. Eidelman's clinics in Haifa and Kiryat Motzkin, Israel, or schedule a virtual consultation"
+>
+  <div class="page active">
+    <div class="clinics-grid">
+      <div class="clinic-card">
+        <div class="clinic-header">🏥 HAIFA CLINIC</div>
+        <div class="clinic-content">
+          <div class="clinic-items">
+            <div class="clinic-item">
+              <strong>
+                <MapPinLine height="20"/>
+                {' '}Location
+              </strong>
+              Ben Gurion Blvd 4, Haifa, Israel
+            </div>
+
+            <div class="clinic-item">
+              <strong>
+                <Timer height="20"/>
+                {' '}Hours
+              </strong>
+              Sunday: 4pm-7pm
+            </div>
+          </div>
+          <div class="clinic-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7974.140186045572!2d34.98753709438236!3d32.82636995941275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151dbbcb7737a60f%3A0x80c6b3e567825840!2z15HXmdeqINeU16jXldek15DXmdedINeU157Xldep15HXlCDXlNeS16jXnteo15nXqg!5e0!3m2!1sen!2sil!4v1762345297808!5m2!1sen!2sil"
+              width="612.5"
+              height="300"
+              style="border: 0;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <hr />
+          <h5 class="clinic-services-title">
+            Services Available:
+          </h5>
+          <div class="clinic-item-services">
+            <ul>
+              <li>Full surgical facility</li>
+              <li>Physical therapy rooms</li>
+              <li>In-person consultations</li>
+            </ul>
+            <ul>
+              <li>Post-operative care</li>
+              <li>Patient accommodation support</li>
+            </ul>
+          </div>
+          <BookingButton
+            client:load
+            text="Schedule Haifa Consultation"
+            phone="+97248732227"
+            className="btn btn-primary"
+            tooltipClass= "tooltip-above"
+          />
+        </div>
+      </div>
+
+      <div class="clinic-card">
+        <div class="clinic-header kiryat">
+          🏥 KIRYAT MOTZKIN CLINIC
+        </div>
+        <div class="clinic-content">
+          <div class="clinic-items">
+            <div class="clinic-item">
+              <strong>
+                <MapPinLine height="20"/>
+                {' '}Location
+              </strong>
+              Ussishkin St 6, Kiryat Motzkin, Israel
+            </div>
+
+            <div class="clinic-item">
+              <strong>
+                <Timer height="20"/>
+                {' '}Hours
+              </strong>
+              Thursday: 4pm-7pm
+            </div>
+          </div>
+          <div class="clinic-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3352.5603948495004!2d35.0790442!3d32.830411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151db721dd3b6b0f%3A0xd52f2166163ca1e0!2sUssishkin%20St%206%2C%20Kiryat%20Motzkin!5e0!3m2!1sen!2sil!4v1762344839939!5m2!1sen!2sil"
+              width="612"
+              height="300"
+              style="border: 0;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <hr />
+          <h5 class="clinic-services-title">
+            Services Available:
+          </h5>
+          <div class="clinic-item-services">
+            <ul>
+              <li>Initial consultations</li>
+              <li>Follow-up appointments</li>
+              <li>Physical therapy</li>
+            </ul>
+            <ul>
+              <li>Patient education</li>
+              <li>Wellness support</li>
+            </ul>
+          </div>
+          <BookingButton
+            client:load
+            text="Schedule Kiryat Motzkin Consultation"
+            phone="+97248732227"
+            className="btn btn-primary"
+            tooltipClass= "tooltip-above"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Virtual Consultation</h2>
+      <p class="section-subtitle">
+        For international patients or initial screening
+        consultations, we offer secure video consultations with
+        Prof. Eidelman.
+      </p>
+      <div class="service-detail">
+        <h3>Perfect for:</h3>
+        <ul>
+          <li>International patients seeking initial assessment</li>
+          <li>Pre-surgery consultations before visiting Israel</li>
+          <li>Post-operative follow-ups from home</li>
+          <li>Second opinion consultations</li>
+        </ul>
+        <BookingButton
+          client:load
+          text="Schedule Virtual Consultation"
+          phone="+97248732227"
+          className="btn btn-secondary"
+          tooltipClass= "tooltip-below"
+        />
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  @import '../components/pages/ClinicsPage.css';
+</style>
