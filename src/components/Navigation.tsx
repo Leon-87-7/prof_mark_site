@@ -11,7 +11,7 @@ const Navigation = ({ currentPath: propPath }: NavigationProps) => {
   const navRef = useRef<HTMLElement>(null);
 
   const navItems = [
-    { label: 'About', path: '/' },
+    { label: 'Home', path: '/' },
     { label: 'Services', path: '/services' },
     { label: 'Innovation', path: '/innovation' },
     { label: 'Guides', path: '/guides' },
@@ -19,7 +19,9 @@ const Navigation = ({ currentPath: propPath }: NavigationProps) => {
   ];
 
   // Use prop if available, otherwise get from window
-  const currentPath = propPath || (typeof window !== 'undefined' ? window.location.pathname : '/');
+  const currentPath =
+    propPath ||
+    (typeof window !== 'undefined' ? window.location.pathname : '/');
 
   const handleLinkClick = () => {
     setIsMenuOpen(false);
@@ -45,7 +47,8 @@ const Navigation = ({ currentPath: propPath }: NavigationProps) => {
   }, [isMenuOpen]);
 
   // Normalize the path by removing trailing slashes
-  const normalizedPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
+  const normalizedPath =
+    currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
 
   return (
     <nav

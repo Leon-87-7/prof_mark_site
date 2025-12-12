@@ -2,13 +2,18 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import BookingButton from '@/components/BookingButton';
 import MapPinLine from 'phosphor-astro/MapPinLine.astro';
-import Timer  from 'phosphor-astro/Timer.astro';
+import Timer from 'phosphor-astro/Timer.astro';
 ---
 
 <BaseLayout
   title="Clinics - Prof. Mark Eidelman"
   description="Visit Prof. Eidelman's clinics in Haifa and Kiryat Motzkin, Israel, or schedule a virtual consultation"
 >
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://www.google.com" />
+    <link rel="preconnect" href="https://maps.googleapis.com" />
+    <link rel="preconnect" href="https://maps.gstatic.com" />
+  </Fragment>
   <div class="page active">
     <div class="clinics-grid">
       <div class="clinic-card">
@@ -16,17 +21,21 @@ import Timer  from 'phosphor-astro/Timer.astro';
         <div class="clinic-content">
           <div class="clinic-items">
             <div class="clinic-item">
-              <strong>
+              <strong class="item-icon-label">
                 <MapPinLine height="20"/>
-                {' '}Location
+                <div class="item-label">
+                  Location
+                </div> 
               </strong>
               Ben Gurion Blvd 4, Haifa, Israel
             </div>
 
             <div class="clinic-item">
-              <strong>
+              <strong class="item-icon-label">
                 <Timer height="20"/>
-                {' '}Hours
+                <div class="item-label">
+                  Hours
+                </div>
               </strong>
               Sunday: 4pm-7pm
             </div>
@@ -38,7 +47,7 @@ import Timer  from 'phosphor-astro/Timer.astro';
               height="300"
               style="border: 0;"
               allowfullscreen
-              loading="lazy"
+              loading="eager"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
@@ -61,7 +70,7 @@ import Timer  from 'phosphor-astro/Timer.astro';
             client:load
             text="Schedule Haifa Consultation"
             phone="+97248732227"
-            className="btn btn-primary"
+            className="btn btn-primary btn-block"
             tooltipClass= "tooltip-above"
           />
         </div>
@@ -74,17 +83,21 @@ import Timer  from 'phosphor-astro/Timer.astro';
         <div class="clinic-content">
           <div class="clinic-items">
             <div class="clinic-item">
-              <strong>
+              <strong class="item-icon-label">
                 <MapPinLine height="20"/>
-                {' '}Location
+                <div class="item-label">
+                  Location
+                  </div> 
               </strong>
               Ussishkin St 6, Kiryat Motzkin, Israel
             </div>
 
             <div class="clinic-item">
-              <strong>
+              <strong class="item-icon-label">
                 <Timer height="20"/>
-                {' '}Hours
+                <div class="item-label">
+                  Hours
+                </div>
               </strong>
               Thursday: 4pm-7pm
             </div>
@@ -96,7 +109,7 @@ import Timer  from 'phosphor-astro/Timer.astro';
               height="300"
               style="border: 0;"
               allowfullscreen
-              loading="lazy"
+              loading="eager"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
@@ -119,7 +132,7 @@ import Timer  from 'phosphor-astro/Timer.astro';
             client:load
             text="Schedule Kiryat Motzkin Consultation"
             phone="+97248732227"
-            className="btn btn-primary"
+            className="btn btn-primary btn-block"
             tooltipClass= "tooltip-above"
           />
         </div>

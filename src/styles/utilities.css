@@ -21,6 +21,7 @@
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 0.4px;
+  text-align: center;
 }
 
 .btn-primary {
@@ -55,6 +56,12 @@
   background: var(--primary);
   color: white;
   transform: translateY(-1px);
+}
+
+.btn-block {
+  width: 100%;
+  display: block;
+  margin-top: 20px;
 }
 
 .tooltip-above,

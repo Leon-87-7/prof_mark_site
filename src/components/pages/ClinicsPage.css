@@ -37,12 +37,20 @@
 .clinic-item {
   margin: 12px 0;
   font-size: 0.75rem;
-}
+  display: flex;
+  flex-direction: column;
 
-.clinic-item strong {
-  color: var(--primary);
-  display: block;
-  margin-bottom: 4px;
+  .item-icon-label {
+    color: var(--primary);
+    display: flex;
+    margin-bottom: 4px;
+    align-items: end;
+
+  }
+
+  .item-label {
+    margin: 2px 0 0 6px;
+  }
 }
 
 .clinic-map {
@@ -73,7 +81,6 @@
 }
 
 .clinic-card .btn {
-  width: 100%;
   margin-top: 12px;
 }
 
