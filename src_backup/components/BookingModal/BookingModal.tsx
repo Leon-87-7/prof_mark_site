@@ -306,7 +306,7 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              placeholder="Tell us about your inquiry..."
+              placeholder="Tell us home your inquiry..."
             />
           </div>
 

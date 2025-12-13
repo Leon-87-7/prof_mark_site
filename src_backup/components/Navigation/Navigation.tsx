@@ -8,7 +8,7 @@ const Navigation = () => {
   const navRef = useRef<HTMLElement>(null);
 
   const navItems = [
-    { label: 'About', path: '/' },
+    { label: 'Home', path: '/' },
     // { label: 'Clinics', path: '/clinics' },
     { label: 'Services', path: '/services' },
     { label: 'Innovation', path: '/innovation' },
@@ -52,7 +52,10 @@ const Navigation = () => {
           aria-label="Toggle navigation menu"
           aria-expanded={isMenuOpen}
         >
-          <div id="nav-icon2" className={isMenuOpen ? 'open' : ''}>
+          <div
+            id="nav-icon2"
+            className={isMenuOpen ? 'open' : ''}
+          >
             <span></span>
             <span></span>
             <span></span>

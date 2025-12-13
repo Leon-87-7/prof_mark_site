@@ -1,12 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './AboutPage.css';
+import './HomePage.css';
 
-interface AboutPageProps {
+interface HomePageProps {
   onBookingClick: () => void;
 }
 
-const AboutPage: React.FC<AboutPageProps> = (
+const HomePage: React.FC<HomePageProps> = (
   {
     // onBookingClick,
   }
@@ -62,7 +62,7 @@ const AboutPage: React.FC<AboutPageProps> = (
                 Patient Guides
               </button>
               <button
-                className="btn btn-tertiary about-hero-btn-tertiary-mobile"
+                className="btn btn-tertiary home-hero-btn-tertiary-mobile"
                 onClick={() => navigate('/innovation')}
               >
                 Surgical Innovation
@@ -186,4 +186,4 @@ const AboutPage: React.FC<AboutPageProps> = (
   );
 };
 
-export default AboutPage;
+export default HomePage;

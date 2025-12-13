@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
       <div className="footer-container">
         <div className="footer-section">
           <h4>QUICK LINKS</h4>
-          <Link to="/">About Prof. Eidelman</Link>
+          <Link to="/">Home Prof. Eidelman</Link>
           <Link to="/clinics">My Clinics</Link>
           <Link to="/services">Our Services</Link>
           <Link to="/innovation">Surgical Innovation</Link>

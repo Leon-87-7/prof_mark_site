@@ -256,7 +256,7 @@
     grid-template-columns: 1fr;
   }
 
-  .about-hero-btn-tertiary-mobile {
+  .home-hero-btn-tertiary-mobile {
     background: var(--accentB);
     color: var(--primary);
     border: 2px solid var(--accent);

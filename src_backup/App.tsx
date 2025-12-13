@@ -7,7 +7,7 @@ import Navigation from './components/Navigation/Navigation';
 import Footer from './components/Footer/Footer';
 import BookingModal from './components/BookingModal/BookingModal';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
-import AboutPage from './components/pages/AboutPage';
+import HomePage from './components/pages/HomePage';
 import ClinicsPage from './components/pages/ClinicsPage';
 import ServicesPage from './components/pages/ServicesPage';
 import InnovationPage from './components/pages/InnovationPage';
@@ -38,7 +38,7 @@ function App(): ReactElement {
         <Routes>
           <Route
             path="/"
-            element={<AboutPage onBookingClick={handleBookingOpen} />}
+            element={<HomePage onBookingClick={handleBookingOpen} />}
           />
           <Route
             path="/clinics"

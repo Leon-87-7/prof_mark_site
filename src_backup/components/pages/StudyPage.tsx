@@ -203,7 +203,7 @@ const StudyPage: React.FC = () => {
             className="btn btn-primary"
             onClick={() =>
               alert(
-                'Subscribed! You will receive updates about new articles and resources.'
+                'Subscribed! You will receive updates home new articles and resources.'
               )
             }
           >
