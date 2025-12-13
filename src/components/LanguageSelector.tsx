@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react';
-import 'flag-icons/css/flag-icons.min.css';
 import './LanguageSelector.css';
 
 type Language = 'en' | 'he' | 'ru';
