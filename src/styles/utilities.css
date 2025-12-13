@@ -243,6 +243,20 @@
   max-width: 70ch;
 }
 
+.section p {
+  font-size: 0.95rem;
+  color: var(--text-sub-dark);
+  line-height: 1.8;
+  max-width: 70ch;
+  margin-bottom: 16px;
+}
+
+.section ul {
+  max-width: 50ch;
+  color: var(--text-sub-dark);
+  padding-left: 1.2rem;
+}
+
 /* ============ SERVICE DETAIL (Used across multiple pages) ============ */
 .service-detail {
   background: #eafaf1;

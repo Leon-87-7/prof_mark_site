@@ -124,20 +124,18 @@
 }
 
 a.nav-item {
-  padding: 8px 0 3px;
+  padding: 0 0 0 3px;
   cursor: pointer;
   font-weight: 400;
   font-family: 'Montserrat', sans-serif;
   font-size: 0.7rem;
   color: var(--light);
   transition: all 0.3s ease;
-  border: none;
   text-decoration: none;
-  border-bottom: 2.5px solid transparent;
+  border-bottom: 2px solid transparent;
   position: relative;
   text-transform: uppercase;
-  letter-spacing: 0.48rem;
-  background: transparent;
+  letter-spacing: 0.2rem;
 }
 
 .nav-item:hover {

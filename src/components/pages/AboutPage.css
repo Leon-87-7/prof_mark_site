@@ -1,0 +1,8 @@
+.about-header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.about-profile-image {
+  margin-left: 2rem;
+}

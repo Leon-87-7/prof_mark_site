@@ -30,6 +30,7 @@ html {
   --dark: #2B2B2B;
   --text: #000000;
   --text-light: #666666;
+  --text-sub-dark: hsl(0, 0%, 25%);
   --border: #E0E0E0;
   --borderB: #afccbe;
   --white: #fff;
