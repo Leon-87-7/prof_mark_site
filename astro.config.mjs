@@ -28,6 +28,20 @@ export default defineConfig({
   vite: {
     build: {
       cssMinify: 'lightningcss', // Faster CSS minification
+      minify: 'terser', // Better JavaScript minification than esbuild
+      terserOptions: {
+        compress: {
+          drop_console: true, // Remove console.logs in production
+          drop_debugger: true,
+        },
+      },
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom'], // Separate React bundle
+          },
+        },
+      },
     },
   },
 });
