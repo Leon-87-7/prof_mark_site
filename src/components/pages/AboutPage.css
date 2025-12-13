@@ -3,6 +3,14 @@
   justify-content: space-evenly;
 }
 
+.expertise {
+  margin-top: 2rem;
+}
+
+.Specializations {
+  display: flex;
+}
+
 .about-profile-image {
   margin-left: 2rem;
 }

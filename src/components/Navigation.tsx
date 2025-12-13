@@ -12,6 +12,7 @@ const Navigation = ({ currentPath: propPath }: NavigationProps) => {
 
   const navItems = [
     { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
     { label: 'Services', path: '/services' },
     { label: 'Innovation', path: '/innovation' },
     { label: 'Guides', path: '/guides' },
