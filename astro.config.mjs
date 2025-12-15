@@ -51,6 +51,11 @@ export default defineConfig({
         name: 'Montserrat',
         cssVariable: '--font-montserrat',
       },
+      {
+        provider: fontProviders.google(),
+        name: 'Lato',
+        cssVariable: '--font-lato',
+      },
     ],
   },
 });

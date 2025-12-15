@@ -146,6 +146,8 @@
   border: 1px solid var(--border);
   transition: all 0.3s ease;
   cursor: pointer;
+  position: relative;
+  padding-bottom: 1.5rem;
 }
 
 .card:hover {
@@ -192,7 +194,8 @@
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.4px;
-  position: relative;
+  position: absolute;
+  bottom: 1.5rem;
   display: inline-block;
   border: none;
   background: transparent;
