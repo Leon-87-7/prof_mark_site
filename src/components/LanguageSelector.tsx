@@ -22,7 +22,8 @@ interface LanguageSelectorProps {
 const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   variant = 'header',
 }) => {
-  const [selectedLanguage, setSelectedLanguage] = useState<Language>('en');
+  const [selectedLanguage, setSelectedLanguage] =
+    useState<Language>('en');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -69,7 +70,13 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
       >
         <span className={`fi fi-${selectedLang?.flag}`}></span>
         <span className="language-name">{selectedLang?.name}</span>
-        <svg width="14" height="14" viewBox="0 0 256 256" fill="currentColor" className={`caret ${isDropdownOpen ? 'open' : ''}`}>
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 256 256"
+          fill="currentColor"
+          className={`caret ${isDropdownOpen ? 'open' : ''}`}
+        >
           <path d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z"></path>
         </svg>
       </button>

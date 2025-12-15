@@ -1,5 +1,5 @@
 ---
-import { ClientRouter, fade, slide } from 'astro:transitions';
+import { ClientRouter, slide } from 'astro:transitions';
 import { Font } from 'astro:assets';
 import Header from '@/components/Header.astro';
 import Navigation from '@/components/Navigation';
@@ -60,25 +60,18 @@ const ogImageURL = new URL(image, Astro.site).href;
 
     <title>{title}</title>
 
-    <!-- Preload critical resources -->
-    {Astro.url.pathname === '/' && (
-      <link
-        rel="preload"
-        as="image"
-        href="/images/hero_image_mark_02.jpg"
-        fetchpriority="high"
-      />
-    )}
+    <!-- Preload critical resources - disabled to avoid 404, Astro handles image optimization -->
+    <!-- Hero image is eagerly loaded with fetchpriority="high" in index.astro -->
 
     <!-- Fonts - optimized loading with preconnect and proper link tags -->
      <Font cssVariable='--font-montserrat' preload />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap"
       media="print"
-      onload="this.media='all'"
     />
     <noscript>
       <link
