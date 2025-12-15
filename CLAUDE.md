@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a React + TypeScript single-page application for Professor Mark's website, built with Vite (using rolldown-vite experimental bundler). The site features a multi-page navigation system implemented as a client-side router without external routing libraries.
+This is Professor Mark's website built with **Astro 5** using Static Site Generation (SSG). The site uses Astro components for pages and layout, with React islands for interactive components (Navigation, LanguageSelector, BookingButton). Images are optimized using Sharp.
 
 ## Development Commands
 
@@ -12,96 +12,143 @@ This is a React + TypeScript single-page application for Professor Mark's websit
 # Start development server with HMR
 npm run dev
 
-# Build for production (runs TypeScript compiler check first, then Vite build)
+# Build for production (runs Astro type check first, then builds)
 npm run build
-
-# Lint all TypeScript/TSX files
-npm run lint
 
 # Preview production build locally
 npm run preview
+
+# Run Astro CLI
+npm run astro
 ```
 
 ## Architecture
 
-### Navigation System
+### Framework: Astro (Static Site Generation)
 
-- **Custom client-side routing**: No react-router or external routing library used
-- Navigation state managed in [App.tsx](src/App.tsx) via `currentPage` state
-- Page types defined in [src/types/index.ts](src/types/index.ts) as `PageType` union type
-- Page switching handled by `handlePageChange` function with smooth scroll to top
-- Exhaustiveness checking ensures all page types are handled in the switch statement
+- **Build mode**: Static (`output: 'static'`)
+- **Integrations**: React (for interactive islands), Sitemap
+- **Image optimization**: Sharp service for automatic image processing
+- **Site URL**: https://markeidelman.com
+
+### Page Structure
+
+Multi-page static site with Astro file-based routing:
+- **Pages**: Located in `src/pages/` (`.astro` files)
+  - [index.astro](src/pages/index.astro) - Home page
+  - [about.astro](src/pages/about.astro) - About page
+  - [clinics.astro](src/pages/clinics.astro) - Clinics page
+  - [services.astro](src/pages/services.astro) - Services page
+  - [innovation.astro](src/pages/innovation.astro) - Innovation page
+  - [guides.astro](src/pages/guides.astro) - Guides page
+  - [study.astro](src/pages/study.astro) - Study page
+- **Layout**: [BaseLayout.astro](src/layouts/BaseLayout.astro) wraps all pages
+- **Components**: Mix of Astro components and React islands
 
 ### Component Structure
 
-- **Layout components**: Header, Navigation, Footer (reused across all pages)
-- **Page components**: Located in `src/components/pages/`
-  - HomePage (home page)
-  - ClinicsPage
-  - ServicesPage
-  - InnovationPage
-  - GuidesPage
-  - StudyPage
-- **Modal components**: BookingModal (global overlay for booking functionality)
-- **Co-located styles**: Each component has its own CSS file in the same directory
+- **Astro components** (static, server-rendered):
+  - [Header.astro](src/components/Header.astro) - Site header
+  - [Footer.astro](src/components/Footer.astro) - Site footer
+  - [OptimizedImage.astro](src/components/OptimizedImage.astro) - Image optimization wrapper
+  - [ResponsivePicture.astro](src/components/ResponsivePicture.astro) - Responsive images
 
-### State Management
+- **React islands** (interactive, hydrated on client):
+  - Navigation component (client-side interactivity)
+  - LanguageSelector component
+  - BookingButton component
 
-- No external state management library (Redux, Zustand, etc.)
-- Local component state using React hooks (useState)
-- Props drilling for callbacks (onBookingClick, onPageChange)
-- Centralized callback interfaces in [src/types/index.ts](src/types/index.ts)
+### React Islands Pattern
 
-### Type System
-
-- Strict TypeScript configuration enabled in [tsconfig.app.json](tsconfig.app.json)
-- All types centralized in `src/types/index.ts`
-- Explicit return types used for functions (e.g., `ReactElement`, `void`)
-- Union types for page navigation (`PageType`)
+- React components are rendered as "islands of interactivity"
+- Use `client:load`, `client:idle`, or `client:visible` directives for hydration strategy
+- Keep islands small and focused for optimal performance
+- Most content should be static Astro components
 
 ## Build Configuration
 
-### Vite Setup
+### Astro Config ([astro.config.mjs](astro.config.mjs))
 
-- Using experimental `rolldown-vite@7.1.14` (Rolldown bundler, Rust-based Rollup alternative)
-- Overrides standard Vite package via npm overrides
-- React plugin with Babel for Fast Refresh
-- No custom build optimizations or path aliases configured
+**Build optimizations:**
+- `inlineStylesheets: 'auto'` - Inlines critical CSS automatically
+- CSS minification: LightningCSS (faster than cssnano)
+- JS minification: Terser with optimizations:
+  - `drop_console: true` - Removes console.logs in production
+  - `drop_debugger: true` - Removes debugger statements
+- Manual chunk splitting: React/React-DOM separated into `react-vendor` chunk
+
+**Image optimization:**
+- Service: Sharp (high-performance image processing)
+- Supports remote patterns for external images (e.g., Google Maps)
+
+### Vite Integration
+
+Astro uses Vite under the hood. Custom Vite config in `astro.config.mjs`:
+- Terser for better JS minification (vs esbuild default)
+- LightningCSS for faster CSS processing
+- Manual chunks for better code splitting
 
 ### TypeScript
 
-- Project references pattern: separate configs for app code (`tsconfig.app.json`) and build tools (`tsconfig.node.json`)
-- Bundler module resolution
-- Strict mode with additional linting options (noUnusedLocals, noUnusedParameters)
-- `erasableSyntaxOnly` and `noUncheckedSideEffectImports` enabled
+- Strict TypeScript enabled
+- Astro provides built-in TypeScript support
+- Type checking via `astro check` command
 
-### ESLint
+## Performance Optimization Strategy
 
-- Flat config format ([eslint.config.js](eslint.config.js))
-- Recommended configs for JavaScript, TypeScript, React Hooks
-- React Refresh plugin configured for Vite HMR
-- Targets browser environment globals
+### Current Performance Issues (Mobile: 66/100)
+
+Based on Lighthouse audit:
+1. **Text compression disabled** - Est savings: 2,596 KiB
+2. **JS not minified enough** - Est savings: 1,892 KiB
+3. **Unused JavaScript** - Est savings: 586 KiB
+4. **Slow LCP** - 4.6s (target: <2.5s)
+5. **High TBT** - 310ms (target: <200ms)
+
+### Optimization Checklist
+
+- [ ] Enable compression middleware (gzip/brotli) on server
+- [ ] Verify Terser minification is working in production build
+- [ ] Reduce React island hydration (use `client:idle` or `client:visible`)
+- [ ] Optimize LCP element (likely hero image)
+- [ ] Convert images to WebP/AVIF
+- [ ] Implement lazy loading for offscreen images
+- [ ] Remove duplicate modules in bundles
 
 ## Key Patterns
 
 ### Adding a New Page
 
-1. Define page type in `PageType` union in [src/types/index.ts](src/types/index.ts)
-2. Create component in `src/components/pages/` with corresponding CSS file
-3. Add case to switch statement in [App.tsx](src/App.tsx) `renderPage()` function
-4. Update Navigation component to include new page link
-5. TypeScript exhaustiveness check will ensure completeness
+1. Create `.astro` file in `src/pages/` (e.g., `new-page.astro`)
+2. Import and use `BaseLayout` for consistent structure
+3. Add navigation link in Navigation component
+4. Page automatically gets route based on filename (`/new-page`)
 
-### Callback Props Pattern
+### Adding a React Island
 
-- Use defined interfaces from `src/types/index.ts`:
-  - `BookingCallbacks` for components that can trigger booking modal
-  - `PageChangeCallbacks` for components that can navigate
-  - `PageWithBookingAndNavigation` for components needing both
+1. Create React component in `src/components/`
+2. Import in `.astro` file with hydration directive:
+   ```astro
+   import MyComponent from '../components/MyComponent';
+   ---
+   <MyComponent client:load />
+   ```
+3. Choose hydration strategy:
+   - `client:load` - Hydrate immediately on page load
+   - `client:idle` - Hydrate when browser is idle
+   - `client:visible` - Hydrate when component is visible
+
+### Image Optimization
+
+Use Astro's built-in `<Image>` component or custom wrappers:
+- [OptimizedImage.astro](src/components/OptimizedImage.astro) for single images
+- [ResponsivePicture.astro](src/components/ResponsivePicture.astro) for responsive images
+- Automatically generates WebP/AVIF formats
+- Lazy loading built-in
 
 ### Styling Approach
 
-- CSS modules not used (standard CSS imports)
-- Component-specific CSS files co-located with components
-- Global styles in `src/index.css` and `src/styles/App.css`
-- Class names should be scoped manually to avoid conflicts
+- Astro supports scoped styles by default (`<style>` in `.astro` files)
+- Global styles can be imported in layout
+- CSS automatically extracted and minified
+- Supports Sass, Less, Stylus, PostCSS if needed

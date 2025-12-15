@@ -308,6 +308,7 @@
 .column ul {
   margin-left: 16px;
   line-height: 1.8;
+  max-width: 60ch;
 }
 
 .column ul li {

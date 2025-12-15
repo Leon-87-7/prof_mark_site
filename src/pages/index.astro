@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import heroImage from '@/images/hero_image_mark_02.jpg';
 ---
 
 <BaseLayout
@@ -8,6 +10,16 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 >
   <div class="page active">
     <div class="hero">
+      <Image
+        src={heroImage}
+        alt="Prof. Mark Eidelman - Pediatric Orthopedic Specialist"
+        class="hero-background"
+        loading="eager"
+        fetchpriority="high"
+        quality={90}
+        widths={[640, 768, 1024, 1280, 1536, 1920]}
+        sizes="100vw"
+      />
       <div class="hero-wrapper">
         <div class="hero-content">
           <h1>Leading the Future of Pediatric Orthopedics</h1>
@@ -62,13 +74,13 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         <div class="column">
           <h4>Education & Training</h4>
           <ul>
-            <li>MD - Hebrew University</li>
-            <li>Residency - Orthopedic Surgery</li>
+            <li>MD - Samarkand School of Medicine (former USSR) - Graduated with Honors (1985).</li>
+            <li>Residency - Orthopedics Residency at Rambam Medical Center, Israel.</li>
             <li>
-              Fellowship - International Center for Limb Lengthening
+              Fellowship - Pediatric Orthopedics Fellowship at Sinai Hospital, Baltimore, Maryland, USA (2002).
             </li>
             <li>
-              Board Certified - Israeli Board of Orthopedic Surgery
+              Board Certified - Israeli Orthopedic Association and European Pediatric Orthopedics Society (EPOS).
             </li>
           </ul>
         </div>
@@ -120,16 +132,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
 <style>
   .hero {
-    background-image:
-      linear-gradient(to right,
-        rgba(0, 0, 0, 0.9) 0%,
-        rgba(0, 0, 0, 0.6) 30%,
-        rgba(0, 0, 0, 0.4) 50%,
-        rgba(0, 0, 0, 0.2) 70%,
-        transparent 100%),
-      url(/images/hero/hero_image_mark_02.jpg);
-    background-size: cover;
-    background-position: center;
     padding: 40px 0 40px 100px;
     width: 100vw;
     position: relative;
@@ -139,6 +141,35 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     margin-right: -50vw;
     margin-top: 0;
     margin-bottom: 0;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.6) 30%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.2) 70%,
+      transparent 100%);
+    z-index: 1;
+    pointer-events: none;
   }
 
   .hero-wrapper {
@@ -149,6 +180,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     grid-template-columns: 1fr 1fr;
     gap: 48px;
     align-items: center;
+    position: relative;
+    z-index: 2;
   }
 
   .hero-content h1 {
@@ -282,14 +315,15 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   @media (max-width: 768px) {
     .hero {
       padding: 30px 20px;
-      background-image:
-        linear-gradient(to bottom,
-          rgba(0, 0, 0, 0.45) 0%,
-          rgba(0, 0, 0, 0.35) 50%,
-          rgba(0, 0, 0, 0.25) 100%),
-        url(/images/hero/hero_image_mark_02.jpg);
       min-height: 82vh;
       height: auto;
+    }
+
+    .hero::before {
+      background: linear-gradient(to bottom,
+        rgba(0, 0, 0, 0.45) 0%,
+        rgba(0, 0, 0, 0.35) 50%,
+        rgba(0, 0, 0, 0.25) 100%);
     }
 
     .hero-wrapper {

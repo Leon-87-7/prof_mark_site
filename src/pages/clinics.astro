@@ -47,7 +47,7 @@ import Timer from 'phosphor-astro/Timer.astro';
               height="300"
               style="border: 0;"
               allowfullscreen
-              loading="eager"
+              loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
@@ -67,10 +67,10 @@ import Timer from 'phosphor-astro/Timer.astro';
             </ul>
           </div>
           <BookingButton
-            client:load
+            client:visible
             text="Schedule Haifa Consultation"
             phone="+97248732227"
-            className="btn btn-primary btn-block"
+            className="btn-primary btn-block"
             tooltipClass= "tooltip-above"
           />
         </div>
@@ -109,7 +109,7 @@ import Timer from 'phosphor-astro/Timer.astro';
               height="300"
               style="border: 0;"
               allowfullscreen
-              loading="eager"
+              loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
@@ -129,7 +129,7 @@ import Timer from 'phosphor-astro/Timer.astro';
             </ul>
           </div>
           <BookingButton
-            client:load
+            client:visible
             text="Schedule Kiryat Motzkin Consultation"
             phone="+97248732227"
             className="btn btn-primary btn-block"
@@ -148,14 +148,14 @@ import Timer from 'phosphor-astro/Timer.astro';
       </p>
       <div class="service-detail">
         <h3>Perfect for:</h3>
-        <ul>
+        <ul style="margin-bottom: 1rem;">
           <li>International patients seeking initial assessment</li>
           <li>Pre-surgery consultations before visiting Israel</li>
           <li>Post-operative follow-ups from home</li>
           <li>Second opinion consultations</li>
         </ul>
         <BookingButton
-          client:load
+          client:visible
           text="Schedule Virtual Consultation"
           phone="+97248732227"
           className="btn btn-secondary"
