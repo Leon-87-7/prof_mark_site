@@ -232,9 +232,26 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 }
 
 /* GuidesPage specific overrides */
+.cards-grid .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-grid .card .card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-bottom: 1.5rem;
+}
+
+.cards-grid .card .card-content > p {
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
 .cards-grid .card .btn {
   width: 100%;
-  margin-top: 10px;
+  margin-top: auto;
   padding: 8px;
 }
 

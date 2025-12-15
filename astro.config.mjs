@@ -35,13 +35,7 @@ export default defineConfig({
           drop_debugger: true,
         },
       },
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            'react-vendor': ['react', 'react-dom'], // Separate React bundle
-          },
-        },
-      },
+      rollupOptions: {},
     },
   },
   experimental: {
