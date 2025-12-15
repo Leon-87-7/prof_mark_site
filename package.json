@@ -12,13 +12,15 @@
     "@astrojs/react": "^4.4.2",
     "@astrojs/sitemap": "^3.6.0",
     "@phosphor-icons/react": "^2.1.10",
-    "@rolldown/binding-win32-x64-msvc": "^1.0.0-beta.54",
     "astro": "^5.16.5",
     "phosphor-astro": "^2.1.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "sharp": "^0.34.5",
     "tslib": "^2.8.1"
+  },
+  "optionalDependencies": {
+    "@rolldown/binding-win32-x64-msvc": "^1.0.0-beta.54"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
