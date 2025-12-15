@@ -5,7 +5,7 @@
 
 [![Live Site](https://img.shields.io/badge/Live-markeidelman.com-blue)](https://markeidelman.com)
 [![Built with Astro](https://img.shields.io/badge/Built%20with-Astro%205-FF5D01)](https://astro.build)
-[![Performance](https://img.shields.io/badge/Lighthouse-66%2F100-yellow)](https://developers.google.com/speed/pagespeed/insights/)
+[![Performance](https://img.shields.io/badge/Lighthouse-78%2F100-yellowgreen)](https://developers.google.com/speed/pagespeed/insights/)
 
 ---
 
@@ -148,29 +148,44 @@ prof_mark_site/
 
 ## 🎯 Performance Optimization
 
-### Current Status
+### Production Lighthouse Scores (markeidelman.com)
 
-- **Mobile Lighthouse Score:** 77/100
-- **Desktop Lighthouse Score:** 98/100
+#### Mobile
+- **Performance: 78/100** 📱
+- **Accessibility: 98/100** ✅
+- **Best Practices: 100/100** 💯
+- **SEO: 100/100** 💯
+
+#### Desktop
+- **Performance: 97/100** 🚀
+- **Accessibility: 94/100** ✅
+- **Best Practices: 100/100** 💯
+- **SEO: 100/100** 💯
 
 ### Implemented Optimizations
 
-- ✅ Terser JS minification (removes console.logs, debuggers)
-- ✅ LightningCSS for faster CSS processing
-- ✅ Manual chunk splitting (React vendor chunks)
-- ✅ WebP image conversion for hero images
-- ✅ Automatic CSS inlining for critical styles
-- ✅ React island hydration strategies (`client:load`, `client:idle`)
+- ✅ **Astro Static Site Generation** - Pre-rendered HTML for instant page loads
+- ✅ **React Islands with `client:idle`** - Deferred hydration for Navigation & LanguageSelector
+- ✅ **Terser JS minification** - Removes console.logs, debuggers, and dead code
+- ✅ **LightningCSS** - Fast CSS minification and processing
+- ✅ **Manual chunk splitting** - React vendor chunks separated for better caching
+- ✅ **WebP image conversion** - Hero images optimized with Sharp
+- ✅ **Automatic CSS inlining** - Critical styles inlined for faster FCP
+- ✅ **Font preconnect** - Early connection to Google Fonts CDN
+- ✅ **Brotli compression** - Automatic compression via Vercel CDN
+- ✅ **Eager image loading** - Hero image loaded with `fetchpriority="high"`
 
-### Identified Improvements (In Progress)
+### Performance Journey
 
-- ⏳ Enable compression middleware (gzip/brotli) - Est. savings: 2,596 KiB
-- ⏳ Further JS minification - Est. savings: 1,892 KiB
-- ⏳ Remove unused JavaScript - Est. savings: 586 KiB
-- ⏳ Optimize LCP (currently 4.6s, target: <2.5s)
-- ⏳ Reduce Total Blocking Time (currently 310ms, target: <200ms)
-- ⏳ Lazy loading for offscreen images
-- ⏳ Convert remaining images to WebP/AVIF
+**Initial Score (Nov 2025):** Mobile 66/100
+**After React → Astro Migration (Dec 12):** Mobile 77/100
+**After Optimization Push (Dec 15):** Mobile 78/100, Desktop 97/100
+
+**Key Achievements:**
+- 12-point mobile performance improvement
+- Desktop score near-perfect at 97/100
+- Perfect Best Practices & SEO scores on both mobile and desktop
+- Efficient bundle size through islands architecture
 
 ---
 
