@@ -64,15 +64,15 @@
   margin-top: 20px;
 }
 
+/* Tooltip styles */
+
+/*=========== Disabled Button Tooltip ============ */
+/*----------- Above Button ----------*/
 .tooltip-above,
 .tooltip-below {
   cursor: not-allowed;
 }
 
-/* Tooltip styles */
-
-/*=========== Disabled Button Tooltip ============ */
-/*----------- Above Button ----------*/
 .tooltip-above[data-tooltip]:disabled::before {
   content: attr(data-tooltip);
   position: absolute;
@@ -181,7 +181,7 @@
 .card-content p {
   font-size: 0.75rem;
   color: var(--text-light);
-  margin-bottom: 12px;
+  margin-bottom: 1rem;
   line-height: 1.6;
 }
 
@@ -194,11 +194,11 @@
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.4px;
-  position: absolute;
-  bottom: 1.5rem;
   display: inline-block;
   border: none;
   background: transparent;
+  position: absolute;
+  bottom: 1.5rem;
 }
 
 .card-link::after {

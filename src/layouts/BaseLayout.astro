@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter, fade, slide } from 'astro:transitions';
 import { Font } from 'astro:assets';
 import Header from '@/components/Header.astro';
 import Navigation from '@/components/Navigation';
@@ -25,7 +25,7 @@ const ogImageURL = new URL(image, Astro.site).href;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" transition:animate="none">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -88,7 +88,7 @@ const ogImageURL = new URL(image, Astro.site).href;
     </noscript>
 
     <!-- View Transitions API for SPA-like navigation -->
-    <ViewTransitions />
+    <ClientRouter />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json" is:inline>
@@ -144,7 +144,7 @@ const ogImageURL = new URL(image, Astro.site).href;
   <body>
     <Header />
     <Navigation client:idle currentPath={Astro.url.pathname} />
-    <main class="container" id="main-content" role="main">
+    <main class="container" id="main-content" role="main" transition:animate={slide({ duration: "0.8s" })}>
       <slot />
     </main>
     <Footer />

@@ -30,7 +30,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         📋 Post-Surgery Guide
       </button>
       <button
-        class="btn btn-tertiary black-text"
+        class="btn pt-ex-btn"
         onclick="alert('Physical Therapy exercises with detailed instructions and video guides')"
       >
         📋 PT Exercises
@@ -162,7 +162,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
         tracking logs, and resources in one convenient package.
       </p>
       <button
-        class="btn btn-primary"
+        class="btn btn-primary btn-cta"
         onclick="alert('Downloading: Complete-Patient-Guides-Bundle.zip (25MB)')"
       >
         ⬇️ Download Complete Bundle (ZIP)
@@ -238,16 +238,44 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   padding: 8px;
 }
 
-.btn.btn-tertiary.black-text {
+.btn.pt-ex-btn {
   padding: 9.5px 26px;
   background: transparent;
   color: var(--primary);
   border: 2px solid var(--primary);
 }
 
-.btn.btn-tertiary.black-text:hover {
+.btn.pt-ex-btn:hover {
   background: var(--primary);
   color: white;
   transform: translateY(-1px);
+}
+
+.btn-cta {
+  background: var(--accentB);
+    color: var(--primary);
+    border: 2px solid var(--accent);
+}
+
+.btn-cta:hover {
+  background: var(--secondary);
+  color: var(--white);
+  border-color: var(--secondary);
+  transform:  translateX(10px);
+  transition-duration: 1s;
+  box-shadow: 0 4px 12px rgba(120, 113, 210, 0.4);
+}
+
+
+@media (max-width: 768px) {
+  .guides-buttons button{
+  width: 80%;
+}
+  .btn.pt-ex-btn,
+  .btn.btn-cta {
+    background: var(--accentB);
+    color: var(--primary);
+    border: 2px solid var(--accent);
+  }
 }
 </style>
