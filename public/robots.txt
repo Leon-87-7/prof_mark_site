@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://markeidelman.com/sitemap.xml

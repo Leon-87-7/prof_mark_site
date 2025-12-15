@@ -1,0 +1,178 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Surgical Innovation - Prof. Mark Eidelman"
+  description="Pioneering research, advanced surgical techniques, and global mentorship advancing the field of orthopedic surgery."
+>
+  <div class="page active colored-top-border">
+    <div class="section">
+      <h2 class="section-title">Surgical Innovation</h2>
+      <p class="section-subtitle">
+        Pioneering research, advanced surgical techniques, and
+        global mentorship advancing the field of orthopedic surgery.
+      </p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-header">🔬</div>
+        <div class="card-content">
+          <h3>Pioneering Techniques</h3>
+          <p>
+            Developed innovative surgical approaches that improve
+            patient outcomes and reduce complication rates.
+          </p>
+          <button
+            class="card-link"
+            onclick="alert('Innovation: Advanced surgical techniques with 99%+ success rate')"
+          >
+            View Details →
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">📚</div>
+        <div class="card-content">
+          <h3>Research & Publications</h3>
+          <p>
+            40+ peer-reviewed articles published in leading medical
+            journals worldwide.
+          </p>
+          <button
+            class="card-link"
+            onclick="alert('40+ publications in leading journals including Journal of Orthopedic Surgery, Limb Lengthening & Reconstruction')"
+          >
+            View Publications →
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">🎓</div>
+        <div class="card-content">
+          <h3>Mentorship Program</h3>
+          <p>
+            International fellowship training and surgical technique
+            workshops for next-generation surgeons.
+          </p>
+          <button
+            class="card-link"
+            onclick="alert('Mentorship: 50+ surgeons trained, annual fellowship program, surgical workshops 2x yearly')"
+          >
+            Apply →
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">🌍</div>
+        <div class="card-content">
+          <h3>Global Collaborations</h3>
+          <p>
+            Research partnerships and collaborative cases with
+            leading orthopedic centers worldwide.
+          </p>
+          <button
+            class="card-link"
+            onclick="alert('Collaborations with top centers in Canada, USA, Europe, Egypt, and Asia')"
+          >
+            View Network →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-detail">
+      <h3>🔬 Key Innovations</h3>
+      <div class="two-column">
+        <div class="column">
+          <h4>Advanced Surgical Techniques</h4>
+          <ul>
+            <li>Telescopic free-gliding screw</li>
+            <li>Enhanced bone healing protocols</li>
+            <li>Minimally invasive approaches</li>
+            <li>Computer-assisted planning</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Research Focus Areas</h4>
+          <ul>
+            <li>Osteogenesis optimization</li>
+            <li>Complication prevention</li>
+            <li>Heparan sulfate effects</li>
+            <li>Patient outcomes analysis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section recent-publications">
+      <h2 class="section-title">Recent Publications</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-content">
+            <h3>Advanced Techniques in Limb Lengthening (2023)</h3>
+            <p>
+              <em>Journal of Orthopedic Surgery</em>
+            </p>
+            <p>
+              Key findings on improving patient outcomes through
+              innovative surgical approaches.
+            </p>
+            <button class="card-link" onclick="alert('Article link coming soon')">Read Article →</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h3>
+              Complication Prevention in Deformity Correction (2023)
+            </h3>
+            <p>
+              <em>Limb Lengthening & Reconstruction</em>
+            </p>
+            <p>
+              Analysis of 500+ cases showing best practices for
+              minimal complications.
+            </p>
+            <button class="card-link" onclick="alert('Article link coming soon')">Read Article →</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h3>Mentorship in Surgical Excellence (2022)</h3>
+            <p>
+              <em>Medical Education Review</em>
+            </p>
+            <p>
+              Framework for training next-generation surgeons in
+              orthopedic specialties.
+            </p>
+            <button class="card-link" onclick="alert('Article link coming soon')">Read Article →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+.recent-publications {
+  max-width: 1200px;
+  margin: 0 auto 40px auto;
+  padding: 0 20px;
+}
+
+/* InnovationPage specific overrides */
+.cards-grid .card-content h3 {
+  font-size: 0.75rem;
+}
+
+.cards-grid .card-content p {
+  font-size: 0.65rem;
+  color: var(--text-light);
+  margin: 8px 0;
+}
+</style>

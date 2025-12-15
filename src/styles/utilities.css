@@ -21,6 +21,7 @@
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 0.4px;
+  text-align: center;
 }
 
 .btn-primary {
@@ -57,15 +58,21 @@
   transform: translateY(-1px);
 }
 
-.tooltip-above,
-.tooltip-below {
-  cursor: not-allowed;
+.btn-block {
+  width: 100%;
+  display: block;
+  margin-top: 20px;
 }
 
 /* Tooltip styles */
 
 /*=========== Disabled Button Tooltip ============ */
 /*----------- Above Button ----------*/
+.tooltip-above,
+.tooltip-below {
+  cursor: not-allowed;
+}
+
 .tooltip-above[data-tooltip]:disabled::before {
   content: attr(data-tooltip);
   position: absolute;
@@ -139,6 +146,8 @@
   border: 1px solid var(--border);
   transition: all 0.3s ease;
   cursor: pointer;
+  position: relative;
+  padding-bottom: 1.5rem;
 }
 
 .card:hover {
@@ -172,7 +181,7 @@
 .card-content p {
   font-size: 0.75rem;
   color: var(--text-light);
-  margin-bottom: 12px;
+  margin-bottom: 1rem;
   line-height: 1.6;
 }
 
@@ -185,8 +194,11 @@
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.4px;
-  position: relative;
   display: inline-block;
+  border: none;
+  background: transparent;
+  position: absolute;
+  bottom: 1.5rem;
 }
 
 .card-link::after {
@@ -234,6 +246,20 @@
   /* margin-bottom: 32px; */
   line-height: 1.7;
   max-width: 70ch;
+}
+
+.section p {
+  font-size: 0.95rem;
+  color: var(--text-sub-dark);
+  line-height: 1.8;
+  max-width: 70ch;
+  margin-bottom: 16px;
+}
+
+.section ul {
+  max-width: 50ch;
+  color: var(--text-sub-dark);
+  padding-left: 1.2rem;
 }
 
 /* ============ SERVICE DETAIL (Used across multiple pages) ============ */
@@ -287,6 +313,7 @@
 .column ul {
   margin-left: 16px;
   line-height: 1.8;
+  max-width: 55ch;
 }
 
 .column ul li {

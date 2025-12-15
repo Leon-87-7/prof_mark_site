@@ -1,0 +1,183 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ResponsivePicture from '@/components/ResponsivePicture.astro';
+import aboutImage from '@/images/about_image_mark.jpg';
+---
+<BaseLayout
+  title="Prof. Mark Eidelman - Pediatric Orthopedic Specialist"
+  description="Leading the Future of Pediatric Orthopedics - Over 25 years of specialized expertise in limb lengthening and deformity correction"
+  image={aboutImage.src}
+>
+  
+  <main class="page-active">
+  <div class="container about-page">
+    <header class="section about-header">
+      <div > 
+      <h1 class="section-title">Prof. Mark Eidelman, MD</h1>
+      <p>
+        Prof. Mark Eidelman is a world-renowned pediatric orthopedic surgeon with over 40 years of experience, specializing in complex limb deformity corrections and reconstruction. He currently serves as the Director of the Pediatric Orthopedics Unit at the Rambam Health Care Campus in Haifa, Israel, and is a Clinical Assistant Professor at the Technion Faculty of Medicine.
+      </p>
+      <section class="expertise">
+        <h2>Pioneering Expertise</h2>
+        <p>
+          Prof. Eidelman is internationally recognized for his groundbreaking work in the field of pediatric orthopedics. A significant career highlight includes being the first physician to introduce the revolutionary <strong>Taylor Spatial Frame</strong> technique in Israel in 2003, dramatically advancing the treatment of complex limb lengthening and deformity correction for children.
+        </p>
+        </section>
+    </div>
+      <ResponsivePicture
+        src={aboutImage}
+        alt="Prof. Mark Eidelman"
+        widths={[100,225,350]}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+        formats={['avif', 'webp']}
+        loading="eager"
+        quality={85}
+        class="about-profile-image"
+      />
+    </header>
+    <div class="content-sections">
+      
+        <section class="section">
+        <h3 class="section-title">Key Areas of Specialization:</h3>
+        <div class="Specializations">
+          <ul>
+            <li><strong>Limb-Lengthening & Deformity Correction:</strong><br> 
+              <span class="text">Utilizing advanced technologies like the Taylor Spatial Frame.</span></li>
+              <li><strong>Clubfoot Correction:</strong><br> 
+                <span class="text">Expertise in modern, non-operative (Ponseti method) and surgical treatments.</span></li>
+          </ul>
+          <ul>
+            <li><strong>Pelvic Osteotomies:</strong><br> 
+                  <span class="text">Corrective surgeries for hip dysplasia and other pelvic deformities.</span></li>
+            <li><strong>Pediatric Trauma:</strong><br> 
+                    <span class="text">Advanced treatment for fractures, dislocations, and orthopedic injuries in children.</span></li>
+          </ul>
+                </div>
+      </section>
+      </div>
+<hr>
+    <article class="academic-contributions">
+      <section class="section academia-research">
+        <h2 class="section-title">Academic Contributions & Global Impact</h2>
+        <p>
+          Dedicated to both clinical care and academic advancement, Prof. Eidelman has authored over 100 scientific publications in peer-reviewed journals, contributing significantly to the global understanding and treatment protocols for pediatric orthopedic conditions.
+        </p>
+        <p>
+          His commitment to patient care extends globally, exemplified by his participation in international medical delegations, where he performs marathon surgeries to treat children in areas with limited access to specialized medical expertise.
+        </p>
+      </section>
+
+      <section class="section education-affiliations">
+        <h2 class="section-title">Education and Affiliations</h2>
+        <div class="education-details">
+          <h3>Education:</h3>
+          <ul>
+            <li><strong>Medical School:</strong> Samarkand School of Medicine (former USSR) - Graduated with Honors (1985).</li>
+            <li><strong>Residency:</strong> Orthopedics Residency at Rambam Medical Center, Israel.</li>
+            <li><strong>Fellowship:</strong> Pediatric Orthopedics Fellowship at Sinai Hospital, Baltimore, Maryland, USA (2002).</li>
+          </ul>
+        </div>
+        <br><br>
+        <h3>Professional Memberships:</h3>
+        <ul>
+          <li>Israeli Orthopedic Association</li>
+          <li>European Pediatric Orthopedics Society (EPOS)</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+  
+</main>
+</BaseLayout>
+
+<style>
+.section {
+  background: var(--white);
+  padding: 24px 32px 16px 72px;
+  border-radius: 0;
+  /* margin: 0 0 16px 0; */
+  box-shadow: none;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 20px;
+  padding-bottom: 0;
+  border-bottom: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-light);
+  /* margin-bottom: 32px; */
+  line-height: 1.7;
+  max-width: 70ch;
+}
+
+.section p {
+  font-size: 0.95rem;
+  color: var(--text-sub-dark);
+  line-height: 1.8;
+  max-width: 70ch;
+  margin-bottom: 16px;
+}
+
+.section ul {
+  max-width: 50ch;
+  color: var(--text-sub-dark);
+  padding-left: 1.2rem;
+}
+
+.about-header {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.expertise {
+  margin-top: 2rem;
+}
+
+.Specializations {
+  display: flex;
+}
+
+.about-profile-image {
+  margin-left: 2rem;
+}
+
+@media (max-width: 768px) {
+  .section {
+    background: var(--white);
+    padding: 24px 36px;
+    /* border-radius: 0; */
+    /* margin: 0 0 16px 0; */
+    box-shadow: none;
+  }
+
+  .about-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-profile-image {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  .Specializations {
+    flex-direction: column;
+  }
+
+  .section li {
+    margin-bottom: 0.5rem;
+  }
+
+}
+</style>
+
+<!-- TODO: Add responsive design for mobile devices
+ TODO: reformat the page -->

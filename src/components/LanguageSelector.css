@@ -1,0 +1,172 @@
+/* ============ LANGUAGE SELECTOR ============ */
+
+/* Custom flag icons (replacing flag-icons library to reduce bundle size) */
+.fi {
+  display: inline-block;
+  width: 20px;
+  height: 15px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 3px;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* USA Flag - Simple stripes with blue canton */
+.fi-us {
+  background-image: url("/lang_svg/us.svg");
+}
+
+/* Israel Flag - Blue stripes with Star of David */
+.fi-il {
+  background-image: url("/lang_svg/il.svg");
+}
+
+
+/* Russia Flag - Simple tricolor */
+.fi-ru {
+  background-image: url("/lang_svg/ru.svg");
+}
+
+.language-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.language-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary);
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-weight: 500;
+  font-family: 'Lato', sans-serif;
+  transition: all 0.2s ease;
+  min-width: 100px;
+}
+
+.language-button:hover {
+  border-color: var(--secondary);
+  background: var(--dark);
+}
+
+
+.language-name {
+  flex: 1;
+  text-align: left;
+}
+
+.language-button .caret {
+  transition: transform 0.2s ease;
+  color: var(--secondary);
+}
+
+.language-button .caret.open {
+  transform: rotate(180deg);
+}
+
+.language-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--dark);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  background: var(--dark);
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.75rem;
+  color: var(--light);
+  font-weight: 500;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.language-option:hover {
+  background: var(--primary);
+  color: var(--secondary);
+}
+
+.language-option.active {
+  background: #62c4e4;
+  color: var(--primary);
+}
+
+
+/* Header variant - visible on desktop */
+.language-selector--header {
+  display: inline-block;
+}
+
+/* Navbar variant - visible on mobile */
+.language-selector--navbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .language-selector--navbar {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+  }
+
+  .language-selector--navbar .language-button {
+    width: 100%;
+    background: var(--dark);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+
+  .language-selector--navbar .language-button:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+
+  .language-selector--navbar .language-dropdown-menu {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 20px;
+    right: 20px;
+    top: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .language-selector--navbar .language-option {
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+
+
+  .language-selector--navbar .language-option.active {
+    background: var(--accent);
+    color: var(--primary);
+  }
+
+  /* Hide header variant on mobile */
+  .language-selector--header {
+    display: none;
+  }
+}

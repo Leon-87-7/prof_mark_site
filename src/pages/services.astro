@@ -1,0 +1,185 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Our Services - Prof. Mark Eidelman"
+  description="Comprehensive orthopedic care specializing in limb lengthening, length discrepancy correction, and complex deformity reconstruction."
+>
+  <div class="page active colored-top-border">
+    <div class="section">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">
+        Comprehensive orthopedic care specializing in limb
+        lengthening, length discrepancy correction, and complex
+        deformity reconstruction.
+      </p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-header">📏</div>
+        <div class="card-content">
+          <h3>Cosmetic Limb Lengthening</h3>
+          <p>
+            Enhance height through bilateral leg lengthening
+            surgery. Achieve 5-8cm height gain with natural-looking
+            results.
+          </p>
+          <button
+            class="card-link"
+            onclick="alert('Service Detail: Cosmetic Limb Lengthening - 5-8cm height gain, 12-month total recovery, from $120,000 NIS')"
+          >
+            Learn More →
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">⚖️</div>
+        <div class="card-content">
+          <h3>Limb Length Discrepancy</h3>
+          <p>
+            Correct unequal limb lengths from injury, infection, or
+            illness. Restore balance and eliminate pain.
+          </p>
+          <button
+            class="card-link"
+            onclick="alert('Service Detail: Limb Length Discrepancy (LLD) - Personalized correction based on cause and severity')"
+          >
+            Learn More →
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">🔨</div>
+        <div class="card-content">
+          <h3>Deformity Reconstruction</h3>
+          <p>
+            Correct acquired deformities of bones and joints.
+            Complex cases using advanced surgical techniques.
+          </p>
+          <button
+            class="card-link"
+            onclick="alert('Service Detail: Deformity Reconstruction - Treatment for complex acquired deformities')"
+          >
+            Learn More →
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">👧</div>
+        <div class="card-content">
+          <h3>Pediatric Orthopedic</h3>
+          <p>
+            Specialized care for children's bone and joint
+            conditions. Gentle approach with excellent outcomes.
+          </p>
+          <button
+            class="card-link"
+            onclick="alert('Service Detail: Pediatric Orthopedics - Specialized treatment for children')"
+          >
+            Learn More →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="service-detail"
+      style="padding-left: 3rem"
+    >
+      <h3>Featured Service: Cosmetic Limb Lengthening</h3>
+      <div class="two-column">
+        <div class="column">
+          <h4>What is Cosmetic Limb Lengthening?</h4>
+          <p style="max-width: 55ch">
+            Cosmetic stature lengthening is a procedure that
+            increases height by lengthening both legs
+            simultaneously. It's the safest and most effective way
+            to achieve significant height gain.
+          </p>
+          <h4 style="margin-top: 5rem">Who is it for?</h4>
+          <ul>
+            <li>Adults seeking height increase</li>
+            <li>5-8cm lengthening achievable</li>
+            <li>Healthy bone structure required</li>
+            <li>Realistic expectations important</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h4>Expected Outcomes</h4>
+          <ul>
+            <li>Average 5-8cm height gain</li>
+            <li>Natural appearance</li>
+            <li>Improved confidence & proportions</li>
+            <li>Minimal scarring</li>
+            <li>Complication rate: &lt;2%</li>
+          </ul>
+          <h4>Timeline</h4>
+          <ul>
+            <li>Surgery: 1-2 hours per leg</li>
+            <li>Lengthening phase: 12 weeks</li>
+            <li>Consolidation: 3-6 months</li>
+            <li>Total recovery: ~12 months</li>
+          </ul>
+        </div>
+      </div>
+      <button
+        class="btn btn-primary"
+        onclick="alert('Booking consultation feature coming soon')"
+      >
+        Book Consultation
+      </button>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+/* Scoped to Services and innovation pages only - use a parent class wrapper */
+.colored-top-border .cards-grid .card {
+  border-top: 3px solid transparent;
+}
+
+.colored-top-border .cards-grid .card:nth-child(odd) {
+  border-top-color: var(--tab-link-light);
+}
+
+.colored-top-border .cards-grid .card:nth-child(odd) .card-header {
+  color: var(--tab-link-light);
+}
+
+.colored-top-border .cards-grid .card:nth-child(even) {
+  border-top-color: var(--tertiary);
+}
+
+.colored-top-border .cards-grid .card:nth-child(even) .card-header {
+  color: var(--tertiary);
+}
+
+.pricing-section {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+
+.cards-grid .card.pricing-card {
+  background: var(--accent-light);
+  border-radius: 0 0 12px 12px;
+}
+
+.cards-grid .pricing-card .pricing-amount {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--secondary);
+  margin: 12px 0;
+}
+
+.cards-grid .pricing-card .pricing-note {
+  font-size: 0.65rem;
+  color: var(--text-light);
+}
+</style>

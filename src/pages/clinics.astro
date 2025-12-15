@@ -1,0 +1,261 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BookingButton from '@/components/BookingButton';
+import MapPinLine from 'phosphor-astro/MapPinLine.astro';
+import Timer from 'phosphor-astro/Timer.astro';
+---
+
+<BaseLayout
+  title="Clinics - Prof. Mark Eidelman"
+  description="Visit Prof. Eidelman's clinics in Haifa and Kiryat Motzkin, Israel, or schedule a virtual consultation"
+>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://www.google.com" />
+    <link rel="preconnect" href="https://maps.googleapis.com" />
+    <link rel="preconnect" href="https://maps.gstatic.com" />
+  </Fragment>
+  <div class="page active">
+    <div class="clinics-grid">
+      <div class="clinic-card">
+        <div class="clinic-header">🏥 HAIFA CLINIC</div>
+        <div class="clinic-content">
+          <div class="clinic-items">
+            <div class="clinic-item">
+              <strong class="item-icon-label">
+                <MapPinLine height="20"/>
+                <div class="item-label">
+                  Location
+                </div> 
+              </strong>
+              Ben Gurion Blvd 4, Haifa, Israel
+            </div>
+
+            <div class="clinic-item">
+              <strong class="item-icon-label">
+                <Timer height="20"/>
+                <div class="item-label">
+                  Hours
+                </div>
+              </strong>
+              Sunday: 4pm-7pm
+            </div>
+          </div>
+          <div class="clinic-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7974.140186045572!2d34.98753709438236!3d32.82636995941275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151dbbcb7737a60f%3A0x80c6b3e567825840!2z15HXmdeqINeU16jXldek15DXmdedINeU157Xldep15HXlCDXlNeS16jXnteo15nXqg!5e0!3m2!1sen!2sil!4v1762345297808!5m2!1sen!2sil"
+              width="100%"
+              height="300"
+              style="border: 0;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <hr />
+          <h5 class="clinic-services-title">
+            Services Available:
+          </h5>
+          <div class="clinic-item-services">
+            <ul>
+              <li>Full surgical facility</li>
+              <li>Physical therapy rooms</li>
+              <li>In-person consultations</li>
+            </ul>
+            <ul>
+              <li>Post-operative care</li>
+              <li>Patient accommodation support</li>
+            </ul>
+          </div>
+          <BookingButton
+            client:visible
+            text="Schedule Haifa Consultation"
+            phone="+97248732227"
+            className="btn btn-primary btn-block"
+            tooltipClass= "tooltip-above"
+          />
+        </div>
+      </div>
+
+      <div class="clinic-card">
+        <div class="clinic-header kiryat">
+          🏥 KIRYAT MOTZKIN CLINIC
+        </div>
+        <div class="clinic-content">
+          <div class="clinic-items">
+            <div class="clinic-item">
+              <strong class="item-icon-label">
+                <MapPinLine height="20"/>
+                <div class="item-label">
+                  Location
+                  </div> 
+              </strong>
+              Ussishkin St 6, Kiryat Motzkin, Israel
+            </div>
+
+            <div class="clinic-item">
+              <strong class="item-icon-label">
+                <Timer height="20"/>
+                <div class="item-label">
+                  Hours
+                </div>
+              </strong>
+              Thursday: 4pm-7pm
+            </div>
+          </div>
+          <div class="clinic-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3352.5603948495004!2d35.0790442!3d32.830411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151db721dd3b6b0f%3A0xd52f2166163ca1e0!2sUssishkin%20St%206%2C%20Kiryat%20Motzkin!5e0!3m2!1sen!2sil!4v1762344839939!5m2!1sen!2sil"
+              width="100%"
+              height="300"
+              style="border: 0;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <hr />
+          <h5 class="clinic-services-title">
+            Services Available:
+          </h5>
+          <div class="clinic-item-services">
+            <ul>
+              <li>Initial consultations</li>
+              <li>Follow-up appointments</li>
+              <li>Physical therapy</li>
+            </ul>
+            <ul>
+              <li>Patient education</li>
+              <li>Wellness support</li>
+            </ul>
+          </div>
+          <BookingButton
+            client:visible
+            text="Schedule Kiryat Motzkin Consultation"
+            phone="+97248732227"
+            className="btn btn-primary btn-block"
+            tooltipClass= "tooltip-above"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Virtual Consultation</h2>
+      <p class="section-subtitle">
+        For international patients or initial screening
+        consultations, we offer secure video consultations with
+        Prof. Eidelman.
+      </p>
+      <div class="service-detail">
+        <h3>Perfect for:</h3>
+        <ul style="margin-bottom: 1rem;">
+          <li>International patients seeking initial assessment</li>
+          <li>Pre-surgery consultations before visiting Israel</li>
+          <li>Post-operative follow-ups from home</li>
+          <li>Second opinion consultations</li>
+        </ul>
+        <BookingButton
+          client:visible
+          text="Schedule Virtual Consultation"
+          phone="+97248732227"
+          className="btn btn-secondary"
+          tooltipClass= "tooltip-below"
+        />
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+.clinics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.clinic-card {
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.clinic-header {
+  background: linear-gradient(135deg, hsl(6, 63%, 46%) 0%, hsl(6, 78%, 76%) 100%);
+  color: white;
+  padding: 16px;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+.clinic-header.kiryat {
+  background: linear-gradient(135deg, hsl(37, 86%, 45%) 0%, hsl(37, 90%, 76%) 100%);
+}
+
+.clinic-content {
+  padding: 12px 24px 20px;
+}
+
+.clinic-items {
+  display: flex;
+  justify-content: space-around;
+}
+
+.clinic-item {
+  margin: 12px 0;
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+
+  .item-icon-label {
+    color: var(--primary);
+    display: flex;
+    margin-bottom: 4px;
+    align-items: end;
+
+  }
+
+  .item-label {
+    margin: 2px 0 0 6px;
+  }
+}
+
+.clinic-map {
+  height: 250px;
+  background: #e8f4f8;
+  border-radius: 5px;
+  margin: 36px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 0.65rem;
+}
+
+.clinic-services-title {
+  font-size: 0.9rem;
+  color: var(--primary);
+  margin-left: 36px;
+  margin-top: 16px;
+}
+
+.clinic-item-services {
+  margin: 8px 24px;
+  padding-inline: 12px;
+  font-size: 1.05rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.clinic-card .btn {
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .clinics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

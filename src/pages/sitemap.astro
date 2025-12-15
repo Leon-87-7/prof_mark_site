@@ -1,0 +1,223 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const pages = [
+  {
+    title: 'Home',
+    url: '/',
+    description: 'Welcome to Prof. Mark Eidelman\'s practice - Leading the Future of Pediatric Orthopedics'
+  },
+  {
+    title: 'About Prof. Eidelman',
+    url: '/about',
+    description: 'Learn about Prof. Mark Eidelman\'s expertise, credentials, and commitment to pediatric orthopedics'
+  },
+  {
+    title: 'My Clinics',
+    url: '/clinics',
+    description: 'Find clinic locations and contact information in Haifa and Kiryat Motzkin, Israel'
+  },
+  {
+    title: 'Our Services',
+    url: '/services',
+    description: 'Comprehensive orthopedic services including limb lengthening, deformity correction, and pediatric care'
+  },
+  {
+    title: 'Surgical Innovation',
+    url: '/innovation',
+    description: 'Discover cutting-edge surgical techniques and innovations in pediatric orthopedics'
+  },
+  {
+    title: 'Patient Guides',
+    url: '/guides',
+    description: 'Educational resources and guides for patients and families'
+  },
+  {
+    title: 'Study Area',
+    url: '/study',
+    description: 'Academic resources, research, and educational materials'
+  }
+];
+---
+
+<BaseLayout
+  title="Sitemap - Prof. Mark Eidelman"
+  description="Complete sitemap of Prof. Mark Eidelman's website - find all pages and resources"
+>
+  <div class="sitemap-page">
+    <div class="sitemap-header">
+      <h1>Sitemap</h1>
+      <p>Navigate through all pages of our website</p>
+    </div>
+
+    <div class="sitemap-content">
+      <div class="sitemap-section">
+        <h2>Main Pages</h2>
+        <ul class="sitemap-list">
+          {pages.map(page => (
+            <li class="sitemap-item">
+              <a href={page.url} class="sitemap-link">
+                <h3>{page.title}</h3>
+                <p>{page.description}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="sitemap-section">
+        <h2>Additional Resources</h2>
+        <ul class="sitemap-list secondary">
+          <li class="sitemap-item">
+            <div class="sitemap-link-static">
+              <h3>Privacy Policy</h3>
+              <p>Information about how we handle your data</p>
+            </div>
+          </li>
+          <li class="sitemap-item">
+            <div class="sitemap-link-static">
+              <h3>Terms of Service</h3>
+              <p>Terms and conditions for using our website</p>
+            </div>
+          </li>
+          <li class="sitemap-item">
+            <div class="sitemap-link-static">
+              <h3>Accessibility</h3>
+              <p>Our commitment to web accessibility</p>
+            </div>
+          </li>
+          <li class="sitemap-item">
+            <a href="/sitemap-index.xml" class="sitemap-link" target="_blank" rel="noopener noreferrer">
+              <h3>XML Sitemap</h3>
+              <p>Machine-readable sitemap for search engines</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .sitemap-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    min-height: 60vh;
+  }
+
+  .sitemap-header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .sitemap-header h1 {
+    font-size: 2.5rem;
+    color: var(--dark);
+    margin-bottom: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+
+  .sitemap-header p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-family: 'Lato', sans-serif;
+  }
+
+  .sitemap-content {
+    display: grid;
+    gap: 48px;
+  }
+
+  .sitemap-section h2 {
+    font-size: 1.75rem;
+    color: var(--dark);
+    margin-bottom: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .sitemap-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .sitemap-item {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .sitemap-item:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .sitemap-link {
+    display: block;
+    padding: 20px 24px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .sitemap-link-static {
+    padding: 20px 24px;
+    opacity: 0.6;
+  }
+
+  .sitemap-link h3,
+  .sitemap-link-static h3 {
+    font-size: 1.25rem;
+    color: var(--dark);
+    margin: 0 0 8px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+  }
+
+  .sitemap-link:hover h3 {
+    color: var(--accent);
+  }
+
+  .sitemap-link p,
+  .sitemap-link-static p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .sitemap-list.secondary .sitemap-item {
+    background: #f9f9f9;
+  }
+
+  @media (max-width: 768px) {
+    .sitemap-header h1 {
+      font-size: 2rem;
+    }
+
+    .sitemap-section h2 {
+      font-size: 1.5rem;
+    }
+
+    .sitemap-link h3,
+    .sitemap-link-static h3 {
+      font-size: 1.1rem;
+    }
+
+    .sitemap-link,
+    .sitemap-link-static {
+      padding: 16px 20px;
+    }
+  }
+</style>

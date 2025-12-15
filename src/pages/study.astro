@@ -1,0 +1,308 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Study Area - Prof. Mark Eidelman"
+  description="Educational hub featuring articles, case studies, lectures, and research papers from Prof. Eidelman and the orthopedic community."
+  image="images/study_image_mark.jpg"
+  >
+  <div class="page active">
+    <div class="section">
+      <h2 class="section-title">Study Area</h2>
+      <p class="section-subtitle">
+        Educational hub featuring articles, case studies, lectures,
+        and research papers from Prof. Eidelman and the orthopedic
+        community.
+      </p>
+    </div>
+
+    <div class="search-container">
+      <input
+        type="text"
+        placeholder="🔍 Search articles, case studies, lectures..."
+        class="search-input"
+      />
+      <div class="filter-buttons">
+        <button class="btn btn-secondary">All</button>
+        <button class="btn btn-secondary">Articles</button>
+        <button class="btn btn-secondary">Case Studies</button>
+        <button class="btn btn-secondary">Lectures</button>
+        <button class="btn btn-secondary">Research</button>
+      </div>
+    </div>
+
+    <div class="cards-grid colored-headers-cards study-cards">
+      <div class="card">
+        <div class="card-header card-header-rounded card-header-blue">
+          📄
+        </div>
+        <div class="card-content">
+          <h3>Advanced Surgical Techniques</h3>
+          <p>
+            <strong>Article</strong> • Published January 2024
+          </p>
+          <p>
+            Detailed guide to modern limb lengthening surgical
+            approaches with 99%+ success rates.
+          </p>
+          <button
+            class="card-link"
+            onclick="alert('Article: Advanced Surgical Techniques - Full text available')"
+          >
+            Read Article →
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header card-header-rounded card-header-red">
+          📊
+        </div>
+        <div class="card-content">
+          <h3>Severe LLD Correction</h3>
+          <p>
+            <strong>Case Study</strong> • Published December 2023
+          </p>
+          <p>
+            Comprehensive case study: Correction of 8cm limb length
+            discrepancy in adult patient.
+          </p>
+          <button
+            class="card-link"
+            onclick="alert('Case Study: Severe LLD Correction - Before/after images and outcomes')"
+          >
+            View Case Study →
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header card-header-rounded card-header-orange">
+          🎥
+        </div>
+        <div class="card-content">
+          <h3>Surgical Innovation Lecture</h3>
+          <p>
+            <strong>Video Lecture</strong> • 45 minutes • November
+            2023
+          </p>
+          <p>
+            Comprehensive lecture on recent innovations in
+            orthopedic surgical techniques.
+          </p>
+          <button
+            class="card-link"
+            onclick="alert('Video: Surgical Innovation - Play video lecture')"
+          >
+            Watch Lecture →
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header card-header-rounded card-header-green">
+          📚
+        </div>
+        <div class="card-content">
+          <h3>Research on Complication Prevention</h3>
+          <p>
+            <strong>Research Paper</strong> • October 2023
+          </p>
+          <p>
+            Peer-reviewed analysis of 500+ cases identifying best
+            practices for minimal complications.
+          </p>
+          <button
+            class="card-link"
+            onclick="alert('Paper: Complication Prevention - Access full research paper')"
+          >
+            Read Paper →
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header card-header-rounded card-header-purple">
+          📄
+        </div>
+        <div class="card-content">
+          <h3>Pediatric Orthopedic Approaches</h3>
+          <p>
+            <strong>Article</strong> • September 2023
+          </p>
+          <p>
+            Specialized surgical approaches for children's bone and
+            joint conditions.
+          </p>
+          <button
+            class="card-link"
+            onclick="alert('Article: Pediatric Approaches - Full text available')"
+          >
+            Read Article →
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header card-header-rounded card-header-teal">
+          📊
+        </div>
+        <div class="card-content">
+          <h3>International Patient Success Story</h3>
+          <p>
+            <strong>Case Study</strong> • August 2023
+          </p>
+          <p>
+            Successful 7cm limb lengthening procedure for
+            international patient from Canada.
+          </p>
+          <button
+            class="card-link"
+            onclick="alert('Case Study: International Success - Patient outcomes and journey')"
+          >
+            View Case Study →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="service-detail">
+      <h3>📧 Subscribe to Updates</h3>
+      <p>
+        Receive new articles, case studies, and research findings
+        delivered to your inbox.
+      </p>
+      <div class="subscribe-form">
+        <input
+          type="email"
+          placeholder="your@email.com"
+          class="subscribe-input"
+        />
+        <button
+          class="btn btn-primary"
+          onclick="alert('Subscribed! You will receive updates when new articles and resources are published.')"
+        >
+          Subscribe
+        </button>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+.search-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ecf0f1;
+  border-radius: 5px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  font-size: 0.875rem;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.filter-buttons .btn {
+  padding: 8px 15px;
+  font-size: 0.75rem;
+}
+
+.section-title-small {
+  font-size: 1.25rem;
+  margin-top: 0;
+}
+
+.colored-headers-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: var(--card-gap);
+}
+
+.cards-grid.study-cards .card {
+  border: none;
+  border-radius: 20px 20px 0 0;
+  border-bottom: var(--borderB) 1px solid;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cards-grid.study-cards .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 8px rgba(210, 187, 113, 0.4);
+  border-color: var(--accent);
+}
+
+.card-header-rounded {
+  border-radius: 20px 20px 0 0;
+}
+
+.card-header-blue {
+  background: #3498db;
+}
+
+.card-header-red {
+  background: #e74c3c;
+}
+
+.card-header-orange {
+  background: #f39c12;
+}
+
+.card-header-green {
+  background: #27ae60;
+}
+
+.card-header-purple {
+  background: #9b59b6;
+}
+
+.card-header-teal {
+  background: #16a085;
+}
+
+/* StudyPage specific overrides */
+.cards-grid .card-content h3 {
+  font-size: 0.875rem;
+}
+
+.cards-grid .card-content p {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin: 10px 0;
+}
+
+.subscribe-form {
+
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.subscribe-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .colored-headers-cards {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+</style>
