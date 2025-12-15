@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import type { ReactElement } from 'react';
 
 interface BookingButtonProps {
   text: string;
@@ -12,7 +13,7 @@ const BookingButton = ({
   phone,
   className,
   tooltipClass,
-}: BookingButtonProps) => {
+}: BookingButtonProps): ReactElement => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {

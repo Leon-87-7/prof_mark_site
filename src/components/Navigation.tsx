@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import type { ReactElement } from 'react';
 import LanguageSelector from './LanguageSelector';
 import './Navigation.css';
 
@@ -6,7 +7,9 @@ interface NavigationProps {
   currentPath?: string;
 }
 
-const Navigation = ({ currentPath: propPath }: NavigationProps) => {
+const Navigation = ({
+  currentPath: propPath,
+}: NavigationProps): ReactElement => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
 

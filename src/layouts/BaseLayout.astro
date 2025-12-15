@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
+import { Font } from 'astro:assets';
 import Header from '@/components/Header.astro';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer.astro';
@@ -16,7 +17,7 @@ interface Props {
 const {
   title = 'Prof. Mark Eidelman - Pediatric Orthopedic Specialist',
   description = 'Leading orthopedic surgeon specializing in pediatric orthopedics, limb reconstruction, limb lengthening and deformity correction with over 25 years of experience',
-  image = '/images/hero/hero_image_mark_02.jpg',
+  image = '/images/hero_image_mark_02.jpg',
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href
 } = Astro.props;
 
@@ -64,24 +65,25 @@ const ogImageURL = new URL(image, Astro.site).href;
       <link
         rel="preload"
         as="image"
-        href="/images/hero/hero_image_mark_02.jpg"
+        href="/images/hero_image_mark_02.jpg"
         fetchpriority="high"
       />
     )}
 
-    <!-- Fonts - async loading -->
+    <!-- Fonts - optimized loading with preconnect and proper link tags -->
+     <Font cssVariable='--font-montserrat' preload />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preload"
+      rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
+      media="print"
+      onload="this.media='all'"
     />
     <noscript>
       <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap"
         rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap"
       />
     </noscript>
 
@@ -148,3 +150,9 @@ const ogImageURL = new URL(image, Astro.site).href;
     <Footer />
   </body>
 </html>
+
+<style>
+  body {
+    font-family: var(--font-montserrat);
+  }
+</style>

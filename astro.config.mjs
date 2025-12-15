@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
@@ -43,5 +43,14 @@ export default defineConfig({
         },
       },
     },
+  },
+  experimental: {
+    fonts: [
+      {
+        provider: fontProviders.google(),
+        name: 'Montserrat',
+        cssVariable: '--font-montserrat',
+      },
+    ],
   },
 });

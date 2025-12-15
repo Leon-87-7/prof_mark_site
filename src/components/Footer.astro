@@ -35,13 +35,15 @@
     </div>
     <div class="footer-section info">
       <h4>INFORMATION</h4>
-      <a href="#" onclick="alert('Privacy Policy'); return false;">
-        Privacy Policy
-      </a>
-      <a href="#" onclick="alert('Terms of Service'); return false;">
-        Terms of Service
-      </a>
-      <a href="#" onclick="alert('Accessibility'); return false;">Accessibility</a>
+      <div class="coming-soon" aria-disabled="true">
+        Privacy Policy <em>(Coming soon)</em>
+      </div>
+      <div class="coming-soon" aria-disabled="true">
+        Terms of Service <em>(Coming soon)</em>
+      </div>
+      <div class="coming-soon" aria-disabled="true">
+        Accessibility <em>(Coming soon)</em>
+      </div>
       <a href="/sitemap">Sitemap</a>
     </div>
   </div>
@@ -94,7 +96,8 @@
   }
 
   .footer-section p,
-  .footer-section a {
+  .footer-section a,
+  .footer-section div {
     font-size: 0.75rem;
     color: #CCCCCC;
     margin: 8px 0;
@@ -107,6 +110,17 @@
 
   .footer-section a:hover {
     color: var(--accent);
+  }
+
+  .info .coming-soon {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .info .coming-soon em {
+    font-style: italic;
+    font-size: 0.7rem;
+    color: #888888;
   }
 
   .footer-bottom {
