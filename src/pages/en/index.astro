@@ -2,15 +2,11 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import heroImage from '@/images/hero_image_mark_02.jpg';
-import { useTranslations } from '@/i18n/utils';
-
-const lang = 'he';
-const t = useTranslations(lang);
 ---
 
 <BaseLayout
-  title={t('home.hero.title')}
-  description={t('home.hero.subtitle')}
+  title="Prof. Mark Eidelman - Pediatric Orthopedic Specialist"
+  description="Leading the Future of Pediatric Orthopedics - Over 25 years of specialized expertise in limb lengthening and deformity correction"
 >
   <div class="page active">
     <div class="hero">
@@ -26,42 +22,46 @@ const t = useTranslations(lang);
       />
       <div class="hero-wrapper">
         <div class="hero-content">
-          <h1>{t('home.hero.title')}</h1>
+          <h1>Leading the Future of Pediatric Orthopedics</h1>
           <h3>
-            {t('home.hero.subtitle')}
+            Limb Lengthening & Deformity Correction Specialist
           </h3>
           <p>
-            <b>{t('home.hero.description_line1')}</b> {t('home.hero.description_line2')}{' '}
-            <b>{t('home.hero.description_line3')}</b> {t('home.hero.description_line4')}{' '}
+            <b>Prof. Mark Eidelman</b> brings over{' '}
+            <b>25 years of specialized expertise</b> and 3,000
+            successful surgeries to pediatric care. As a global
+            authority dedicated to complex deformity correction and
+            limb lengthening,{' '}
             <span class="highlighted-text">
-              {t('home.hero.description_highlighted')}
+              he helps children achieve balanced leg length, ideal
+              stature, and a happy, fulfilling life.
             </span>{' '}
-            {t('home.hero.description_closing')}
+            Pioneering techniques. Global mentorship.
           </p>
 
           <div class="hero-stats">
             <div class="stat-card">
-              <div class="number">{t('home.hero.stats.experience.number')}</div>
-              <div class="label">{t('home.hero.stats.experience.label')}</div>
+              <div class="number">25+</div>
+              <div class="label">Years Experience</div>
             </div>
             <div class="stat-card">
-              <div class="number">{t('home.hero.stats.surgeries.number')}</div>
-              <div class="label">{t('home.hero.stats.surgeries.label')}</div>
+              <div class="number">3000+</div>
+              <div class="label">Surgeries</div>
             </div>
             <div class="stat-card">
-              <div class="number">{t('home.hero.stats.trained.number')}</div>
-              <div class="label">{t('home.hero.stats.trained.label')}</div>
+              <div class="number">50+</div>
+              <div class="label">Trained</div>
             </div>
           </div>
           <div class="cta-buttons">
             <a href="/clinics" class="btn btn-primary">
-              {t('home.hero.cta.clinics')}
+              Explore Clinics
             </a>
             <a href="/guides" class="btn btn-secondary">
-              {t('home.hero.cta.guides')}
+              Patient Guides
             </a>
             <a href="/innovation" class="btn btn-tertiary home-hero-btn-tertiary-mobile">
-              {t('home.hero.cta.innovation')}
+              Surgical Innovation
             </a>
           </div>
         </div>
@@ -69,51 +69,60 @@ const t = useTranslations(lang);
     </div>
 
     <div class="credentials">
-      <h2 class="section-title">{t('home.credentials.title')}</h2>
+      <h2 class="section-title">Professional Credentials</h2>
       <div class="two-column">
         <div class="column">
-          <h4>{t('home.credentials.education.title')}</h4>
+          <h4>Education & Training</h4>
           <ul>
-            <li>{t('home.credentials.education.md')}</li>
-            <li>{t('home.credentials.education.residency')}</li>
-            <li>{t('home.credentials.education.fellowship')}</li>
-            <li>{t('home.credentials.education.certification')}</li>
+            <li>MD - Samarkand School of Medicine (former USSR) - Graduated with Honors (1985).</li>
+            <li>Residency - Orthopedics Residency at Rambam Medical Center, Israel.</li>
+            <li>
+              Fellowship - Pediatric Orthopedics Fellowship at Sinai Hospital, Baltimore, Maryland, USA (2002).
+            </li>
+            <li>
+              Board Certified - Israeli Orthopedic Association and European Pediatric Orthopedics Society (EPOS).
+            </li>
           </ul>
         </div>
         <div class="column">
-          <h4>{t('home.credentials.specializations.title')}</h4>
+          <h4>Specializations</h4>
           <ul>
-            <li>{t('home.credentials.specializations.pediatric')}</li>
-            <li>{t('home.credentials.specializations.limb_lengthening')}</li>
-            <li>{t('home.credentials.specializations.deformity')}</li>
-            <li>{t('home.credentials.specializations.techniques')}</li>
+            <li>Pediatric Orthopedics</li>
+            <li>Limb Lengthening Surgery</li>
+            <li>Complex Deformity Correction</li>
+            <li>Advanced Surgical Techniques</li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="testimonials-wrapper">
-      <h2 class="section-title">{t('home.testimonials.title')}</h2>
+      <h2 class="section-title">Testimonials</h2>
       <div class="testimonials">
         <div class="testimonial">
-          <div class="testimonial-author">{t('home.testimonials.testimonial_1.author')}</div>
-          <div class="stars">{t('home.testimonials.testimonial_1.rating')}</div>
+          <div class="testimonial-author">Sarah M., Canada</div>
+          <div class="stars">★★★★★</div>
           <div class="testimonial-text">
-            {t('home.testimonials.testimonial_1.text')}
+            "Prof. Eidelman's expertise and compassionate approach
+            transformed my life. The results exceeded all my
+            expectations."
           </div>
         </div>
         <div class="testimonial">
-          <div class="testimonial-author">{t('home.testimonials.testimonial_2.author')}</div>
-          <div class="stars">{t('home.testimonials.testimonial_2.rating')}</div>
+          <div class="testimonial-author">David K., USA</div>
+          <div class="stars">★★★★★</div>
           <div class="testimonial-text">
-            {t('home.testimonials.testimonial_2.text')}
+            "The most professional and caring surgeon I could ask
+            for. I highly recommend Prof. Eidelman without
+            hesitation."
           </div>
         </div>
         <div class="testimonial">
-          <div class="testimonial-author">{t('home.testimonials.testimonial_3.author')}</div>
-          <div class="stars">{t('home.testimonials.testimonial_3.rating')}</div>
+          <div class="testimonial-author">Maria R., Spain</div>
+          <div class="stars">★★★★★</div>
           <div class="testimonial-text">
-            {t('home.testimonials.testimonial_3.text')}
+            "My daughter's surgery was a complete success. We trust
+            Prof. Eidelman completely with our family's care."
           </div>
         </div>
       </div>

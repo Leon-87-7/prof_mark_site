@@ -66,3 +66,30 @@ h6 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
 }
+
+/* ============ RTL SUPPORT FOR HEBREW ============ */
+[dir='rtl'] {
+  direction: rtl;
+}
+
+[dir='rtl'] .text-left {
+  text-align: right;
+}
+
+[dir='rtl'] .text-right {
+  text-align: left;
+}
+
+/* Hebrew font family */
+[lang='he'] {
+  font-family: 'Heebo', 'Lato', sans-serif;
+}
+
+[lang='he'] h1,
+[lang='he'] h2,
+[lang='he'] h3,
+[lang='he'] h4,
+[lang='he'] h5,
+[lang='he'] h6 {
+  font-family: 'Heebo', 'Montserrat', sans-serif;
+}

@@ -56,4 +56,15 @@ export default defineConfig({
       },
     ],
   },
+  i18n: {
+    defaultLocale: 'he',
+    locales: ['he', 'en', 'ru'],
+    // fallback: {
+    //   he: 'en',
+    // },
+    routing: {
+      prefixDefaultLocale: false,
+      redirectToDefaultLocale: false,
+    },
+  },
 });

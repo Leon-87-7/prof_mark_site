@@ -1,26 +1,31 @@
 import { useState, useEffect, useRef } from 'react';
 import type { ReactElement } from 'react';
 import LanguageSelector from './LanguageSelector';
+import { useTranslations, getPathPrefix, type Language } from '../i18n/utils';
 import './Navigation.css';
 
 interface NavigationProps {
   currentPath?: string;
+  lang: Language;
 }
 
 const Navigation = ({
   currentPath: propPath,
+  lang,
 }: NavigationProps): ReactElement => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
+  const t = useTranslations(lang);
+  const langPrefix = getPathPrefix(lang);
 
   const navItems = [
-    { label: 'Home', path: '/' },
-    ...(isMenuOpen ? [{ label: 'Clinics', path: '/clinics' }] : []),
-    { label: 'About', path: '/about' },
-    { label: 'Services', path: '/services' },
-    { label: 'Innovation', path: '/innovation' },
-    { label: 'Guides', path: '/guides' },
-    { label: 'Study Area', path: '/study' },
+    { label: lang === 'he' ? 'בית' : lang === 'en' ? 'Home' : 'Главная', path: `${langPrefix}/` },
+    ...(isMenuOpen ? [{ label: t('nav.clinics'), path: `${langPrefix}/clinics` }] : []),
+    { label: t('nav.about'), path: `${langPrefix}/about` },
+    { label: t('nav.services'), path: `${langPrefix}/services` },
+    { label: t('nav.innovation'), path: `${langPrefix}/innovation` },
+    { label: t('nav.guides'), path: `${langPrefix}/guides` },
+    { label: t('nav.study'), path: `${langPrefix}/study` },
   ];
 
   // Use prop if available, otherwise get from window
@@ -107,7 +112,7 @@ const Navigation = ({
           );
         })}
 
-        <LanguageSelector variant="navbar" />
+        <LanguageSelector variant="navbar" currentPath={currentPath} />
       </div>
     </nav>
   );
