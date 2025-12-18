@@ -15,6 +15,7 @@ const Navigation = ({
 
   const navItems = [
     { label: 'Home', path: '/' },
+    ...(isMenuOpen ? [{ label: 'Clinics', path: '/clinics' }] : []),
     { label: 'About', path: '/about' },
     { label: 'Services', path: '/services' },
     { label: 'Innovation', path: '/innovation' },

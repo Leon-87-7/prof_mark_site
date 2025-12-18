@@ -44,7 +44,7 @@
   padding: 6px;
   cursor: pointer;
   font-size: 0.75rem;
-  color: var(--text-light);
+  color: var(--secondary);
   font-weight: 500;
   font-family: 'Lato', sans-serif;
   transition: all 0.2s ease;

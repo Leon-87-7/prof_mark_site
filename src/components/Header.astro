@@ -1,6 +1,6 @@
 ---
 import LanguageSelector from './LanguageSelector';
-import { CalendarDots } from '@phosphor-icons/react';
+import CalendarDotsDuotone from "phosphor-astro/CalendarDotsDuotone.astro";
 ---
 
 <header class="header">
@@ -19,13 +19,11 @@ import { CalendarDots } from '@phosphor-icons/react';
         <LanguageSelector variant="header" client:idle />
       </div>
       <a href="/clinics" class="btn-book">
-        <CalendarDots
-              size={22}
-              className="icon-item"
+        <CalendarDotsDuotone
+              width={22}
               color="var(--tab-link-dark)"
-              weight="duotone"
             />
-        <span style="padding: 8px 0; font-size: 1rem;">
+        <span style="padding: 8px 0; font-size: 0.75rem;">
           CONTACT US
         </span>
       </a>
@@ -127,6 +125,12 @@ import { CalendarDots } from '@phosphor-icons/react';
 
     .header-right {
       gap: 0;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .logo-subtitle{
+      display: none;
     }
   }
 </style>
