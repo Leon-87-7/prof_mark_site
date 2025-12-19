@@ -7,6 +7,11 @@
     "guides": "מדריכים",
     "study": "מחקר"
   },
+  "header": {
+    "name": "פרופ׳ מארק אידלמן",
+    "subtitle": "מומחה אורתופדיה ילדים",
+    "contact": "צור קשר"
+  },
   "home": {
     "hero": {
       "title": "מוביל את עתיד אורתופדית הילדים",
@@ -511,10 +516,10 @@
   "footer": {
     "contact_heading": "פרטי התקשרות",
     "contact_email": "דוא\"ל: mark@example.com",
-    "contact_phone": "טלפון: +972-XX-XXX-XXXX",
+    "contact_phone": "טלפון: +972-04-873-2227",
     "locations_heading": "מיקומים",
-    "location_1": "המרכז הרפואי תל אביב",
-    "location_2": "מרפאת ירושלים",
+    "location_1": "שדרות בן גוריון 4, חיפה",
+    "location_2": "רח' אוסישקין 6, קריית מוצקין",
     "social_heading": "עקבו אחרינו",
     "social_links": "LinkedIn | ResearchGate",
     "copyright": "כל הזכויות שמורות."

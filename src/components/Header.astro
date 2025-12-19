@@ -1,7 +1,7 @@
 ---
 import LanguageSelector from './LanguageSelector';
 import CalendarDotsDuotone from "phosphor-astro/CalendarDotsDuotone.astro";
-import { getPathPrefix, type Language } from '../i18n/utils';
+import { getPathPrefix, type Language, useTranslations } from '../i18n/utils';
 
 interface Props {
   lang: Language;
@@ -11,34 +11,18 @@ const { lang } = Astro.props;
 const langPrefix = getPathPrefix(lang);
 
 // Simple translations for header (small enough to inline)
-const headerText = {
-  he: {
-    name: 'פרופ׳ מארק אידלמן',
-    subtitle: 'מומחה אורתופדיה ילדים',
-    contact: 'צור קשר'
-  },
-  en: {
-    name: 'Prof. Mark Eidelman',
-    subtitle: 'Pediatric Orthopedic Specialist',
-    contact: 'CONTACT US'
-  },
-  ru: {
-    name: 'Проф. Марк Эйдельман',
-    subtitle: 'Специалист детской ортопедии',
-    contact: 'СВЯЗАТЬСЯ'
-  }
-};
 
-const t = headerText[lang];
+
+const t = useTranslations(lang);
 ---
 
 <header class="header">
   <div class="header-container">
     <div class="logo">
       <div>
-        <div>{t.name}</div>
+        <div>{t('header.name')}</div>
         <div class="logo-subtitle">
-          {t.subtitle}
+          {t('header.subtitle')}
         </div>
       </div>
     </div>
@@ -53,7 +37,7 @@ const t = headerText[lang];
               color="var(--tab-link-dark)"
             />
         <span style="padding: 8px 0; font-size: 0.75rem;">
-          {t.contact}
+          {t('header.contact')}
         </span>
       </a>
     </div>

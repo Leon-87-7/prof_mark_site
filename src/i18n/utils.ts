@@ -24,14 +24,21 @@ export function getLangFromUrl(url: URL): Language {
   return defaultLang; // Returns 'he' by default
 }
 
-export function useTranslations(lang: Language) {
+export function useTranslations(
+  lang: Language
+): (key: string) => string {
   return function t(key: string): string {
     const keys = key.split('.');
     let value: any = translations[lang];
 
     for (const k of keys) {
-      if (value && typeof value === 'object' && k in value) {
-        value = value[k];
+      if (
+        value &&
+        typeof value === 'object' &&
+        value !== null &&
+        k in value
+      ) {
+        value = (value as Record<string, unknown>)[k];
       } else {
         return key; // Return key if translation not found
       }

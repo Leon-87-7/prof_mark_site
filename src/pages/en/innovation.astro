@@ -1,10 +1,9 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getPathPrefix, useTranslations } from '@/i18n/utils';
+import { useTranslations } from '@/i18n/utils';
 
 const lang = 'en';
 const t = useTranslations(lang);
-const langPrefix = getPathPrefix(lang);
 ---
 
 <BaseLayout
@@ -104,7 +103,6 @@ const langPrefix = getPathPrefix(lang);
             <li>{t('innovation.key_innovations.research_focus.items.prevention')}</li>
             <li>{t('innovation.key_innovations.research_focus.items.heparan')}</li>
             <li>{t('innovation.key_innovations.research_focus.items.outcomes')}</li>
-          </ul>
           </ul>
         </div>
       </div>

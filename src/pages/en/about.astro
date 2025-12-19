@@ -11,6 +11,7 @@ const t = useTranslations(lang);
   title={t('about.title')}
   description={t('about.intro')}
   image={aboutImage.src}
+  alt={t('about.title')}
 >
 
   <main class="page-active">
@@ -31,7 +32,7 @@ const t = useTranslations(lang);
       <ResponsivePicture
         src={aboutImage}
         alt="Prof. Mark Eidelman"
-        widths={[100,225,350]}
+        widths={[200, 350, 500]}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
         formats={['avif', 'webp']}
         loading="eager"
@@ -43,7 +44,7 @@ const t = useTranslations(lang);
 
         <section class="section">
         <h3 class="section-title">{t('about.specializations.title')}</h3>
-        <div class="Specializations">
+        <div class="specializations">
           <ul>
             <li><strong>{t('about.specializations.limb_lengthening.title')}</strong><br>
               <span class="text">{t('about.specializations.limb_lengthening.description')}</span></li>
@@ -81,8 +82,7 @@ const t = useTranslations(lang);
             <li>{t('about.education_affiliations.education.fellowship')}</li>
           </ul>
         </div>
-        <br><br>
-        <h3>{t('about.education_affiliations.memberships.title')}</h3>
+        <h3 class="memberships-title">{t('about.education_affiliations.memberships.title')}</h3>
         <ul>
           <li>{t('about.education_affiliations.memberships.israeli')}</li>
           <li>{t('about.education_affiliations.memberships.epos')}</li>
@@ -145,12 +145,16 @@ const t = useTranslations(lang);
   margin-top: 2rem;
 }
 
-.Specializations {
+.specializations {
   display: flex;
 }
 
 .about-profile-image {
   margin-left: 2rem;
+}
+
+.memberships-title{
+  margin-top: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -172,7 +176,7 @@ const t = useTranslations(lang);
     margin-top: 1rem;
   }
 
-  .Specializations {
+  .specializations {
     flex-direction: column;
   }
 

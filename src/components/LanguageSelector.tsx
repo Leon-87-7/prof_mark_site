@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { navigate } from 'astro:transitions/client';
 import './LanguageSelector.css';
 
 type Language = 'en' | 'he' | 'ru';
@@ -40,9 +41,18 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     return 'he'; // Default to Hebrew
   };
 
-  const [selectedLanguage, setSelectedLanguage] = useState<Language>(getCurrentLanguage());
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>(
+    () => {
+      // Use currentPath for SSR-consistent initialization
+      if (currentPath) {
+        if (currentPath.startsWith('/en')) return 'en';
+        if (currentPath.startsWith('/ru')) return 'ru';
+      }
+      return 'he'; // Always return a default value
+    }
+  );
 
   // Detect language from URL on client-side mount and after navigation
   useEffect(() => {
@@ -84,7 +94,7 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
     }
 
     // Navigate to new URL
-    window.location.href = newPath;
+    navigate(newPath);
   };
 
   // Close dropdown when clicking outside

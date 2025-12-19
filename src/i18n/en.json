@@ -7,6 +7,11 @@
     "guides": "Guides",
     "study": "Study"
   },
+  "header": {
+    "name": "Prof. Mark Eidelman",
+    "subtitle": "Pediatric Orthopedic Specialist",
+    "contact": "CONTACT US"
+  },
   "home": {
     "hero": {
       "title": "Leading the Future of Pediatric Orthopedics",
@@ -511,10 +516,10 @@
   "footer": {
     "contact_heading": "Contact Information",
     "contact_email": "Email: mark@example.com",
-    "contact_phone": "Phone: +972-XX-XXX-XXXX",
+    "contact_phone": "Phone: +972-04-873-2227",
     "locations_heading": "Locations",
-    "location_1": "Tel Aviv Medical Center",
-    "location_2": "Jerusalem Clinic",
+    "location_1": "Ben Gurion Blvd 4, Haifa",
+    "location_2": "Ussishkin St 6, Kiryat Motzkin",
     "social_heading": "Follow Us",
     "social_links": "LinkedIn | ResearchGate",
     "copyright": "All rights reserved."

@@ -309,7 +309,7 @@
 .feature-box-rtl h3 {
   color: var(--accent);
   margin-bottom: 12px;
-  font-size: larger;
+  font-size: 0.95rem;
 }
 
 .feature-box-rtl h4 {

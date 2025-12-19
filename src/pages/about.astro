@@ -31,7 +31,7 @@ const t = useTranslations(lang);
       <ResponsivePicture
         src={aboutImage}
         alt="Prof. Mark Eidelman"
-        widths={[100,225,350]}
+        widths={[200, 350, 500]}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
         formats={['avif', 'webp']}
         loading="eager"
@@ -43,7 +43,7 @@ const t = useTranslations(lang);
 
         <section class="section">
         <h3 class="section-title">{t('about.specializations.title')}</h3>
-        <div class="Specializations">
+        <div class="specializations">
           <ul>
             <li><strong>{t('about.specializations.limb_lengthening.title')}</strong><br>
               <span class="text">{t('about.specializations.limb_lengthening.description')}</span></li>
@@ -145,12 +145,12 @@ const t = useTranslations(lang);
   margin-top: 2rem;
 }
 
-.Specializations {
+.specializations {
   display: flex;
 }
 
 .about-profile-image {
-  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -168,11 +168,11 @@ const t = useTranslations(lang);
   }
 
   .about-profile-image {
-    margin-left: 0;
+    margin-right: 0;
     margin-top: 1rem;
   }
 
-  .Specializations {
+  .specializations {
     flex-direction: column;
   }
 

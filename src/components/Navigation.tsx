@@ -96,10 +96,12 @@ const Navigation = ({
 
       <div className={`navbar-container ${isMenuOpen ? 'open' : ''}`}>
         {navItems.map((item) => {
+          // Normalize item.path to handle trailing slashes consistently
+          const normalizedItemPath = item.path === '/' ? '/' : item.path.replace(/\/$/, '');
           const isActive =
-            item.path === '/'
+            normalizedItemPath === '/'
               ? normalizedPath === '/'
-              : normalizedPath === item.path;
+              : normalizedPath === normalizedItemPath;
 
           return (
             <a
