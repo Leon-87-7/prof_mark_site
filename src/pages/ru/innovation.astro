@@ -1,4 +1,5 @@
 ---
+
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { useTranslations } from '@/i18n/utils';
 
@@ -28,7 +29,7 @@ const t = useTranslations(lang);
           </p>
           <button
             class="card-link"
-            onclick="alert('Innovation: Advanced surgical techniques with 99%+ success rate')"
+            onclick={`alert('${t('footer.comingSoon')}')`}
           >
             {t('innovation.cards.techniques.cta')}
           </button>
@@ -44,7 +45,7 @@ const t = useTranslations(lang);
           </p>
           <button
             class="card-link"
-            onclick="alert('40+ publications in leading journals including Journal of Orthopedic Surgery, Limb Lengthening & Reconstruction')"
+            onclick={`alert('${t('footer.comingSoon')}')`}
           >
             {t('innovation.cards.research.cta')}
           </button>
@@ -60,7 +61,7 @@ const t = useTranslations(lang);
           </p>
           <button
             class="card-link"
-            onclick="alert('Mentorship: 50+ surgeons trained, annual fellowship program, surgical workshops 2x yearly')"
+            onclick={`alert('${t('footer.comingSoon')}')`}
           >
             {t('innovation.cards.mentorship.cta')}
           </button>
@@ -76,7 +77,7 @@ const t = useTranslations(lang);
           </p>
           <button
             class="card-link"
-            onclick="alert('Collaborations with top centers in Canada, USA, Europe, Egypt, and Asia')"
+            onclick={`alert('${t('footer.comingSoon')}')`}
           >
             {t('innovation.cards.collaboration.cta')}
           </button>
@@ -104,7 +105,6 @@ const t = useTranslations(lang);
             <li>{t('innovation.key_innovations.research_focus.items.heparan')}</li>
             <li>{t('innovation.key_innovations.research_focus.items.outcomes')}</li>
           </ul>
-          </ul>
         </div>
       </div>
     </div>
@@ -121,7 +121,7 @@ const t = useTranslations(lang);
             <p style="max-width: 30ch;">
               {t('innovation.publications.publication_1.description')}
             </p>
-            <button class="card-link" onclick="alert('Article link coming soon')">{t('innovation.publications.publication_1.cta')}</button>
+            <button class="card-link" onclick={`alert('${t('footer.comingSoon')}')`}>{t('innovation.publications.publication_1.cta')}</button>
           </div>
         </div>
         <div class="card">
@@ -133,7 +133,7 @@ const t = useTranslations(lang);
             <p style="max-width: 30ch;">
               {t('innovation.publications.publication_2.description')}
             </p>
-            <button class="card-link" onclick="alert('Article link coming soon')">{t('innovation.publications.publication_2.cta')}</button>
+            <button class="card-link" onclick={`alert('${t('footer.comingSoon')}')`}>{t('innovation.publications.publication_2.cta')}</button>
           </div>
         </div>
         <div class="card">
@@ -145,7 +145,7 @@ const t = useTranslations(lang);
             <p style="max-width: 30ch;">
               {t('innovation.publications.publication_3.description')}
             </p>
-            <button class="card-link" onclick="alert('Article link coming soon')">{t('innovation.publications.publication_3.cta')}</button>
+            <button class="card-link" onclick={`alert('${t('footer.comingSoon')}')`}>{t('innovation.publications.publication_3.cta')}</button>
           </div>
         </div>
         
@@ -172,3 +172,4 @@ const t = useTranslations(lang);
   margin: 8px 0;
 }
 </style>
+
