@@ -24,7 +24,7 @@
       "description_closing": "טכניקות חלוציות. חונכות עולמית.",
       "stats": {
         "experience": {
-          "number": "25+",
+          "number": "40+",
           "label": "שנות ניסיון"
         },
         "surgeries": {
@@ -535,12 +535,6 @@
     "copyright": "© 2025 מרפאת האורתופדיה של פרופ׳ מארק אידלמן. כל הזכויות שמורות.",
     "location": "חיפה, ישראל",
     "contact_heading": "פרטי התקשרות",
-    "contact_email": "דוא\"ל: mark@example.com",
-    "contact_phone": "טלפון: +972-04-873-2227",
-    "locations_heading": "מיקומים",
-    "location_1": "שדרות בן גוריון 4, חיפה",
-    "location_2": "רח' אוסישקין 6, קריית מוצקין",
-    "social_heading": "עקבו אחרינו",
-    "social_links": "LinkedIn | ResearchGate"
+    "contact_phone": "טלפון: 04-873-2227"
   }
 }
