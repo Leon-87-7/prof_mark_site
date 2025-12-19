@@ -67,7 +67,7 @@ const t = useTranslations(lang);
     <p>
       {t('footer.copyright')}
     </p>
-    <p dir="ltr">{t('footer.location')}  | +972 (0)4 873-2227</p>
+    <p dir="ltr">{t('footer.location')}  | {t('footer.contact_phone')}</p>
   </div>
 </div>
 
@@ -83,6 +83,7 @@ const t = useTranslations(lang);
   .footer-container {
     max-width: 1400px;
     margin: 0 auto;
+    padding-inline: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 32px;

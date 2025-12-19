@@ -54,6 +54,7 @@ body {
   line-height: 1.6;
   background: var(--white);
   font-size: 1rem;
+  overflow-x: hidden;
 }
 
 /* ============ TYPOGRAPHY ============ */
