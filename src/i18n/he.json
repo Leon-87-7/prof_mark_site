@@ -514,6 +514,26 @@
     }
   },
   "footer": {
+    "quickLinks": "קישורים מהירים",
+    "home": "דף הבית",
+    "clinics": "המרפאות שלי",
+    "about": "אודות פרופ׳ אידלמן",
+    "innovation": "חדשנות כירורגית",
+    "guides": "מדריכים למטופלים",
+    "services": "השירותים שלנו",
+    "study": "אזור מחקר",
+    "contact": "יצירת קשר",
+    "addresses": "כתובות:",
+    "address1": "שדרות בן גוריון 4, חיפה",
+    "address2": "רחוב אוסישקין 6, קריית מוצקין",
+    "info": "מידע",
+    "privacy": "מדיניות פרטיות",
+    "terms": "תנאי שירות",
+    "accessibility": "נגישות",
+    "sitemap": "מפת אתר",
+    "comingSoon": "(בקרוב)",
+    "copyright": "© 2025 מרפאת האורתופדיה של פרופ׳ מארק אידלמן. כל הזכויות שמורות.",
+    "location": "חיפה, ישראל",
     "contact_heading": "פרטי התקשרות",
     "contact_email": "דוא\"ל: mark@example.com",
     "contact_phone": "טלפון: +972-04-873-2227",
@@ -521,7 +541,6 @@
     "location_1": "שדרות בן גוריון 4, חיפה",
     "location_2": "רח' אוסישקין 6, קריית מוצקין",
     "social_heading": "עקבו אחרינו",
-    "social_links": "LinkedIn | ResearchGate",
-    "copyright": "כל הזכויות שמורות."
+    "social_links": "LinkedIn | ResearchGate"
   }
 }

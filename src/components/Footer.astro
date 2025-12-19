@@ -2,7 +2,7 @@
 //TODO: Refactor to use i18n utils for translations
 // Footer component - static, no client-side interactivity needed
 import PhoneCallDuotone from "phosphor-astro/PhoneCallDuotone.astro"
-import { getPathPrefix, type Language } from '../i18n/utils';
+import { getPathPrefix, type Language ,useTranslations} from '../i18n/utils';
 
 interface Props {
   lang: Language;
@@ -12,96 +12,29 @@ const { lang } = Astro.props;
 const langPrefix = getPathPrefix(lang);
 
 // Footer translations (inline for simplicity)
-const footerText = {
-  he: {
-    quickLinks: 'קישורים מהירים',
-    home: 'דף הבית',
-    clinics: 'המרפאות שלי',
-    about: 'אודות פרופ׳ אידלמן',
-    innovation: 'חדשנות כירורגית',
-    guides: 'מדריכים למטופלים',
-    services: 'השירותים שלנו',
-    study: 'אזור מחקר',
-    contact: 'יצירת קשר',
-    addresses: 'כתובות:',
-    address1: 'שדרות בן גוריון 4, חיפה',
-    address2: 'רחוב אוסישקין 6, קריית מוצקין',
-    info: 'מידע',
-    privacy: 'מדיניות פרטיות',
-    terms: 'תנאי שירות',
-    accessibility: 'נגישות',
-    sitemap: 'מפת אתר',
-    comingSoon: '(בקרוב)',
-    copyright: '© 2025 מרפאת האורתופדיה של פרופ׳ מארק אידלמן. כל הזכויות שמורות.',
-    location: 'חיפה, ישראל'
-  },
-  en: {
-    quickLinks: 'QUICK LINKS',
-    home: 'Home Page',
-    clinics: 'My Clinics',
-    about: 'About Prof. Eidelman',
-    innovation: 'Surgical Innovation',
-    guides: 'Patient Guides',
-    services: 'Our Services',
-    study: 'Study Area',
-    contact: 'CONTACT',
-    addresses: 'Addresses:',
-    address1: 'Ben Gurion Blvd 4, Haifa',
-    address2: 'Ussishkin St 6, Kiryat Motzkin',
-    info: 'INFORMATION',
-    privacy: 'Privacy Policy',
-    terms: 'Terms of Service',
-    accessibility: 'Accessibility',
-    sitemap: 'Sitemap',
-    comingSoon: '(Coming soon)',
-    copyright: '© 2025 Prof. Mark Eidelman Orthopedic Clinic. All rights reserved.',
-    location: 'Haifa, Israel'
-  },
-  ru: {
-    quickLinks: 'БЫСТРЫЕ ССЫЛКИ',
-    home: 'Главная',
-    clinics: 'Наши клиники',
-    about: 'О профессоре Эйдельмане',
-    innovation: 'Хирургические инновации',
-    guides: 'Руководства для пациентов',
-    services: 'Наши услуги',
-    study: 'Учебная зона',
-    contact: 'КОНТАКТЫ',
-    addresses: 'Адреса:',
-    address1: 'Бульвар Бен Гуриона 4, Хайфа',
-    address2: 'Ул. Усышкина 6, Кирьят-Моцкин',
-    info: 'ИНФОРМАЦИЯ',
-    privacy: 'Политика конфиденциальности',
-    terms: 'Условия использования',
-    accessibility: 'Доступность',
-    sitemap: 'Карта сайта',
-    comingSoon: '(Скоро)',
-    copyright: '© 2025 Ортопедическая клиника профессора Марка Эйдельмана. Все права защищены.',
-    location: 'Хайфа, Израиль'
-  }
-};
 
-const t = footerText[lang];
+
+const t = useTranslations(lang);
 ---
 
 <div class="footer">
   <div class="footer-container">
     <div class="footer-section links">
-      <h5>{t.quickLinks}</h5>
-      <a href={`${langPrefix}/`}>{t.home}</a>
-      <a href={`${langPrefix}/clinics`}>{t.clinics}</a>
-      <a href={`${langPrefix}/about`}>{t.about}</a>
-      <a href={`${langPrefix}/innovation`}>{t.innovation}</a>
-      <a href={`${langPrefix}/guides`}>{t.guides}</a>
-      <a href={`${langPrefix}/services`}>{t.services}</a>
-      <a href={`${langPrefix}/study`}>{t.study}</a>
+      <h5>{t('footer.quickLinks')}</h5>
+      <a href={`${langPrefix}/`}>{t('footer.home')}</a>
+      <a href={`${langPrefix}/clinics`}>{t('footer.clinics')}</a>
+      <a href={`${langPrefix}/about`}>{t('footer.about')}</a>
+      <a href={`${langPrefix}/innovation`}>{t('footer.innovation')}</a>
+      <a href={`${langPrefix}/guides`}>{t('footer.guides')}</a>
+      <a href={`${langPrefix}/services`}>{t('footer.services')}</a>
+      <a href={`${langPrefix}/study`}>{t('footer.study')}</a>
     </div>
     <div class="footer-section contact">
-      <h5>{t.contact}</h5>
+      <h5>{t('footer.contact')}</h5>
       <div class="address">
-        <ul> <span class="address-title">{t.addresses}</span>
-          <li class={`${lang === 'he' ? 'address-rtl' : 'address-ltr'}`}>{t.address1}</li>
-          <li class={`${lang === 'he' ? 'address-rtl' : 'address-ltr'}`}>{t.address2}</li>
+        <ul> <span class="address-title">{t('footer.addresses')}</span>
+          <li class={`${lang === 'he' ? 'address-rtl' : 'address-ltr'}`}>{t('footer.address1')}</li>
+          <li class={`${lang === 'he' ? 'address-rtl' : 'address-ltr'}`}>{t('footer.address2')}</li>
         </ul>
       </div>
       <a
@@ -117,24 +50,24 @@ const t = footerText[lang];
 
     </div>
     <div class="footer-section info">
-      <h5>{t.info}</h5>
+      <h5>{t('footer.info')}</h5>
       <div class="coming-soon" aria-disabled="true">
-        {t.privacy} <em>{t.comingSoon}</em>
+        {t('footer.privacy')} <em>{t('footer.comingSoon')}</em>
       </div>
       <div class="coming-soon" aria-disabled="true">
-        {t.terms} <em>{t.comingSoon}</em>
+        {t('footer.terms')} <em>{t('footer.comingSoon')}</em>
       </div>
       <div class="coming-soon" aria-disabled="true">
-        {t.accessibility} <em>{t.comingSoon}</em>
+        {t('footer.accessibility')} <em>{t('footer.comingSoon')}</em>
       </div>
-      <a href={`${langPrefix}/sitemap`}>{t.sitemap}</a>
+      <a href={`${langPrefix}/sitemap`}>{t('footer.sitemap')}</a>
     </div>
   </div>
   <div class="footer-bottom">
     <p>
-      {t.copyright}
+      {t('footer.copyright')}
     </p>
-    <p dir="ltr">{t.location} | info@clinicat.com | +972 (0)4 873-2227</p>
+    <p dir="ltr">{t('footer.location')}  | +972 (0)4 873-2227</p>
   </div>
 </div>
 
