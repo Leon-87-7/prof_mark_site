@@ -88,6 +88,7 @@ const Navigation = ({
         <a
           href="tel:+97248732227"
           className="navbar-phone"
+          dir="ltr"
         >
           +972 (0)4 873-2227
         </a>

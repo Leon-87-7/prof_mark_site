@@ -22,14 +22,21 @@ interface LanguageSelectorProps {
 
 const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   variant = 'header',
-  currentPath = '/',
+  currentPath,
 }) => {
-  // Detect current language from URL
+  // Detect current language from URL - always use window.location on client
   const getCurrentLanguage = (): Language => {
-    if (typeof window === 'undefined') return 'he';
-    const path = currentPath || window.location.pathname;
-    if (path.startsWith('/en')) return 'en';
-    if (path.startsWith('/ru')) return 'ru';
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      if (path.startsWith('/en')) return 'en';
+      if (path.startsWith('/ru')) return 'ru';
+      return 'he';
+    }
+    // Server-side fallback using prop
+    if (currentPath) {
+      if (currentPath.startsWith('/en')) return 'en';
+      if (currentPath.startsWith('/ru')) return 'ru';
+    }
     return 'he'; // Default to Hebrew
   };
 
@@ -37,10 +44,24 @@ const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Update selected language when path changes
+  // Detect language from URL on client-side mount and after navigation
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    // Update immediately on mount
     setSelectedLanguage(getCurrentLanguage());
-  }, [currentPath]);
+
+    // Listen for Astro View Transitions page loads
+    const handlePageLoad = () => {
+      setSelectedLanguage(getCurrentLanguage());
+    };
+
+    document.addEventListener('astro:page-load', handlePageLoad);
+
+    return () => {
+      document.removeEventListener('astro:page-load', handlePageLoad);
+    };
+  }, []);
 
   const selectedLang = languages.find(
     (lang) => lang.code === selectedLanguage

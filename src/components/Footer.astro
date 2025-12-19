@@ -16,7 +16,7 @@ const footerText = {
     quickLinks: 'קישורים מהירים',
     home: 'דף הבית',
     clinics: 'המרפאות שלי',
-    about: 'אודות פרופ׳ איידלמן',
+    about: 'אודות פרופ׳ אידלמן',
     innovation: 'חדשנות כירורגית',
     guides: 'מדריכים למטופלים',
     services: 'השירותים שלנו',
@@ -31,7 +31,7 @@ const footerText = {
     accessibility: 'נגישות',
     sitemap: 'מפת אתר',
     comingSoon: '(בקרוב)',
-    copyright: '© 2025 מרפאת האורתופדיה של פרופ׳ מארק איידלמן. כל הזכויות שמורות.',
+    copyright: '© 2025 מרפאת האורתופדיה של פרופ׳ מארק אידלמן. כל הזכויות שמורות.',
     location: 'חיפה, ישראל'
   },
   en: {
@@ -99,18 +99,19 @@ const t = footerText[lang];
       <h5>{t.contact}</h5>
       <div class="address">
         <ul> <span class="address-title">{t.addresses}</span>
-          <li>{t.address1}</li>
-          <li>{t.address2}</li>
+          <li class={`${lang === 'he' ? 'address-rtl' : 'address-ltr'}`}>{t.address1}</li>
+          <li class={`${lang === 'he' ? 'address-rtl' : 'address-ltr'}`}>{t.address2}</li>
         </ul>
       </div>
       <a
       href="tel:+97248732227"
+      class={`phone-link ${lang === 'he' ? 'phone-link-rtl' : 'phone-link-ltr'}`}
+      dir="ltr"
       >
-      <samp class="phone-icon">
+      <span class="phone-icon">
       <PhoneCallDuotone width={16} color="var(--secondary)" />
-      </samp>
-
-      +972 (0)4 873-2227
+      </span>
+      <span class="phone-number">+972 (0)4 873-2227</span>
       </a>
 
     </div>
@@ -132,7 +133,7 @@ const t = footerText[lang];
     <p>
       {t.copyright}
     </p>
-    <p>{t.location} | info@clinicat.com | +972 (0)4 873-2227</p>
+    <p dir="ltr">{t.location} | info@clinicat.com | +972 (0)4 873-2227</p>
   </div>
 </div>
 
@@ -211,17 +212,42 @@ const t = footerText[lang];
     color: #999999;
   }
 
+  .address {
+    margin: 0 !important;
+  }
   .address-title {
     font-weight: bold;
     display: block;
   }
 
-  li {
+  .address-ltr {
     margin-left: 1.5rem;
   }
-    .phone-icon {
-    vertical-align: middle;
-    margin-left: 4px;
+
+  .address-rtl {
+    margin-right: 1.5rem;
+  }
+  /* Phone link with flexbox for icon positioning */
+  .phone-link {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 6px;
+    margin: 0 !important;
+  }
+
+  /* LTR: icon on the left (default order) */
+  .phone-link-ltr {
+    flex-direction: row;
+  }
+
+  /* RTL: icon on the right (reverse order) */
+  .phone-link-rtl {
+    flex-direction: row-reverse;
+  }
+
+  .phone-icon {
+    display: inline-flex;
+    align-items: center;
   }
   
   @media (max-width: 768px) {

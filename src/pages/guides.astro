@@ -2,7 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { useTranslations } from '@/i18n/utils';
 
-const lang = 'en';
+const lang = 'he';
 const t = useTranslations(lang);
 ---
 
@@ -151,7 +151,7 @@ const t = useTranslations(lang);
       </div>
     </div>
 
-    <div class="feature-box">
+    <div class="feature-box-rtl">
       <h3>{t('guides.bundle.title')}</h3>
       <p>
         {t('guides.bundle.description')}

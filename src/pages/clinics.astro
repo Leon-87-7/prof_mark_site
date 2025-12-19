@@ -5,7 +5,7 @@ import MapPinLineDuotone from 'phosphor-astro/MapPinLineDuotone.astro';
 import TimerDuotone from 'phosphor-astro/TimerDuotone.astro';
 import { useTranslations } from '@/i18n/utils';
 
-const lang = 'en';
+const lang = 'he';
 const t = useTranslations(lang);
 ---
 
@@ -148,7 +148,7 @@ const t = useTranslations(lang);
       <p class="section-subtitle">
         {t('clinics.virtual.subtitle')}
       </p>
-      <div class="feature-box">
+      <div class="feature-box-rtl">
         <h3>{t('clinics.virtual.perfect_for_title')}</h3>
         <ul style="margin-bottom: 1rem;">
           <li>{t('clinics.virtual.perfect_for.international')}</li>
