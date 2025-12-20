@@ -4,7 +4,7 @@ import ResponsivePicture from '@/components/ResponsivePicture.astro';
 import aboutImage from '@/images/about_image_mark.jpg';
 import { useTranslations } from '@/i18n/utils';
 
-const lang = 'he';
+const lang = 'en';
 const t = useTranslations(lang);
 ---
 <BaseLayout
@@ -83,8 +83,7 @@ const t = useTranslations(lang);
             <li>{t('about.education_affiliations.education.fellowship')}</li>
           </ul>
         </div>
-        <br><br>
-        <h3>{t('about.education_affiliations.memberships.title')}</h3>
+        <h3 class="memberships-title">{t('about.education_affiliations.memberships.title')}</h3>
         <ul>
           <li>{t('about.education_affiliations.memberships.israeli')}</li>
           <li>{t('about.education_affiliations.memberships.epos')}</li>
@@ -152,7 +151,11 @@ const t = useTranslations(lang);
 }
 
 .about-profile-image {
-  margin-right: 2rem;
+  margin-left: 2rem;
+}
+
+.memberships-title{
+  margin-top: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -170,7 +173,7 @@ const t = useTranslations(lang);
   }
 
   .about-profile-image {
-    margin-right: 0;
+    margin-left: 0;
     margin-top: 1rem;
   }
 

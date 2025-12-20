@@ -4,14 +4,13 @@ import ResponsivePicture from '@/components/ResponsivePicture.astro';
 import aboutImage from '@/images/about_image_mark.jpg';
 import { useTranslations } from '@/i18n/utils';
 
-const lang = 'he';
+const lang = 'ru';
 const t = useTranslations(lang);
 ---
 <BaseLayout
   title={t('about.title')}
   description={t('about.intro')}
   image={aboutImage.src}
-  alt={t('about.title')}
   lang={lang}
 >
 
@@ -152,7 +151,7 @@ const t = useTranslations(lang);
 }
 
 .about-profile-image {
-  margin-right: 2rem;
+  margin-left: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -170,7 +169,7 @@ const t = useTranslations(lang);
   }
 
   .about-profile-image {
-    margin-right: 0;
+    margin-left: 0;
     margin-top: 1rem;
   }
 

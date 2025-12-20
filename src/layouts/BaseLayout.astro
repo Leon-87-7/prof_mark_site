@@ -4,6 +4,7 @@ import { Font } from 'astro:assets';
 import Header from '@/components/Header.astro';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer.astro';
+import { getLangFromUrl, isRTL, type Language } from '@/i18n/utils';
 import '@/styles/global.css';
 import '@/styles/utilities.css';
 
@@ -11,7 +12,9 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  alt?: string;
   canonicalURL?: string;
+  lang?: Language
 }
 
 const {
@@ -21,11 +24,23 @@ const {
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href
 } = Astro.props;
 
+// Detect language from URL
+const lang = getLangFromUrl(Astro.url) as Language;
+const rtl = isRTL(lang);
+
+// Generate alternate language URLs for hreflang
+const pathWithoutLang = Astro.url.pathname.replace(/^\/(en|ru)/, '') || '/';
+const alternateURLs = {
+  he: new URL(pathWithoutLang, Astro.site),                    // Hebrew = root
+  en: new URL(`/en${pathWithoutLang}`, Astro.site),            // English = /en/
+  ru: new URL(`/ru${pathWithoutLang}`, Astro.site),            // Russian = /ru/
+};
+
 const ogImageURL = new URL(image, Astro.site).href;
 ---
 
 <!DOCTYPE html>
-<html lang="en" transition:animate="none">
+<html lang={lang} dir={rtl ? 'rtl' : 'ltr'} transition:animate="none">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,6 +49,12 @@ const ogImageURL = new URL(image, Astro.site).href;
     <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL} />
 
+    <!-- Hreflang tags for multi-language SEO -->
+    <link rel="alternate" hreflang="he" href={alternateURLs.he} />
+    <link rel="alternate" hreflang="en" href={alternateURLs.en} />
+    <link rel="alternate" hreflang="ru" href={alternateURLs.ru} />
+    <link rel="alternate" hreflang="x-default" href={alternateURLs.he} />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
@@ -41,7 +62,7 @@ const ogImageURL = new URL(image, Astro.site).href;
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:site_name" content="Prof. Mark Eidelman" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={lang === 'he' ? 'he_IL' : lang === 'en' ? 'en_US' : 'ru_RU'} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -70,13 +91,13 @@ const ogImageURL = new URL(image, Astro.site).href;
 
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&family=Heebo:wght@400;600;700&display=swap"
       media="print"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&family=Heebo:wght@400;600;700&display=swap"
       />
     </noscript>
 
@@ -135,12 +156,12 @@ const ogImageURL = new URL(image, Astro.site).href;
     <slot name="head" />
   </head>
   <body>
-    <Header />
-    <Navigation client:idle currentPath={Astro.url.pathname} />
+    <Header lang={lang} />
+    <Navigation client:idle currentPath={Astro.url.pathname} lang={lang} />
     <main class="container" id="main-content" role="main" transition:animate={slide({ duration: "0.8s" })}>
       <slot />
     </main>
-    <Footer />
+    <Footer lang={lang} />
   </body>
 </html>
 

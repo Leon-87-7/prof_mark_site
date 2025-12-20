@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { useTranslations } from '@/i18n/utils';
+import { getPathPrefix, useTranslations } from '@/i18n/utils';
 
-const lang = 'he';
+const lang = 'ru';
 const t = useTranslations(lang);
+const langPrefix = getPathPrefix(lang);
 
 ---
 
@@ -123,7 +124,7 @@ const t = useTranslations(lang);
           </ul>
         </div>
       </div>
-      <a href={`/clinics`} class="btn btn-primary">{t('services.featured.cta')}</a>
+      <a href={`${langPrefix}/clinics`} class="btn btn-primary">{t('services.featured.cta')}</a>
     </div>
   </div>
 </BaseLayout>

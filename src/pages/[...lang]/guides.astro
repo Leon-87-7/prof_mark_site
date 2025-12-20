@@ -1,98 +1,107 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { useTranslations, getLangFromUrl } from '@/i18n/utils';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: undefined}}, // Default language
+    { params: { lang: 'en' } },
+    { params: { lang: 'ru' } },
+  ];
+}
+
+const lang = getLangFromUrl(Astro.url) || 'he';
+const t = useTranslations(lang);
+const isRTL = lang === 'he'
 ---
 
 <BaseLayout
-  title="Patient Guides - Prof. Mark Eidelman"
-  description="Comprehensive resources to prepare for and recover from your treatment, including downloadable guides, exercises, and FAQs."
+  title={t('guides.title')}
+  description={t('guides.subtitle')}
+  lang={lang}
 >
   <div class="page active">
     <div class="section">
-      <h2 class="section-title">Patient Guides</h2>
+      <h2 class="section-title">{t('guides.title')}</h2>
       <p class="section-subtitle">
-        Comprehensive resources to prepare for and recover from your
-        treatment, including downloadable guides, exercises, and
-        FAQs.
+        {t('guides.subtitle')}
       </p>
     </div>
 
     <div class="guides-buttons">
       <button
         class="btn btn-primary"
-        onclick="alert('Pre-Surgery Guide showing preparation checklist, medications, exercises')"
+        onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
       >
-        📋 Pre-Surgery Guide
+        {t('guides.quick_access.pre_surgery')}
       </button>
       <button
         class="btn btn-secondary"
-        onclick="alert('Post-Surgery Guide showing first week recovery, pain management, wound care')"
+        onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
       >
-        📋 Post-Surgery Guide
+        {t('guides.quick_access.post_surgery')}
       </button>
       <button
         class="btn pt-ex-btn"
-        onclick="alert('Physical Therapy exercises with detailed instructions and video guides')"
+        onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
       >
-        📋 PT Exercises
+        {t('guides.quick_access.pt_exercises')}
       </button>
       <button
         class="btn btn-primary"
-        onclick="alert('Complete recovery timeline tracking your progress through each phase')"
+        onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
       >
-        📋 Recovery Timeline
+        {t('guides.quick_access.recovery_timeline')}
       </button>
     </div>
 
     <div class="section">
       <h2 class="section-title section-title-small">
-        Pre-Surgery Guides
+        {t('guides.pre_surgery.section_title')}
       </h2>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-header">✅</div>
+          <div class="card-header">{t('guides.pre_surgery.checklist.emoji')}</div>
           <div class="card-content">
-            <h3>Pre-Surgery Checklist</h3>
+            <h3>{t('guides.pre_surgery.checklist.title')}</h3>
             <p>
-              Complete checklist for medical clearance, medications,
-              fasting, and pre-operative preparation.
+              {t('guides.pre_surgery.checklist.description')}
             </p>
             <button
               class="btn btn-primary"
-              onclick="alert('Downloading: Pre-Surgery-Checklist.pdf')"
+              onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
             >
-              ⬇️ Download PDF
+              {t('guides.pre_surgery.checklist.cta')}
             </button>
           </div>
         </div>
         <div class="card">
-          <div class="card-header">💪</div>
+          <div class="card-header">{t('guides.pre_surgery.exercises.emoji')}</div>
           <div class="card-content">
-            <h3>Pre-Surgery Exercises</h3>
+            <h3>{t('guides.pre_surgery.exercises.title')}</h3>
             <p>
-              Prescribed stretching and strengthening routines to
-              prepare your body for surgery.
+              {t('guides.pre_surgery.exercises.description')}
             </p>
             <button
               class="btn btn-primary"
-              onclick="alert('Downloading: Pre-Surgery-Exercises.pdf')"
+              onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
             >
-              ⬇️ Download PDF
+              {t('guides.pre_surgery.exercises.cta')}
             </button>
           </div>
         </div>
         <div class="card">
-          <div class="card-header">❓</div>
+          <div class="card-header">{t('guides.pre_surgery.questions.emoji')}</div>
           <div class="card-content">
-            <h3>Questions to Ask</h3>
+            <h3>{t('guides.pre_surgery.questions.title')}</h3>
             <p>
-              Important questions to discuss with Prof. Eidelman
-              during your consultation.
+              {t('guides.pre_surgery.questions.description')}
             </p>
             <button
               class="btn btn-primary"
-              onclick="alert('Downloading: Questions-to-Ask-Your-Surgeon.pdf')"
+              onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
             >
-              ⬇️ Download PDF
+              {t('guides.pre_surgery.questions.cta')}
             </button>
           </div>
         </div>
@@ -101,113 +110,104 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 
     <div class="section">
       <h2 class="section-title section-title-small">
-        Post-Surgery Guides
+        {t('guides.post_surgery.section_title')}
       </h2>
       <div class="cards-grid">
         <div class="card">
-          <div class="card-header">📅</div>
+          <div class="card-header">{t('guides.post_surgery.first_week.emoji')}</div>
           <div class="card-content">
-            <h3>First Week Recovery</h3>
+            <h3>{t('guides.post_surgery.first_week.title')}</h3>
             <p>
-              Hospital stay expectations, pain management, and
-              immediate post-operative care instructions.
+              {t('guides.post_surgery.first_week.description')}
             </p>
             <button
               class="btn btn-primary"
-              onclick="alert('Downloading: First-Week-Recovery-Guide.pdf')"
+              onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
             >
-              ⬇️ Download PDF
+              {t('guides.post_surgery.first_week.cta')}
             </button>
           </div>
         </div>
         <div class="card">
-          <div class="card-header">📈</div>
+          <div class="card-header">{t('guides.post_surgery.lengthening.emoji')}</div>
           <div class="card-content">
-            <h3>Lengthening Phase</h3>
+            <h3>{t('guides.post_surgery.lengthening.title')}</h3>
             <p>
-              Detailed guide for the 12-week lengthening phase
-              including exercises and bi-weekly check-ups.
+              {t('guides.post_surgery.lengthening.description')}
             </p>
             <button
               class="btn btn-primary"
-              onclick="alert('Downloading: Lengthening-Phase-Guide.pdf')"
+              onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
             >
-              ⬇️ Download PDF
+              {t('guides.post_surgery.lengthening.cta')}
             </button>
           </div>
         </div>
         <div class="card">
-          <div class="card-header">🏥</div>
+          <div class="card-header">{t('guides.post_surgery.pt.emoji')}</div>
           <div class="card-content">
-            <h3>PT During Recovery</h3>
+            <h3>{t('guides.post_surgery.pt.title')}</h3>
             <p>
-              Physical therapy schedule, at-home exercises with
-              videos, and progress tracking.
+              {t('guides.post_surgery.pt.description')}
             </p>
             <button
               class="btn btn-primary"
-              onclick="alert('Downloading: Physical-Therapy-Guide.pdf')"
+              onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
             >
-              ⬇️ Download PDF
+              {t('guides.post_surgery.pt.cta')}
             </button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="service-detail">
-      <h3>📦 Download All Guides</h3>
+    <div class="feature-box">
+      <h3>{t('guides.bundle.title')}</h3>
       <p>
-        Get a complete bundle of all guides, exercise sheets,
-        tracking logs, and resources in one convenient package.
+        {t('guides.bundle.description')}
       </p>
       <button
         class="btn btn-primary btn-cta"
-        onclick="alert('Downloading: Complete-Patient-Guides-Bundle.zip (25MB)')"
+        onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
       >
-        ⬇️ Download Complete Bundle (ZIP)
+        {t('guides.bundle.cta')}
       </button>
     </div>
 
     <div class="section colored-top-border">
       <h2 class="section-title section-title-small">
-        Frequently Asked Questions
+        {t('guides.faq.section_title')}
       </h2>
       <div class="cards-grid">
         <div class="card">
           <div class="card-content">
-            <h3>How long is recovery?</h3>
+            <h3>{t('guides.faq.recovery_time.question')}</h3>
             <p>
-              Total recovery is approximately 12 months, with most
-              patients returning to normal activities by month 6-8.
+              {t('guides.faq.recovery_time.answer')}
             </p>
           </div>
         </div>
         <div class="card">
           <div class="card-content">
-            <h3>What are the risks?</h3>
+            <h3>{t('guides.faq.risks.question')}</h3>
             <p>
-              Complication rate is &lt;2% with proper care. Common
-              concerns are addressed during consultation.
+              {t('guides.faq.risks.answer')}
             </p>
           </div>
         </div>
         <div class="card">
           <div class="card-content">
-            <h3>Can I fly after surgery?</h3>
+            <h3>{t('guides.faq.fly.question')}</h3>
             <p>
-              Flying is typically allowed 2-3 weeks after surgery
-              with proper precautions. We provide detailed travel
-              guidelines.
+              {t('guides.faq.fly.answer')}
             </p>
           </div>
         </div>
         <div class="card">
           <div class="card-content">
-            <h3>What's the maximum gain?</h3>
+            <h3>{t('guides.faq.max_gain.question')}</h3>
             <p>
-              Most patients achieve 5-8cm safely. The exact amount
-              depends on individual bone tolerance.
+              {t('guides.faq.max_gain.answer')}
             </p>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { navigate } from 'astro:transitions/client';
 import './LanguageSelector.css';
 
 type Language = 'en' | 'he' | 'ru';
@@ -10,31 +11,90 @@ interface LanguageOption {
 }
 
 const languages: LanguageOption[] = [
-  { code: 'en', name: 'English', flag: 'us' },
   { code: 'he', name: 'עברית', flag: 'il' },
+  { code: 'en', name: 'English', flag: 'us' },
   { code: 'ru', name: 'Русский', flag: 'ru' },
 ];
 
 interface LanguageSelectorProps {
   variant?: 'header' | 'navbar';
+  currentPath?: string;
 }
 
 const LanguageSelector: React.FC<LanguageSelectorProps> = ({
   variant = 'header',
+  currentPath,
 }) => {
-  const [selectedLanguage, setSelectedLanguage] =
-    useState<Language>('en');
+  // Detect current language from URL - always use window.location on client
+  const getCurrentLanguage = (): Language => {
+    if (typeof window !== 'undefined') {
+      const path = window.location.pathname;
+      if (path.startsWith('/en')) return 'en';
+      if (path.startsWith('/ru')) return 'ru';
+      return 'he';
+    }
+    // Server-side fallback using prop
+    if (currentPath) {
+      if (currentPath.startsWith('/en')) return 'en';
+      if (currentPath.startsWith('/ru')) return 'ru';
+    }
+    return 'he'; // Default to Hebrew
+  };
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>(
+    () => {
+      // Use currentPath for SSR-consistent initialization
+      if (currentPath) {
+        if (currentPath.startsWith('/en')) return 'en';
+        if (currentPath.startsWith('/ru')) return 'ru';
+      }
+      return 'he'; // Always return a default value
+    }
+  );
+
+  // Detect language from URL on client-side mount and after navigation
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    // Update immediately on mount
+    setSelectedLanguage(getCurrentLanguage());
+
+    // Listen for Astro View Transitions page loads
+    const handlePageLoad = () => {
+      setSelectedLanguage(getCurrentLanguage());
+    };
+
+    document.addEventListener('astro:page-load', handlePageLoad);
+
+    return () => {
+      document.removeEventListener('astro:page-load', handlePageLoad);
+    };
+  }, []);
 
   const selectedLang = languages.find(
     (lang) => lang.code === selectedLanguage
   );
 
   const handleLanguageSelect = (lang: Language) => {
-    setSelectedLanguage(lang);
-    setIsDropdownOpen(false);
-    // TODO: Implement actual language switching logic
+    if (typeof window === 'undefined') return;
+
+    const currentPath = window.location.pathname;
+    let newPath = currentPath;
+
+    // Remove existing language prefix
+    newPath = newPath.replace(/^\/(en|ru)/, '') || '/';
+
+    // Add new language prefix (except for Hebrew which is root)
+    if (lang === 'en') {
+      newPath = `/en${newPath}`;
+    } else if (lang === 'ru') {
+      newPath = `/ru${newPath}`;
+    }
+
+    // Navigate to new URL
+    navigate(newPath);
   };
 
   // Close dropdown when clicking outside

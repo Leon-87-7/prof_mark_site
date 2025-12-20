@@ -1,44 +1,45 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { useTranslations } from '@/i18n/utils';
+import { getPathPrefix, useTranslations } from '@/i18n/utils';
 
-const lang = 'he';
+const lang = 'ru';
 const t = useTranslations(lang);
+const langPrefix = getPathPrefix(lang);
 
 const pages = [
   {
     title: t('sitemap.pages.home.title'),
-    url: '/',
+    url: `${langPrefix}/`,
     description: t('sitemap.pages.home.description')
   },
   {
     title: t('sitemap.pages.about.title'),
-    url: '/about',
+    url: `${langPrefix}/about`,
     description: t('sitemap.pages.about.description')
   },
   {
     title: t('sitemap.pages.clinics.title'),
-    url: '/clinics',
+    url: `${langPrefix}/clinics`,
     description: t('sitemap.pages.clinics.description')
   },
   {
     title: t('sitemap.pages.services.title'),
-    url: '/services',
+    url: `${langPrefix}/services`,
     description: t('sitemap.pages.services.description')
   },
   {
     title: t('sitemap.pages.innovation.title'),
-    url: '/innovation',
+    url: `${langPrefix}/innovation`,
     description: t('sitemap.pages.innovation.description')
   },
   {
     title: t('sitemap.pages.guides.title'),
-    url: '/guides',
+    url: `${langPrefix}/guides`,
     description: t('sitemap.pages.guides.description')
   },
   {
     title: t('sitemap.pages.study.title'),
-    url: '/study',
+    url: `${langPrefix}/study`,
     description: t('sitemap.pages.study.description')
   }
 ];

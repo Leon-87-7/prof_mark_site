@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 import heroImage from '@/images/hero_image_mark_02.jpg';
 import { useTranslations, getPathPrefix  } from '@/i18n/utils';
 
-const lang = 'he';
+const lang = 'en';
 const t = useTranslations(lang);
 const langPrefix = getPathPrefix(lang);
 ---
@@ -125,38 +125,37 @@ const langPrefix = getPathPrefix(lang);
 
 <style>
   .hero {
-    padding-block: 40px;
-    padding-inline-start: 100px;
-    padding-inline-end: 0;
+    padding: 40px 0 40px 100px;
     width: 100vw;
     position: relative;
-    inset-inline-start: 50%;
-    inset-inline-end: 50%;
-    margin-inline-start: -50vw;
-    margin-inline-end: -50vw;
-    margin-block: 0;
+    left: 50%;
+    right: 50%;
+    margin-inline-start:-50vw;
+    margin-inline-end:-50vw;
+    margin-top: 0;
+    margin-bottom: 0;
     overflow: hidden;
   }
 
   .hero-background {
     position: absolute;
     top: 0;
-    inset-inline-start: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* object-position: left; */
+    object-position: center;
     z-index: 0;
   }
 
   .hero::before {
     content: '';
     position: absolute;
-    inset-block-start: 0;
-    inset-inline-start: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to var(--gradient-direction, right),
+    background: linear-gradient(to right,
       rgba(0, 0, 0, 0.9) 0%,
       rgba(0, 0, 0, 0.6) 30%,
       rgba(0, 0, 0, 0.4) 50%,
@@ -166,14 +165,10 @@ const langPrefix = getPathPrefix(lang);
     pointer-events: none;
   }
 
-  [dir='rtl'] .hero::before {
-    --gradient-direction: left;
-  }
-
   .hero-wrapper {
     max-width: 1400px;
     margin: 0 auto;
-    padding-inline: 20px;
+    padding: 0 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 48px;
@@ -230,7 +225,7 @@ const langPrefix = getPathPrefix(lang);
     padding: 20px;
     border-radius: 2px;
     text-align: center;
-    border-inline-start:3px solid var(--warning);
+    border-left: 3px solid var(--warning);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
 
@@ -260,20 +255,18 @@ const langPrefix = getPathPrefix(lang);
   }
 
   .credentials {
-    padding-block: 24px 16px;
-    padding-inline-end: 32px;
-    margin-inline-start: 50px;
+    padding: 24px 32px 16px 0px;
+    margin-left: 50px;
   }
 
   .mentorship {
-    margin-inline-start: 50px;
+    margin-left: 50px;
   }
 
   .testimonials-wrapper {
-    padding-block: 24px 16px;
-    padding-inline-end: 32px;
+    padding: 24px 32px 16px 0px;
     margin-bottom: 32px;
-    margin-inline-start: 50px;
+    margin-left: 50px;
   }
 
   .testimonials {
@@ -286,9 +279,8 @@ const langPrefix = getPathPrefix(lang);
   .testimonial {
     background: white;
     padding: 26px;
-    border-start-end-radius: 20px;
-    border-end-end-radius: 20px;
-    border-inline-start: 3px solid var(--accent);
+    border-radius: 0 20px 20px 0;
+    border-left: 3px solid var(--accent);
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
   }
 
@@ -397,9 +389,8 @@ const langPrefix = getPathPrefix(lang);
     .credentials,
     .mentorship,
     .testimonials-wrapper {
-      margin-inline-start: 20px;
-      padding-block: 24px 16px;
-      padding-inline: 0 20px;
+      margin-left: 20px;
+      padding: 24px 20px 16px 0;
     }
 
     .testimonials {

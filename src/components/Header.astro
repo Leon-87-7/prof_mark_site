@@ -1,30 +1,43 @@
 ---
 import LanguageSelector from './LanguageSelector';
 import CalendarDotsDuotone from "phosphor-astro/CalendarDotsDuotone.astro";
+import { getPathPrefix, type Language, useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const langPrefix = getPathPrefix(lang);
+
+// Simple translations for header (small enough to inline)
+
+
+const t = useTranslations(lang);
 ---
 
 <header class="header">
   <div class="header-container">
     <div class="logo">
       <div>
-        <div>Prof. Mark Eidelman</div>
+        <div>{t('header.name')}</div>
         <div class="logo-subtitle">
-          Pediatric Orthopedic Specialist
+          {t('header.subtitle')}
         </div>
       </div>
     </div>
     <div class="header-right">
       <div class="contact-info">
-        <div class="phone">+972 (0)4 873-2227</div>
+        <div class="phone" dir="ltr">+972 (0)4 873-2227</div>
         <LanguageSelector variant="header" client:idle />
       </div>
-      <a href="/clinics" class="btn-book">
+      <a href={`${langPrefix}/clinics`} class="btn-book">
         <CalendarDotsDuotone
               width={22}
               color="var(--tab-link-dark)"
             />
         <span style="padding: 8px 0; font-size: 0.75rem;">
-          CONTACT US
+          {t('header.contact')}
         </span>
       </a>
     </div>
@@ -37,6 +50,7 @@ import CalendarDotsDuotone from "phosphor-astro/CalendarDotsDuotone.astro";
     background: var(--primary);
     color: var(--secondary);
     padding: 18px 0 10px 0;
+    margin: 0;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     position: sticky;
     top: 0;
@@ -46,7 +60,7 @@ import CalendarDotsDuotone from "phosphor-astro/CalendarDotsDuotone.astro";
   .header-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding-inline: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -4,7 +4,7 @@
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding-inline: 20px;
 }
 
 /* ============ BUTTONS ============ */
@@ -167,7 +167,8 @@
 }
 
 .card-content {
-  padding: 20px;
+  padding: 20px 2.8rem;
+
 }
 
 .card-content h3 {
@@ -183,6 +184,7 @@
   color: var(--text-light);
   margin-bottom: 1rem;
   line-height: 1.6;
+  max-width: 30ch;
 }
 
 .card-link {
@@ -223,7 +225,9 @@
 /* ============ SECTIONS ============ */
 .section {
   background: var(--white);
-  padding: 24px 32px 16px 72px;
+  padding-block: 24px 16px;
+  padding-inline-start: 72px;
+  padding-inline-end: 32px;
   border-radius: 0;
   /* margin: 0 0 16px 0; */
   box-shadow: none;
@@ -259,39 +263,44 @@
 .section ul {
   max-width: 50ch;
   color: var(--text-sub-dark);
-  padding-left: 1.2rem;
+  padding-inline-start: 1.2rem;
 }
 
-/* ============ SERVICE DETAIL (Used across multiple pages) ============ */
-.service-detail {
+/* ============ feature-box (Used across multiple pages) ============ */
+.feature-box {
   background: #eafaf1;
-  border-left: 3px solid var(--accent);
+  border-inline-start: 3px solid var(--accent);
   padding: 24px;
   border-radius: 5px;
   margin: 50px auto;
   max-width: 1250px;
 }
 
-.service-detail h3 {
-  color: var(--accent);
-  margin-bottom: 12px;
-  font-size: 0.95rem;
+/* RTL-specific styles for feature-box background */
+[dir="rtl"] .feature-box {
+  background: linear-gradient(to left, #fdfcf8 40%, #fff 100%)
 }
 
-.service-detail h4 {
+.feature-box h3 {
+  color: var(--accent);
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+.feature-box h4 {
   margin-top: 16px;
 }
 
-.service-detail h4:first-of-type {
+.feature-box h4:first-of-type {
   margin-top: 0;
 }
 
-.service-detail .btn {
+.feature-box .btn {
   margin-top: 16px;
 }
 
-.service-detail ul {
-  margin-left: 16px;
+.feature-box ul {
+  margin-inline-start: 16px;
 }
 
 /* ============ TWO COLUMN LAYOUT ============ */
@@ -311,7 +320,7 @@
 }
 
 .column ul {
-  margin-left: 16px;
+  margin-inline-start: 16px;
   line-height: 1.8;
   max-width: 55ch;
 }
@@ -329,7 +338,8 @@
 
   .section {
     background: var(--white);
-    padding: 24px 32px;
+    padding: 24px;
+    padding-inline: 32px;
     border-radius: 0;
     /* margin: 0 0 16px 0; */
     box-shadow: none;
@@ -351,5 +361,5 @@
 /* ============ ICON ITEM ============ */
 .icon-item {
   vertical-align: sub;
-  margin-right: 8px;
+  margin-inline-end: 8px;
 }

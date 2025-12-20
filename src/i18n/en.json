@@ -1,0 +1,539 @@
+{
+  "nav": {
+    "about": "About",
+    "clinics": "Clinics",
+    "services": "Services",
+    "innovation": "Innovation",
+    "guides": "Guides",
+    "study": "Study"
+  },
+  "header": {
+    "name": "Prof. Mark Eidelman",
+    "subtitle": "Pediatric Orthopedic Specialist",
+    "contact": "CONTACT US"
+  },
+  "home": {
+    "hero": {
+      "title": "Leading the Future of Pediatric Orthopedics",
+      "subtitle": "Limb Lengthening & Deformity Correction Specialist",
+      "description_line1": "Prof. Mark Eidelman",
+      "description_line2": "brings over",
+      "description_line3": "25 years of specialized expertise",
+      "description_line4": "and 3,000 successful surgeries to pediatric care. As a global authority dedicated to complex deformity correction and limb lengthening,",
+      "description_highlighted": "he helps children achieve balanced leg length, ideal stature, and a happy, fulfilling life.",
+      "description_closing": "Pioneering techniques. Global mentorship.",
+      "stats": {
+        "experience": {
+          "number": "40+",
+          "label": "Years Experience"
+        },
+        "surgeries": {
+          "number": "3000+",
+          "label": "Surgeries"
+        },
+        "trained": {
+          "number": "50+",
+          "label": "Trained"
+        }
+      },
+      "cta": {
+        "clinics": "Explore Clinics",
+        "guides": "Patient Guides",
+        "innovation": "Surgical Innovation"
+      }
+    },
+    "credentials": {
+      "title": "Professional Credentials",
+      "education": {
+        "title": "Education & Training",
+        "md": "MD - Samarkand School of Medicine (former USSR) - Graduated with Honors (1985).",
+        "residency": "Residency - Orthopedics Residency at Rambam Medical Center, Israel.",
+        "fellowship": "Fellowship - Pediatric Orthopedics Fellowship at Sinai Hospital, Baltimore, Maryland, USA (2002).",
+        "certification": "Board Certified - Israeli Orthopedic Association and European Pediatric Orthopedics Society (EPOS)."
+      },
+      "specializations": {
+        "title": "Specializations",
+        "pediatric": "Pediatric Orthopedics",
+        "limb_lengthening": "Limb Lengthening Surgery",
+        "deformity": "Complex Deformity Correction",
+        "techniques": "Advanced Surgical Techniques"
+      }
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "testimonial_1": {
+        "author": "Sarah M., Canada",
+        "rating": "★★★★★",
+        "text": "Prof. Eidelman's expertise and compassionate approach transformed my life. The results exceeded all my expectations."
+      },
+      "testimonial_2": {
+        "author": "David K., USA",
+        "rating": "★★★★★",
+        "text": "The most professional and caring surgeon I could ask for. I highly recommend Prof. Eidelman without hesitation."
+      },
+      "testimonial_3": {
+        "author": "Maria R., Spain",
+        "rating": "★★★★★",
+        "text": "My daughter's surgery was a complete success. We trust Prof. Eidelman completely with our family's care."
+      }
+    }
+  },
+  "about": {
+    "title": "Prof. Mark Eidelman, MD",
+    "intro": "Prof. Mark Eidelman is a world-renowned pediatric orthopedic surgeon with over 40 years of experience, specializing in complex limb deformity corrections and reconstruction. He currently serves as the Director of the Pediatric Orthopedics Unit at the Rambam Health Care Campus in Haifa, Israel, and is a Clinical Assistant Professor at the Technion Faculty of Medicine.",
+    "expertise": {
+      "title": "Pioneering Expertise",
+      "text": "Prof. Eidelman is internationally recognized for his groundbreaking work in the field of pediatric orthopedics. A significant career highlight includes being the first physician to introduce the revolutionary Taylor Spatial Frame technique in Israel in 2003, dramatically advancing the treatment of complex limb lengthening and deformity correction for children."
+    },
+    "specializations": {
+      "title": "Key Areas of Specialization:",
+      "limb_lengthening": {
+        "title": "Limb-Lengthening & Deformity Correction:",
+        "description": "Utilizing advanced technologies like the Taylor Spatial Frame."
+      },
+      "clubfoot": {
+        "title": "Clubfoot Correction:",
+        "description": "Expertise in modern, non-operative (Ponseti method) and surgical treatments."
+      },
+      "pelvic": {
+        "title": "Pelvic Osteotomies:",
+        "description": "Corrective surgeries for hip dysplasia and other pelvic deformities."
+      },
+      "trauma": {
+        "title": "Pediatric Trauma:",
+        "description": "Advanced treatment for fractures, dislocations, and orthopedic injuries in children."
+      }
+    },
+    "academic": {
+      "title": "Academic Contributions & Global Impact",
+      "paragraph_1": "Dedicated to both clinical care and academic advancement, Prof. Eidelman has authored over 100 scientific publications in peer-reviewed journals, contributing significantly to the global understanding and treatment protocols for pediatric orthopedic conditions.",
+      "paragraph_2": "His commitment to patient care extends globally, exemplified by his participation in international medical delegations, where he performs marathon surgeries to treat children in areas with limited access to specialized medical expertise."
+    },
+    "education_affiliations": {
+      "title": "Education and Affiliations",
+      "education": {
+        "title": "Education:",
+        "medical_school": "Medical School: Samarkand School of Medicine (former USSR) - Graduated with Honors (1985).",
+        "residency": "Residency: Orthopedics Residency at Rambam Medical Center, Israel.",
+        "fellowship": "Fellowship: Pediatric Orthopedics Fellowship at Sinai Hospital, Baltimore, Maryland, USA (2002)."
+      },
+      "memberships": {
+        "title": "Professional Memberships:",
+        "israeli": "Israeli Orthopedic Association",
+        "epos": "European Pediatric Orthopedics Society (EPOS)"
+      }
+    }
+  },
+  "clinics": {
+    "title": "Our Clinics",
+    "subtitle": "Visit Prof. Eidelman's clinics in Haifa and Kiryat Motzkin, Israel, or schedule a virtual consultation",
+    "haifa": {
+      "title": "HAIFA CLINIC",
+      "emoji": "🏥",
+      "location_label": "Location",
+      "location": "Ben Gurion Blvd 4, Haifa, Israel",
+      "hours_label": "Hours",
+      "hours": "Sunday: 4pm-7pm",
+      "services_title": "Services Available:",
+      "services": {
+        "facility": "Full surgical facility",
+        "pt_rooms": "Physical therapy rooms",
+        "consultation": "In-person consultations",
+        "postop": "Post-operative care",
+        "accommodation": "Patient accommodation support"
+      },
+      "cta": "Schedule Haifa Consultation"
+    },
+    "kiryat_motzkin": {
+      "title": "KIRYAT MOTZKIN CLINIC",
+      "emoji": "🏥",
+      "location_label": "Location",
+      "location": "Ussishkin St 6, Kiryat Motzkin, Israel",
+      "hours_label": "Hours",
+      "hours": "Thursday: 4pm-7pm",
+      "services_title": "Services Available:",
+      "services": {
+        "initial": "Initial consultations",
+        "followup": "Follow-up appointments",
+        "pt": "Physical therapy",
+        "education": "Patient education",
+        "wellness": "Wellness support"
+      },
+      "cta": "Schedule Kiryat Motzkin Consultation"
+    },
+    "virtual": {
+      "title": "Virtual Consultation",
+      "subtitle": "For international patients or initial screening consultations, we offer secure video consultations with Prof. Eidelman.",
+      "perfect_for_title": "Perfect for:",
+      "perfect_for": {
+        "international": "International patients seeking initial assessment",
+        "pre_surgery": "Pre-surgery consultations before visiting Israel",
+        "post_op": "Post-operative follow-ups from home",
+        "second_opinion": "Second opinion consultations"
+      },
+      "cta": "Schedule Virtual Consultation"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive orthopedic care specializing in limb lengthening, length discrepancy correction, and complex deformity reconstruction.",
+    "cards": {
+      "cosmetic_lengthening": {
+        "emoji": "📏",
+        "title": "Cosmetic Limb Lengthening",
+        "description": "Enhance height through bilateral leg lengthening surgery. Achieve 5-8cm height gain with natural-looking results.",
+        "cta": "Learn More →"
+      },
+      "limb_discrepancy": {
+        "emoji": "⚖️",
+        "title": "Limb Length Discrepancy",
+        "description": "Correct unequal limb lengths from injury, infection, or illness. Restore balance and eliminate pain.",
+        "cta": "Learn More →"
+      },
+      "deformity": {
+        "emoji": "🔨",
+        "title": "Deformity Reconstruction",
+        "description": "Correct acquired deformities of bones and joints. Complex cases using advanced surgical techniques.",
+        "cta": "Learn More →"
+      },
+      "pediatric": {
+        "emoji": "👧",
+        "title": "Pediatric Orthopedic",
+        "description": "Specialized care for children's bone and joint conditions. Gentle approach with excellent outcomes.",
+        "cta": "Learn More →"
+      }
+    },
+    "featured": {
+      "title": "Featured Service: Cosmetic Limb Lengthening",
+      "what": {
+        "title": "What is Cosmetic Limb Lengthening?",
+        "description": "Cosmetic stature lengthening is a procedure that increases height by lengthening both legs simultaneously. It's the safest and most effective way to achieve significant height gain."
+      },
+      "who": {
+        "title": "Who is it for?",
+        "items": {
+          "adults": "Adults seeking height increase",
+          "gain": "5-8cm lengthening achievable",
+          "bone": "Healthy bone structure required",
+          "expectations": "Realistic expectations important"
+        }
+      },
+      "outcomes": {
+        "title": "Expected Outcomes",
+        "items": {
+          "gain": "Average 5-8cm height gain",
+          "appearance": "Natural appearance",
+          "confidence": "Improved confidence & proportions",
+          "scarring": "Minimal scarring",
+          "complications": "Complication rate: <2%"
+        }
+      },
+      "timeline": {
+        "title": "Timeline",
+        "items": {
+          "surgery": "Surgery: 1-2 hours per leg",
+          "lengthening": "Lengthening phase: 12 weeks",
+          "consolidation": "Consolidation: 3-6 months",
+          "total": "Total recovery: ~12 months"
+        }
+      },
+      "cta": "Book Consultation"
+    }
+  },
+  "innovation": {
+    "title": "Surgical Innovation",
+    "subtitle": "Pioneering research, advanced surgical techniques, and global mentorship advancing the field of orthopedic surgery.",
+    "cards": {
+      "techniques": {
+        "emoji": "🔬",
+        "title": "Pioneering Techniques",
+        "description": "Developed innovative surgical approaches that improve patient outcomes and reduce complication rates.",
+        "cta": "View Details →"
+      },
+      "research": {
+        "emoji": "📚",
+        "title": "Research & Publications",
+        "description": "40+ peer-reviewed articles published in leading medical journals worldwide.",
+        "cta": "View Publications →"
+      },
+      "mentorship": {
+        "emoji": "🎓",
+        "title": "Mentorship Program",
+        "description": "International fellowship training and surgical technique workshops for next-generation surgeons.",
+        "cta": "Apply →"
+      },
+      "collaboration": {
+        "emoji": "🌍",
+        "title": "Global Collaborations",
+        "description": "Research partnerships and collaborative cases with leading orthopedic centers worldwide.",
+        "cta": "View Network →"
+      }
+    },
+    "key_innovations": {
+      "title": "Key Innovations",
+      "techniques": {
+        "title": "Advanced Surgical Techniques",
+        "items": {
+          "screw": "Telescopic free-gliding screw",
+          "healing": "Enhanced bone healing protocols",
+          "minimally": "Minimally invasive approaches",
+          "computer": "Computer-assisted planning"
+        }
+      },
+      "research_focus": {
+        "title": "Research Focus Areas",
+        "items": {
+          "osteogenesis": "Osteogenesis optimization",
+          "prevention": "Complication prevention",
+          "heparan": "Heparan sulfate effects",
+          "outcomes": "Patient outcomes analysis"
+        }
+      }
+    },
+    "publications": {
+      "title": "Recent Publications",
+      "publication_1": {
+        "title": "Advanced Techniques in Limb Lengthening (2023)",
+        "journal": "Journal of Orthopedic Surgery",
+        "description": "Key findings on improving patient outcomes through innovative surgical approaches.",
+        "cta": "Read Article →"
+      },
+      "publication_2": {
+        "title": "Complication Prevention in Deformity Correction (2023)",
+        "journal": "Limb Lengthening & Reconstruction",
+        "description": "Analysis of 500+ cases showing best practices for minimal complications.",
+        "cta": "Read Article →"
+      },
+      "publication_3": {
+        "title": "Mentorship in Surgical Excellence (2022)",
+        "journal": "Medical Education Review",
+        "description": "Framework for training next-generation surgeons in orthopedic specialties.",
+        "cta": "Read Article →"
+      }
+    }
+  },
+  "guides": {
+    "title": "Patient Guides",
+    "subtitle": "Comprehensive resources to prepare for and recover from your treatment, including downloadable guides, exercises, and FAQs.",
+    "quick_access": {
+      "pre_surgery": "📋 Pre-Surgery Guide",
+      "post_surgery": "📋 Post-Surgery Guide",
+      "pt_exercises": "📋 PT Exercises",
+      "recovery_timeline": "📋 Recovery Timeline"
+    },
+    "pre_surgery": {
+      "section_title": "Pre-Surgery Guides",
+      "checklist": {
+        "emoji": "✅",
+        "title": "Pre-Surgery Checklist",
+        "description": "Complete checklist for medical clearance, medications, fasting, and pre-operative preparation.",
+        "cta": "⬇️ Download PDF"
+      },
+      "exercises": {
+        "emoji": "💪",
+        "title": "Pre-Surgery Exercises",
+        "description": "Prescribed stretching and strengthening routines to prepare your body for surgery.",
+        "cta": "⬇️ Download PDF"
+      },
+      "questions": {
+        "emoji": "❓",
+        "title": "Questions to Ask",
+        "description": "Important questions to discuss with Prof. Eidelman during your consultation.",
+        "cta": "⬇️ Download PDF"
+      }
+    },
+    "post_surgery": {
+      "section_title": "Post-Surgery Guides",
+      "first_week": {
+        "emoji": "📅",
+        "title": "First Week Recovery",
+        "description": "Hospital stay expectations, pain management, and immediate post-operative care instructions.",
+        "cta": "⬇️ Download PDF"
+      },
+      "lengthening": {
+        "emoji": "📈",
+        "title": "Lengthening Phase",
+        "description": "Detailed guide for the 12-week lengthening phase including exercises and bi-weekly check-ups.",
+        "cta": "⬇️ Download PDF"
+      },
+      "pt": {
+        "emoji": "🏥",
+        "title": "PT During Recovery",
+        "description": "Physical therapy schedule, at-home exercises with videos, and progress tracking.",
+        "cta": "⬇️ Download PDF"
+      }
+    },
+    "bundle": {
+      "title": "Download All Guides",
+      "description": "Get a complete bundle of all guides, exercise sheets, tracking logs, and resources in one convenient package.",
+      "cta": "⬇️ Download Complete Bundle (ZIP)"
+    },
+    "faq": {
+      "section_title": "Frequently Asked Questions",
+      "recovery_time": {
+        "question": "How long is recovery?",
+        "answer": "Total recovery is approximately 12 months, with most patients returning to normal activities by month 6-8."
+      },
+      "risks": {
+        "question": "What are the risks?",
+        "answer": "Complication rate is <2% with proper care. Common concerns are addressed during consultation."
+      },
+      "fly": {
+        "question": "Can I fly after surgery?",
+        "answer": "Flying is typically allowed 2-3 weeks after surgery with proper precautions. We provide detailed travel guidelines."
+      },
+      "max_gain": {
+        "question": "What's the maximum gain?",
+        "answer": "Most patients achieve 5-8cm safely. The exact amount depends on individual bone tolerance."
+      }
+    }
+  },
+  "study": {
+    "title": "Study Area",
+    "subtitle": "Educational hub featuring articles, case studies, lectures, and research papers from Prof. Eidelman and the orthopedic community.",
+    "search": {
+      "placeholder": "🔍 Search articles, case studies, lectures...",
+      "filters": {
+        "all": "All",
+        "articles": "Articles",
+        "case_studies": "Case Studies",
+        "lectures": "Lectures",
+        "research": "Research"
+      }
+    },
+    "content": {
+      "article_1": {
+        "emoji": "📄",
+        "title": "Advanced Surgical Techniques",
+        "type": "Article",
+        "date": "Published January 2024",
+        "description": "Detailed guide to modern limb lengthening surgical approaches with 99%+ success rates.",
+        "cta": "Read Article →"
+      },
+      "case_study_1": {
+        "emoji": "📊",
+        "title": "Severe LLD Correction",
+        "type": "Case Study",
+        "date": "Published December 2023",
+        "description": "Comprehensive case study: Correction of 8cm limb length discrepancy in adult patient.",
+        "cta": "View Case Study →"
+      },
+      "lecture_1": {
+        "emoji": "🎥",
+        "title": "Surgical Innovation Lecture",
+        "type": "Video Lecture",
+        "duration": "45 minutes",
+        "date": "November 2023",
+        "description": "Comprehensive lecture on recent innovations in orthopedic surgical techniques.",
+        "cta": "Watch Lecture →"
+      },
+      "research_1": {
+        "emoji": "📚",
+        "title": "Research on Complication Prevention",
+        "type": "Research Paper",
+        "date": "October 2023",
+        "description": "Peer-reviewed analysis of 500+ cases identifying best practices for minimal complications.",
+        "cta": "Read Paper →"
+      },
+      "article_2": {
+        "emoji": "📄",
+        "title": "Pediatric Orthopedic Approaches",
+        "type": "Article",
+        "date": "September 2023",
+        "description": "Specialized surgical approaches for children's bone and joint conditions.",
+        "cta": "Read Article →"
+      },
+      "case_study_2": {
+        "emoji": "📊",
+        "title": "International Patient Success Story",
+        "type": "Case Study",
+        "date": "August 2023",
+        "description": "Successful 7cm limb lengthening procedure for international patient from Canada.",
+        "cta": "View Case Study →"
+      }
+    },
+    "subscribe": {
+      "title": "Subscribe to Updates",
+      "description": "Receive new articles, case studies, and research findings delivered to your inbox.",
+      "placeholder": "your@email.com",
+      "cta": "Subscribe"
+    }
+  },
+  "sitemap": {
+    "title": "Sitemap",
+    "subtitle": "Navigate through all pages of our website",
+    "main_pages": "Main Pages",
+    "pages": {
+      "home": {
+        "title": "Home",
+        "description": "Welcome to Prof. Mark Eidelman's practice - Leading the Future of Pediatric Orthopedics"
+      },
+      "about": {
+        "title": "About Prof. Eidelman",
+        "description": "Learn about Prof. Mark Eidelman's expertise, credentials, and commitment to pediatric orthopedics"
+      },
+      "clinics": {
+        "title": "My Clinics",
+        "description": "Find clinic locations and contact information in Haifa and Kiryat Motzkin, Israel"
+      },
+      "services": {
+        "title": "Our Services",
+        "description": "Comprehensive orthopedic services including limb lengthening, deformity correction, and pediatric care"
+      },
+      "innovation": {
+        "title": "Surgical Innovation",
+        "description": "Discover cutting-edge surgical techniques and innovations in pediatric orthopedics"
+      },
+      "guides": {
+        "title": "Patient Guides",
+        "description": "Educational resources and guides for patients and families"
+      },
+      "study": {
+        "title": "Study Area",
+        "description": "Academic resources, research, and educational materials"
+      }
+    },
+    "additional_resources": "Additional Resources",
+    "resources": {
+      "privacy": {
+        "title": "Privacy Policy",
+        "description": "Information about how we handle your data"
+      },
+      "terms": {
+        "title": "Terms of Service",
+        "description": "Terms and conditions for using our website"
+      },
+      "accessibility": {
+        "title": "Accessibility",
+        "description": "Our commitment to web accessibility"
+      },
+      "xml_sitemap": {
+        "title": "XML Sitemap",
+        "description": "Machine-readable sitemap for search engines"
+      }
+    }
+  },
+  "footer": {
+    "quickLinks": "QUICK LINKS",
+    "home": "Home Page",
+    "clinics": "My Clinics",
+    "about": "About Prof. Eidelman",
+    "innovation": "Surgical Innovation",
+    "guides": "Patient Guides",
+    "services": "Our Services",
+    "study": "Study Area",
+    "contact": "CONTACT",
+    "addresses": "Addresses:",
+    "address1": "Ben Gurion Blvd 4, Haifa",
+    "address2": "Ussishkin St 6, Kiryat Motzkin",
+    "info": "INFORMATION",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "accessibility": "Accessibility",
+    "sitemap": "Sitemap",
+    "comingSoon": "(Coming soon)",
+    "copyright": "© 2025 Prof. Mark Eidelman Orthopedic Clinic. All rights reserved.",
+    "location": "Haifa, Israel",
+    "contact_phone": "Phone: +972-04-873-2227"
+  }
+}
