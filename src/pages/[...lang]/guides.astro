@@ -1,9 +1,18 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { useTranslations } from '@/i18n/utils';
+import { useTranslations, getLangFromUrl } from '@/i18n/utils';
 
-const lang = 'he';
+export async function getStaticPaths() {
+  return [
+    { params: { lang: undefined}}, // Default language
+    { params: { lang: 'en' } },
+    { params: { lang: 'ru' } },
+  ];
+}
+
+const lang = getLangFromUrl(Astro.url) || 'he';
 const t = useTranslations(lang);
+const isRTL = lang === 'he'
 ---
 
 <BaseLayout
@@ -152,7 +161,7 @@ const t = useTranslations(lang);
       </div>
     </div>
 
-    <div class="feature-box-rtl">
+    <div class={isRTL ? "feature-box-rtl" : "feature-box"}>
       <h3>{t('guides.bundle.title')}</h3>
       <p>
         {t('guides.bundle.description')}
@@ -272,10 +281,6 @@ const t = useTranslations(lang);
   transform:  translateX(10px);
   transition-duration: 1s;
   box-shadow: 0 4px 12px rgba(120, 113, 210, 0.4);
-}
-
-[dir="rtl"] .btn-cta:hover {
-  transform: translateX(-10px);
 }
 
 
