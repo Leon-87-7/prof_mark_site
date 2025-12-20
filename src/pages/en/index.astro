@@ -2,15 +2,17 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import heroImage from '@/images/hero_image_mark_02.jpg';
-import { useTranslations } from '@/i18n/utils';
+import { useTranslations, getPathPrefix  } from '@/i18n/utils';
 
 const lang = 'en';
 const t = useTranslations(lang);
+const langPrefix = getPathPrefix(lang);
 ---
 
 <BaseLayout
   title={t('home.hero.title')}
   description={t('home.hero.subtitle')}
+  lang={lang}
 >
   <div class="page active">
     <div class="hero">
@@ -54,13 +56,13 @@ const t = useTranslations(lang);
             </div>
           </div>
           <div class="cta-buttons">
-            <a href="/en/clinics" class="btn btn-primary">
+            <a href={`${langPrefix}/clinics`} class="btn btn-primary">
               {t('home.hero.cta.clinics')}
             </a>
-            <a href="/en/guides" class="btn btn-secondary">
+            <a href={`${langPrefix}/guides`} class="btn btn-secondary">
               {t('home.hero.cta.guides')}
             </a>
-            <a href="/en/innovation" class="btn btn-tertiary home-hero-btn-tertiary-mobile">
+            <a href={`${langPrefix}/innovation`} class="btn btn-tertiary home-hero-btn-tertiary-mobile">
               {t('home.hero.cta.innovation')}
             </a>
           </div>
