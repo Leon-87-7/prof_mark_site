@@ -38,7 +38,7 @@ const t = useTranslations(lang);
           </p>
           <button
             class="card-link"
-            onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
+            onclick={`alert('${t('footer.comingSoon').replace(/'/g, "\\'")}')`}
           >
             {t('services.cards.cosmetic_lengthening.cta')}
           </button>
@@ -54,7 +54,7 @@ const t = useTranslations(lang);
           </p>
           <button
             class="card-link"
-            onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
+            onclick={`alert('${t('footer.comingSoon').replace(/'/g, "\\'")}')`}
           >
             {t('services.cards.limb_discrepancy.cta')}
           </button>
@@ -70,7 +70,7 @@ const t = useTranslations(lang);
           </p>
           <button
             class="card-link"
-            onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
+            onclick={`alert('${t('footer.comingSoon').replace(/'/g, "\\'")}')`}
           >
             {t('services.cards.deformity.cta')}
           </button>
@@ -86,7 +86,7 @@ const t = useTranslations(lang);
           </p>
           <button
             class="card-link"
-            onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
+            onclick={`alert('${t('footer.comingSoon').replace(/'/g, "\\'")}')`}
           >
             {t('services.cards.pediatric.cta')}
           </button>
