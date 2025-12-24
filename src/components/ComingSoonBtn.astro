@@ -3,14 +3,16 @@ interface Props {
   /** The message to display on click */
   message: string;
   /** Button style variant */
-  variant?: 'card-link' | 'primary' | 'secondary' | 'pt-ex' | 'cta';
+  variant?: 'card-link' | 'primary' | 'secondary' | 'pt-ex';
+  /** Add btn-cta class for special CTA styling */
+  cta?: boolean;
 }
 
-const { message, variant = 'card-link' } = Astro.props;
+const { message, variant = 'card-link', cta = false } = Astro.props;
 
 const className = variant === 'card-link'
   ? 'card-link'
-  : `btn btn-${variant}`;
+  : `btn btn-${variant}${cta ? ' btn-cta' : ''}`;
 ---
 
 <button class={className} data-coming-soon-message={message}>

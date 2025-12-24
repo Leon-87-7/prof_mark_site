@@ -136,12 +136,9 @@ const t = useTranslations(lang);
       <p>
         {t('guides.bundle.description')}
       </p>
-      <button
-        class="btn btn-primary btn-cta"
-        onclick={`alert('${t('footer.comingSoon')}')`}
-      >
+      <ComingSoonBtn message={t('footer.comingSoon')} variant="primary" cta>
         {t('guides.bundle.cta')}
-      </button>
+      </ComingSoonBtn>
     </div>
 
     <div class="section colored-top-border">
@@ -239,21 +236,6 @@ const t = useTranslations(lang);
   background: var(--primary);
   color: white;
   transform: translateY(-1px);
-}
-
-.btn-cta {
-  background: var(--accentB);
-  color: var(--primary);
-  border: 2px solid var(--accent);
-}
-
-.btn-cta:hover {
-  background: var(--secondary);
-  color: var(--white);
-  border-color: var(--secondary);
-  transform: translateX(10px);
-  transition-duration: 1s;
-  box-shadow: 0 4px 12px rgba(120, 113, 210, 0.4);
 }
 
 @media (max-width: 768px) {

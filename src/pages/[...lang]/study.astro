@@ -83,7 +83,7 @@ const t = useTranslations(lang);
       </div>
 
       <div class="card">
-        <div class="card-header card-header-rounded card-header-orange">
+        <div class="card-header card-header-rounded card-header-green">
           {t('study.content.lecture_1.emoji')}
         </div>
         <div class="card-content">
@@ -101,7 +101,7 @@ const t = useTranslations(lang);
       </div>
 
       <div class="card">
-        <div class="card-header card-header-rounded card-header-green">
+        <div class="card-header card-header-rounded card-header-purple">
           {t('study.content.research_1.emoji')}
         </div>
         <div class="card-content">
@@ -119,7 +119,7 @@ const t = useTranslations(lang);
       </div>
 
       <div class="card">
-        <div class="card-header card-header-rounded card-header-purple">
+        <div class="card-header card-header-rounded card-header-orange">
           {t('study.content.article_2.emoji')}
         </div>
         <div class="card-content">
@@ -166,7 +166,7 @@ const t = useTranslations(lang);
           placeholder={t('study.subscribe.placeholder')}
           class="subscribe-input"
         />
-        <ComingSoonBtn message={t('footer.comingSoon')} variant="primary">
+        <ComingSoonBtn cta message={t('footer.comingSoon')} variant="primary">
           {t('study.subscribe.cta')}
         </ComingSoonBtn>
       </div>
@@ -237,43 +237,53 @@ const t = useTranslations(lang);
 }
 
 .card-header-blue {
-  background-color: rgba(46, 12, 195, 0.9);
+  background-color: #4B4899;
 }
 
 .card-header-red {
-  background-color: rgba(195, 12, 21, 0.9);
+  background-color: #e94974;
 }
 
 .card-header-orange {
-  background-color: rgba(195, 137, 12, 0.9);
+  background-color: #FE7A71;
 }
 
 .card-header-green {
-  background-color: rgba(12, 195, 27, 0.9);
+  background-color: #90E0A0;
 }
 
 .card-header-purple {
-  background-color: rgba(128, 12, 195, 0.9);
+  background-color: #8F30A6;
 }
 
 .card-header-teal {
-  background-color: rgba(12, 195, 152, 0.9);
+  background-color: #568370;
 }
 
 .subscribe-form {
   display: flex;
-  gap: 10px;
+  gap: 1.4em;
   margin-top: 20px;
-  flex-wrap: wrap;
+
+  .btn-cta{
+    padding-block: 16px;
+  }
 }
 
 .subscribe-input {
   flex: 1;
   min-width: 250px;
-  padding: 12px;
+  max-width: 60ch;
+  padding-inline-start: 1rem;
   border: 1px solid var(--border);
   border-radius: 5px;
   font-size: 0.875rem;
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 5px var(--accent);
+  }
 }
 
 @media (max-width: 1024px) {
@@ -293,6 +303,7 @@ const t = useTranslations(lang);
 
   .subscribe-input {
     width: 100%;
+    padding-block: 0.8rem;
   }
 }
 </style>
