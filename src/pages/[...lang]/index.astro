@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 import heroImage from '@/images/hero_image_mark_02.jpg';
 import { useTranslations, getPathPrefix, getLangFromUrl  } from '@/i18n/utils';
 
-export async function getStaticPaths() {
+export function getStaticPaths() {
   return [
     { params: { lang: undefined}}, // Default language
     { params: { lang: 'en' } },

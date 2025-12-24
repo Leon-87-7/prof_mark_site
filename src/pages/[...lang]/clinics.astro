@@ -5,7 +5,7 @@ import MapPinLineDuotone from 'phosphor-astro/MapPinLineDuotone.astro';
 import TimerDuotone from 'phosphor-astro/TimerDuotone.astro';
 import { useTranslations, getLangFromUrl  } from '@/i18n/utils';
 
-export async function getStaticPaths() {
+export function getStaticPaths() {
   return [
     { params: { lang: undefined}}, // Default language
     { params: { lang: 'en' } },

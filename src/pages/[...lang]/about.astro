@@ -4,7 +4,7 @@ import ResponsivePicture from '@/components/ResponsivePicture.astro';
 import aboutImage from '@/images/about_image_mark.jpg';
 import { useTranslations, getLangFromUrl  } from '@/i18n/utils';
 
-export async function getStaticPaths() {
+export function getStaticPaths() {
   return [
     { params: { lang: undefined}}, // Default language
     { params: { lang: 'en' } },

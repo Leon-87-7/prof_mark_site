@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import ComingSoonBtn from '@/components/ComingSoonBtn.astro';
 import { useTranslations, getLangFromUrl, getPathPrefix  } from '@/i18n/utils';
 
-export async function getStaticPaths() {
+export function getStaticPaths() {
   return [
     { params: { lang: undefined}}, // Default language
     { params: { lang: 'en' } },
