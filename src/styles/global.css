@@ -38,8 +38,14 @@ html {
   --tab-link-light: #118888;
   --tab-link-dark: #0f6b6b;
 
+  --card-head-blue: #4B4899;
+  --card-head-red: #e94974;
+  --card-head-orange: #FE7A71;
+  --card-head-green: #90E0A0;
+  --card-head-purple: #8F30A6;
+  --card-head-teal: #568370;
 
-  --card-gap: 24px;
+  --card-gap: 1.6rem;
 }
 
 /* ============ ROOT & BODY ============ */
