@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import ComingSoonBtn from '@/components/ComingSoonBtn.astro';
 import { useTranslations, getLangFromUrl  } from '@/i18n/utils';
 
 export async function getStaticPaths() {
@@ -56,12 +57,10 @@ const t = useTranslations(lang);
           <p>
             {t('study.content.article_1.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert('${t('footer.comingSoon')}')`}
-          >
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
             {t('study.content.article_1.cta')}
-          </button>
+          </ComingSoonBtn>
+          
         </div>
       </div>
 
@@ -77,12 +76,9 @@ const t = useTranslations(lang);
           <p>
             {t('study.content.case_study_1.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert('${t('footer.comingSoon')}')`}
-          >
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
             {t('study.content.case_study_1.cta')}
-          </button>
+          </ComingSoonBtn>
         </div>
       </div>
 
@@ -98,12 +94,9 @@ const t = useTranslations(lang);
           <p>
             {t('study.content.lecture_1.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert('${t('footer.comingSoon')}')`}
-          >
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
             {t('study.content.lecture_1.cta')}
-          </button>
+          </ComingSoonBtn>
         </div>
       </div>
 
@@ -119,12 +112,9 @@ const t = useTranslations(lang);
           <p>
             {t('study.content.research_1.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert('${t('footer.comingSoon')}')`}
-          >
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
             {t('study.content.research_1.cta')}
-          </button>
+          </ComingSoonBtn>
         </div>
       </div>
 
@@ -140,12 +130,9 @@ const t = useTranslations(lang);
           <p>
             {t('study.content.article_2.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert('${t('footer.comingSoon')}')`}
-          >
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
             {t('study.content.article_2.cta')}
-          </button>
+          </ComingSoonBtn>
         </div>
       </div>
 
@@ -161,12 +148,9 @@ const t = useTranslations(lang);
           <p>
             {t('study.content.case_study_2.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert('${t('footer.comingSoon')}')`}
-          >
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
             {t('study.content.case_study_2.cta')}
-          </button>
+          </ComingSoonBtn>
         </div>
       </div>
     </div>
@@ -182,12 +166,9 @@ const t = useTranslations(lang);
           placeholder={t('study.subscribe.placeholder')}
           class="subscribe-input"
         />
-        <button
-          class="btn btn-primary"
-          onclick={`alert('${t('footer.comingSoon')}')`}
-        >
+        <ComingSoonBtn message={t('footer.comingSoon')} variant="primary">
           {t('study.subscribe.cta')}
-        </button>
+        </ComingSoonBtn>
       </div>
     </div>
   </div>
@@ -253,6 +234,30 @@ const t = useTranslations(lang);
   font-size: 2rem;
   padding: 20px;
   text-align: center;
+}
+
+.card-header-blue {
+  background-color: rgba(46, 12, 195, 0.9);
+}
+
+.card-header-red {
+  background-color: rgba(195, 12, 21, 0.9);
+}
+
+.card-header-orange {
+  background-color: rgba(195, 137, 12, 0.9);
+}
+
+.card-header-green {
+  background-color: rgba(12, 195, 27, 0.9);
+}
+
+.card-header-purple {
+  background-color: rgba(128, 12, 195, 0.9);
+}
+
+.card-header-teal {
+  background-color: rgba(12, 195, 152, 0.9);
 }
 
 .subscribe-form {

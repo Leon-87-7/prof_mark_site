@@ -1,0 +1,40 @@
+---
+interface Props {
+  /** The message to display on click */
+  message: string;
+  /** Button style variant */
+  variant?: 'card-link' | 'primary' | 'secondary' | 'pt-ex' | 'cta';
+}
+
+const { message, variant = 'card-link' } = Astro.props;
+
+const className = variant === 'card-link'
+  ? 'card-link'
+  : `btn btn-${variant}`;
+---
+
+<button class={className} data-coming-soon-message={message}>
+  <slot />
+</button>
+
+<script>
+  // Handle all coming-soon buttons - runs once and works with View Transitions
+  function initComingSoonButtons() {
+    document.querySelectorAll<HTMLButtonElement>('[data-coming-soon-message]').forEach(btn => {
+      // Avoid adding multiple listeners
+      if (btn.dataset.listenerAttached) return;
+      btn.dataset.listenerAttached = 'true';
+
+      btn.addEventListener('click', () => {
+        const message = btn.dataset.comingSoonMessage;
+        if (message) alert(message);
+      });
+    });
+  }
+
+  // Run on initial load
+  initComingSoonButtons();
+
+  // Re-run after Astro View Transitions
+  document.addEventListener('astro:page-load', initComingSoonButtons);
+</script>

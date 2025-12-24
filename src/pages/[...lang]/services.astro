@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { useTranslations, getLangFromUrl  } from '@/i18n/utils';
+import ComingSoonBtn from '@/components/ComingSoonBtn.astro';
+import { useTranslations, getLangFromUrl, getPathPrefix  } from '@/i18n/utils';
 
 export async function getStaticPaths() {
   return [
@@ -12,7 +13,7 @@ export async function getStaticPaths() {
 
 const lang = getLangFromUrl(Astro.url) || 'he';
 const t = useTranslations(lang);
-
+const langPrefix = getPathPrefix(lang);
 ---
 
 <BaseLayout
@@ -36,12 +37,9 @@ const t = useTranslations(lang);
           <p>
             {t('services.cards.cosmetic_lengthening.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert('${t('footer.comingSoon')}')`}
-          >
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
             {t('services.cards.cosmetic_lengthening.cta')}
-          </button>
+          </ComingSoonBtn>
         </div>
       </div>
 
@@ -52,12 +50,9 @@ const t = useTranslations(lang);
           <p>
             {t('services.cards.limb_discrepancy.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert('${t('footer.comingSoon')}')`}
-          >
-            {t('services.cards.limb_discrepancy.cta')}
-          </button>
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
+            {t('services.cards.cosmetic_lengthening.cta')}
+          </ComingSoonBtn>
         </div>
       </div>
 
@@ -68,12 +63,9 @@ const t = useTranslations(lang);
           <p>
             {t('services.cards.deformity.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert('${t('footer.comingSoon')}')`}
-          >
-            {t('services.cards.deformity.cta')}
-          </button>
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
+            {t('services.cards.cosmetic_lengthening.cta')}
+          </ComingSoonBtn>
         </div>
       </div>
 
@@ -131,7 +123,7 @@ const t = useTranslations(lang);
           </ul>
         </div>
       </div>
-      <a href={`/clinics`} class="btn btn-primary">{t('services.featured.cta')}</a>
+      <a href={`${langPrefix}/clinics`} class="btn btn-primary">{t('services.featured.cta')}</a>
     </div>
   </div>
 </BaseLayout>

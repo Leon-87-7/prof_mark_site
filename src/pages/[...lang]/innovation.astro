@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import ComingSoonBtn from '@/components/ComingSoonBtn.astro';
 import { useTranslations, getLangFromUrl  } from '@/i18n/utils';
 
 export async function getStaticPaths() {
@@ -35,12 +36,9 @@ const t = useTranslations(lang);
           <p>
             {t('innovation.cards.techniques.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert('${t('footer.comingSoon')}')`}
-          >
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
             {t('innovation.cards.techniques.cta')}
-          </button>
+          </ComingSoonBtn>
         </div>
       </div>
 
@@ -51,12 +49,9 @@ const t = useTranslations(lang);
           <p>
             {t('innovation.cards.research.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert('${t('footer.comingSoon')}')`}
-          >
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
             {t('innovation.cards.research.cta')}
-          </button>
+          </ComingSoonBtn>
         </div>
       </div>
 
@@ -67,12 +62,9 @@ const t = useTranslations(lang);
           <p>
             {t('innovation.cards.mentorship.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert('${t('footer.comingSoon')}')`}
-          >
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
             {t('innovation.cards.mentorship.cta')}
-          </button>
+          </ComingSoonBtn>
         </div>
       </div>
 
@@ -83,12 +75,9 @@ const t = useTranslations(lang);
           <p>
             {t('innovation.cards.collaboration.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert('${t('footer.comingSoon')}')`}
-          >
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
             {t('innovation.cards.collaboration.cta')}
-          </button>
+          </ComingSoonBtn>
         </div>
       </div>
     </div>
@@ -129,7 +118,9 @@ const t = useTranslations(lang);
             <p style="max-width: 30ch;">
               {t('innovation.publications.publication_1.description')}
             </p>
-            <button class="card-link" onclick={`alert('${t('footer.comingSoon')}')`}>{t('innovation.publications.publication_1.cta')}</button>
+            <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
+              {t('innovation.publications.publication_1.cta')}
+            </ComingSoonBtn>
           </div>
         </div>
         <div class="card">
@@ -141,7 +132,9 @@ const t = useTranslations(lang);
             <p style="max-width: 30ch;">
               {t('innovation.publications.publication_2.description')}
             </p>
-            <button class="card-link" onclick={`alert('${t('footer.comingSoon')}')`}>{t('innovation.publications.publication_2.cta')}</button>
+            <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
+              {t('innovation.publications.publication_2.cta')}
+            </ComingSoonBtn>
           </div>
         </div>
         <div class="card">
@@ -153,7 +146,9 @@ const t = useTranslations(lang);
             <p style="max-width: 30ch;">
               {t('innovation.publications.publication_3.description')}
             </p>
-            <button class="card-link" onclick={`alert('${t('footer.comingSoon')}')`}>{t('innovation.publications.publication_3.cta')}</button>
+            <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
+              {t('innovation.publications.publication_3.cta')}
+            </ComingSoonBtn>
           </div>
         </div>
         
@@ -166,7 +161,7 @@ const t = useTranslations(lang);
 .recent-publications {
   max-width: 1200px;
   margin: 0 auto 40px auto;
-  padding: 0 20px;
+  padding-inline: 20px;
 }
 
 /* InnovationPage specific overrides */

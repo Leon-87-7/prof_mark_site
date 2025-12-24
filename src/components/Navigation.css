@@ -116,7 +116,7 @@
 .navbar-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding-inline: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,7 +124,7 @@
 }
 
 a.nav-item {
-  padding: 0 0 0 3px;
+  padding-inline-start: 3px;
   cursor: pointer;
   font-weight: 400;
   font-family: 'Montserrat', sans-serif;
@@ -152,7 +152,7 @@ a.nav-item {
   .navbar {
     display: flex;
     justify-content: flex-start;
-    padding: 0 20px;
+    padding-inline: 20px;
     position: sticky;
     top: 0;
     margin-top: 0;
@@ -245,7 +245,7 @@ a.nav-item {
     justify-content: flex-start;
     align-items: flex-start;
     gap: 0;
-    padding: 51px 0 20px 0;
+    padding-block: 51px 20px;
     transition: left 0.3s ease, right 0.3s ease;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
     /* overflow-y: visible; */
@@ -304,7 +304,7 @@ a.nav-item {
   .navbar {
     display: flex;
     justify-content: flex-start;
-    padding: 0 20px;
+    padding-inline: 20px;
     position: sticky;
     top: 0;
     margin-top: 0;
@@ -321,7 +321,7 @@ a.nav-item {
   .navbar {
     display: flex;
     justify-content: flex-start;
-    padding: 0 20px;
+    padding-inline: 20px;
     position: sticky;
     top: 0;
     margin-top: 0;
