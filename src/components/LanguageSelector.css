@@ -38,8 +38,8 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  background: var(--primary);
-  border: none;
+  background: var(--dark);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 6px;
   padding: 6px;
   cursor: pointer;

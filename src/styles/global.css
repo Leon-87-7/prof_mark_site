@@ -13,7 +13,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* ============ CSS VARIABLES ============ */
@@ -54,7 +54,7 @@ body {
   line-height: 1.6;
   background: var(--white);
   font-size: 1rem;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* ============ TYPOGRAPHY ============ */
