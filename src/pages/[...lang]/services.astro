@@ -51,7 +51,7 @@ const langPrefix = getPathPrefix(lang);
             {t('services.cards.limb_discrepancy.description')}
           </p>
           <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
-            {t('services.cards.cosmetic_lengthening.cta')}
+            {t('services.cards.limb_discrepancy.cta')}
           </ComingSoonBtn>
         </div>
       </div>
@@ -64,7 +64,7 @@ const langPrefix = getPathPrefix(lang);
             {t('services.cards.deformity.description')}
           </p>
           <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
-            {t('services.cards.cosmetic_lengthening.cta')}
+            {t('services.cards.deformity.cta')}
           </ComingSoonBtn>
         </div>
       </div>
@@ -76,12 +76,9 @@ const langPrefix = getPathPrefix(lang);
           <p>
             {t('services.cards.pediatric.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert('${t('footer.comingSoon')}')`}
-          >
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
             {t('services.cards.pediatric.cta')}
-          </button>
+          </ComingSoonBtn>
         </div>
       </div>
     </div>
