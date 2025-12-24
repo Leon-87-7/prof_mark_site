@@ -2,15 +2,24 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import ResponsivePicture from '@/components/ResponsivePicture.astro';
 import aboutImage from '@/images/about_image_mark.jpg';
-import { useTranslations } from '@/i18n/utils';
+import { useTranslations, getLangFromUrl  } from '@/i18n/utils';
 
-const lang = 'ru';
+export async function getStaticPaths() {
+  return [
+    { params: { lang: undefined}}, // Default language
+    { params: { lang: 'en' } },
+    { params: { lang: 'ru' } },
+  ];
+}
+
+const lang = getLangFromUrl(Astro.url) || 'he';
 const t = useTranslations(lang);
 ---
 <BaseLayout
   title={t('about.title')}
   description={t('about.intro')}
   image={aboutImage.src}
+  alt={t('about.title')}
   lang={lang}
 >
 
@@ -42,9 +51,9 @@ const t = useTranslations(lang);
     </header>
     <div class="content-sections">
 
-        <section class="section">
+        <section class="section ">
         <h3 class="section-title">{t('about.specializations.title')}</h3>
-        <div class="specializations">
+        <div class="specializations two-column">
           <ul>
             <li><strong>{t('about.specializations.limb_lengthening.title')}</strong><br>
               <span class="text">{t('about.specializations.limb_lengthening.description')}</span></li>
@@ -72,22 +81,27 @@ const t = useTranslations(lang);
         </p>
       </section>
 
-      <section class="section education-affiliations">
+      <section class="section education-affiliations ">
         <h2 class="section-title">{t('about.education_affiliations.title')}</h2>
-        <div class="education-details">
-          <h3>{t('about.education_affiliations.education.title')}</h3>
-          <ul>
-            <li>{t('about.education_affiliations.education.medical_school')}</li>
-            <li>{t('about.education_affiliations.education.residency')}</li>
-            <li>{t('about.education_affiliations.education.fellowship')}</li>
-          </ul>
+        <div class="two-column">
+          <div>
+            <div class="education-details ">
+              <h3>{t('about.education_affiliations.education.title')}</h3>
+              <ul>
+                <li>{t('about.education_affiliations.education.medical_school')}</li>
+                <li>{t('about.education_affiliations.education.residency')}</li>
+                <li>{t('about.education_affiliations.education.fellowship')}</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+              <h3>{t('about.education_affiliations.memberships.title')}</h3>
+              <ul>
+                <li>{t('about.education_affiliations.memberships.member_1')}</li>
+                <li>{t('about.education_affiliations.memberships.member_2')}</li>
+              </ul>
+          </div>
         </div>
-        <br><br>
-        <h3>{t('about.education_affiliations.memberships.title')}</h3>
-        <ul>
-          <li>{t('about.education_affiliations.memberships.israeli')}</li>
-          <li>{t('about.education_affiliations.memberships.epos')}</li>
-        </ul>
       </section>
     </article>
   </div>
@@ -118,7 +132,6 @@ const t = useTranslations(lang);
 .section-subtitle {
   font-size: 1rem;
   color: var(--text-light);
-  /* margin-bottom: 32px; */
   line-height: 1.7;
   max-width: 70ch;
 }
@@ -134,7 +147,7 @@ const t = useTranslations(lang);
 .section ul {
   max-width: 50ch;
   color: var(--text-sub-dark);
-  padding-left: 1.2rem;
+  padding-inline-start: 1.2rem;
 }
 
 .about-header {
@@ -151,15 +164,13 @@ const t = useTranslations(lang);
 }
 
 .about-profile-image {
-  margin-left: 2rem;
+  margin-inline-start: 2rem;
 }
 
 @media (max-width: 768px) {
   .section {
     background: var(--white);
     padding: 24px 36px;
-    /* border-radius: 0; */
-    /* margin: 0 0 16px 0; */
     box-shadow: none;
   }
 
@@ -169,7 +180,7 @@ const t = useTranslations(lang);
   }
 
   .about-profile-image {
-    margin-left: 0;
+    margin-inline-end: 0;
     margin-top: 1rem;
   }
 

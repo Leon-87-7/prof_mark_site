@@ -119,8 +119,8 @@
       },
       "memberships": {
         "title": "Professional Memberships:",
-        "israeli": "Israeli Orthopedic Association",
-        "epos": "European Pediatric Orthopedics Society (EPOS)"
+        "member_1": "Israeli Orthopedic Association",
+        "member_2": "European Pediatric Orthopedics Society (EPOS)"
       }
     }
   },

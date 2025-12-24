@@ -1,10 +1,17 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getPathPrefix, useTranslations } from '@/i18n/utils';
+import { useTranslations, getLangFromUrl  } from '@/i18n/utils';
 
-const lang = 'en';
+export async function getStaticPaths() {
+  return [
+    { params: { lang: undefined}}, // Default language
+    { params: { lang: 'en' } },
+    { params: { lang: 'ru' } },
+  ];
+}
+
+const lang = getLangFromUrl(Astro.url) || 'he';
 const t = useTranslations(lang);
-const langPrefix = getPathPrefix(lang);
 
 ---
 
@@ -124,7 +131,7 @@ const langPrefix = getPathPrefix(lang);
           </ul>
         </div>
       </div>
-      <a href={`${langPrefix}/clinics`} class="btn btn-primary">{t('services.featured.cta')}</a>
+      <a href={`/clinics`} class="btn btn-primary">{t('services.featured.cta')}</a>
     </div>
   </div>
 </BaseLayout>

@@ -12,7 +12,6 @@ export async function getStaticPaths() {
 
 const lang = getLangFromUrl(Astro.url) || 'he';
 const t = useTranslations(lang);
-const isRTL = lang === 'he'
 ---
 
 <BaseLayout

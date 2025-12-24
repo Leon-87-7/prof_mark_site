@@ -3,9 +3,17 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import BookingButton from '@/components/BookingButton';
 import MapPinLineDuotone from 'phosphor-astro/MapPinLineDuotone.astro';
 import TimerDuotone from 'phosphor-astro/TimerDuotone.astro';
-import { useTranslations } from '@/i18n/utils';
+import { useTranslations, getLangFromUrl  } from '@/i18n/utils';
 
-const lang = 'en';
+export async function getStaticPaths() {
+  return [
+    { params: { lang: undefined}}, // Default language
+    { params: { lang: 'en' } },
+    { params: { lang: 'ru' } },
+  ];
+}
+
+const lang = getLangFromUrl(Astro.url) || 'he';
 const t = useTranslations(lang);
 ---
 
@@ -223,6 +231,10 @@ const t = useTranslations(lang);
   .item-label {
     margin: 2px 0 0 6px;
   }
+
+  [dir='rtl'] & .item-label {
+    margin: 2px 6px 0 0;
+  }
 }
 
 .clinic-map {
@@ -240,7 +252,7 @@ const t = useTranslations(lang);
 .clinic-services-title {
   font-size: 0.9rem;
   color: var(--primary);
-  margin-left: 36px;
+  margin-inline-start: 36px;
   margin-top: 16px;
 }
 
