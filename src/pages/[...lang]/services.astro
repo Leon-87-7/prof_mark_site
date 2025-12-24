@@ -1,11 +1,19 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getPathPrefix, useTranslations } from '@/i18n/utils';
+import ComingSoonBtn from '@/components/ComingSoonBtn.astro';
+import { useTranslations, getLangFromUrl, getPathPrefix  } from '@/i18n/utils';
 
-const lang = 'en';
+export function getStaticPaths() {
+  return [
+    { params: { lang: undefined}}, // Default language
+    { params: { lang: 'en' } },
+    { params: { lang: 'ru' } },
+  ];
+}
+
+const lang = getLangFromUrl(Astro.url) || 'he';
 const t = useTranslations(lang);
 const langPrefix = getPathPrefix(lang);
-
 ---
 
 <BaseLayout
@@ -29,12 +37,9 @@ const langPrefix = getPathPrefix(lang);
           <p>
             {t('services.cards.cosmetic_lengthening.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
-          >
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
             {t('services.cards.cosmetic_lengthening.cta')}
-          </button>
+          </ComingSoonBtn>
         </div>
       </div>
 
@@ -45,12 +50,9 @@ const langPrefix = getPathPrefix(lang);
           <p>
             {t('services.cards.limb_discrepancy.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
-          >
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
             {t('services.cards.limb_discrepancy.cta')}
-          </button>
+          </ComingSoonBtn>
         </div>
       </div>
 
@@ -61,12 +63,9 @@ const langPrefix = getPathPrefix(lang);
           <p>
             {t('services.cards.deformity.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
-          >
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
             {t('services.cards.deformity.cta')}
-          </button>
+          </ComingSoonBtn>
         </div>
       </div>
 
@@ -77,12 +76,9 @@ const langPrefix = getPathPrefix(lang);
           <p>
             {t('services.cards.pediatric.description')}
           </p>
-          <button
-            class="card-link"
-            onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
-          >
+          <ComingSoonBtn message={t('footer.comingSoon')} variant="card-link">
             {t('services.cards.pediatric.cta')}
-          </button>
+          </ComingSoonBtn>
         </div>
       </div>
     </div>

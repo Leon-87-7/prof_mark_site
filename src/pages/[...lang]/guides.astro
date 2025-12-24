@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import ComingSoonBtn from '@/components/ComingSoonBtn.astro';
 import { useTranslations, getLangFromUrl } from '@/i18n/utils';
 
-export async function getStaticPaths() {
+export function getStaticPaths() {
   return [
     { params: { lang: undefined}}, // Default language
     { params: { lang: 'en' } },
@@ -12,7 +13,6 @@ export async function getStaticPaths() {
 
 const lang = getLangFromUrl(Astro.url) || 'he';
 const t = useTranslations(lang);
-const isRTL = lang === 'he'
 ---
 
 <BaseLayout
@@ -29,30 +29,18 @@ const isRTL = lang === 'he'
     </div>
 
     <div class="guides-buttons">
-      <button
-        class="btn btn-primary"
-        onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
-      >
+      <ComingSoonBtn message={t('footer.comingSoon')} variant="primary">
         {t('guides.quick_access.pre_surgery')}
-      </button>
-      <button
-        class="btn btn-secondary"
-        onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
-      >
+      </ComingSoonBtn>
+      <ComingSoonBtn message={t('footer.comingSoon')} variant="secondary">
         {t('guides.quick_access.post_surgery')}
-      </button>
-      <button
-        class="btn pt-ex-btn"
-        onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
-      >
+      </ComingSoonBtn>
+      <ComingSoonBtn message={t('footer.comingSoon')} variant="pt-ex">
         {t('guides.quick_access.pt_exercises')}
-      </button>
-      <button
-        class="btn btn-primary"
-        onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
-      >
+      </ComingSoonBtn>
+      <ComingSoonBtn message={t('footer.comingSoon')} variant="primary">
         {t('guides.quick_access.recovery_timeline')}
-      </button>
+      </ComingSoonBtn>
     </div>
 
     <div class="section">
@@ -67,12 +55,9 @@ const isRTL = lang === 'he'
             <p>
               {t('guides.pre_surgery.checklist.description')}
             </p>
-            <button
-              class="btn btn-primary"
-              onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
-            >
+            <ComingSoonBtn message={t('footer.comingSoon')} variant="primary">
               {t('guides.pre_surgery.checklist.cta')}
-            </button>
+            </ComingSoonBtn>
           </div>
         </div>
         <div class="card">
@@ -82,12 +67,9 @@ const isRTL = lang === 'he'
             <p>
               {t('guides.pre_surgery.exercises.description')}
             </p>
-            <button
-              class="btn btn-primary"
-              onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
-            >
+            <ComingSoonBtn message={t('footer.comingSoon')} variant="primary">
               {t('guides.pre_surgery.exercises.cta')}
-            </button>
+            </ComingSoonBtn>
           </div>
         </div>
         <div class="card">
@@ -97,12 +79,9 @@ const isRTL = lang === 'he'
             <p>
               {t('guides.pre_surgery.questions.description')}
             </p>
-            <button
-              class="btn btn-primary"
-              onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
-            >
+            <ComingSoonBtn message={t('footer.comingSoon')} variant="primary">
               {t('guides.pre_surgery.questions.cta')}
-            </button>
+            </ComingSoonBtn>
           </div>
         </div>
       </div>
@@ -120,12 +99,9 @@ const isRTL = lang === 'he'
             <p>
               {t('guides.post_surgery.first_week.description')}
             </p>
-            <button
-              class="btn btn-primary"
-              onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
-            >
+            <ComingSoonBtn message={t('footer.comingSoon')} variant="primary">
               {t('guides.post_surgery.first_week.cta')}
-            </button>
+            </ComingSoonBtn>
           </div>
         </div>
         <div class="card">
@@ -135,12 +111,9 @@ const isRTL = lang === 'he'
             <p>
               {t('guides.post_surgery.lengthening.description')}
             </p>
-            <button
-              class="btn btn-primary"
-              onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
-            >
+            <ComingSoonBtn message={t('footer.comingSoon')} variant="primary">
               {t('guides.post_surgery.lengthening.cta')}
-            </button>
+            </ComingSoonBtn>
           </div>
         </div>
         <div class="card">
@@ -150,12 +123,9 @@ const isRTL = lang === 'he'
             <p>
               {t('guides.post_surgery.pt.description')}
             </p>
-            <button
-              class="btn btn-primary"
-              onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
-            >
+            <ComingSoonBtn message={t('footer.comingSoon')} variant="primary">
               {t('guides.post_surgery.pt.cta')}
-            </button>
+            </ComingSoonBtn>
           </div>
         </div>
       </div>
@@ -166,12 +136,9 @@ const isRTL = lang === 'he'
       <p>
         {t('guides.bundle.description')}
       </p>
-      <button
-        class="btn btn-primary btn-cta"
-        onclick={`alert(${JSON.stringify(t('footer.comingSoon'))})`}
-      >
+      <ComingSoonBtn message={t('footer.comingSoon')} variant="primary" cta>
         {t('guides.bundle.cta')}
-      </button>
+      </ComingSoonBtn>
     </div>
 
     <div class="section colored-top-border">
@@ -248,47 +215,34 @@ const isRTL = lang === 'he'
   margin-bottom: 1rem;
   flex: 1;
 }
+</style>
 
+<!-- Global styles for ComingSoonBtn buttons across card instances -->
+<style is:global>
 .cards-grid .card .btn {
   width: 100%;
   margin-top: auto;
   padding: 8px;
 }
 
-.btn.pt-ex-btn {
+.btn.btn-pt-ex {
   padding: 9.5px 26px;
   background: transparent;
   color: var(--primary);
   border: 2px solid var(--primary);
 }
 
-.btn.pt-ex-btn:hover {
+.btn.btn-pt-ex:hover {
   background: var(--primary);
   color: white;
   transform: translateY(-1px);
 }
 
-.btn-cta {
-  background: var(--accentB);
-    color: var(--primary);
-    border: 2px solid var(--accent);
-}
-
-.btn-cta:hover {
-  background: var(--secondary);
-  color: var(--white);
-  border-color: var(--secondary);
-  transform:  translateX(10px);
-  transition-duration: 1s;
-  box-shadow: 0 4px 12px rgba(120, 113, 210, 0.4);
-}
-
-
 @media (max-width: 768px) {
-  .guides-buttons button{
-  width: 80%;
-}
-  .btn.pt-ex-btn,
+  .guides-buttons button {
+    width: 80%;
+  }
+  .btn.btn-pt-ex,
   .btn.btn-cta {
     background: var(--accentB);
     color: var(--primary);

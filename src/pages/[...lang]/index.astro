@@ -2,11 +2,19 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import heroImage from '@/images/hero_image_mark_02.jpg';
-import { useTranslations, getPathPrefix  } from '@/i18n/utils';
+import { useTranslations, getPathPrefix, getLangFromUrl  } from '@/i18n/utils';
 
-const lang = 'he';
-const t = useTranslations(lang);
+export function getStaticPaths() {
+  return [
+    { params: { lang: undefined}}, // Default language
+    { params: { lang: 'en' } },
+    { params: { lang: 'ru' } },
+  ];
+}
+
+const lang = getLangFromUrl(Astro.url) || 'he';
 const langPrefix = getPathPrefix(lang);
+const t = useTranslations(lang);
 ---
 
 <BaseLayout
@@ -145,7 +153,6 @@ const langPrefix = getPathPrefix(lang);
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* object-position: left; */
     z-index: 0;
   }
 
@@ -252,6 +259,13 @@ const langPrefix = getPathPrefix(lang);
     font-family: 'Inter', sans-serif;
   }
 
+  [dir='rtl'] .stat-card .label {
+    color: red;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: Georgia, 'Times New Roman', Times, serif ;
+  }
+
   .cta-buttons {
     display: flex;
     gap: 12px;
@@ -312,6 +326,7 @@ const langPrefix = getPathPrefix(lang);
     font-weight: 700;
     font-family: 'Montserrat', sans-serif;
   }
+
 
   @media (max-width: 768px) {
     .hero {
