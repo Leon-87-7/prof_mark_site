@@ -1,0 +1,23 @@
+---
+interface Props {
+  pdfPath: string;
+  variant?: 'primary' | 'secondary' | 'card-link';
+  cta?: boolean;
+}
+
+const { pdfPath, variant = 'primary', cta = false } = Astro.props;
+
+const className = variant === 'card-link'
+  ? 'card-link'
+  : `btn btn-${variant}${cta ? ' btn-cta' : ''}`;
+---
+
+<a
+  href={pdfPath}
+  download
+  class={className}
+  target="_blank"
+  rel="noopener"
+>
+  <slot />
+</a>
