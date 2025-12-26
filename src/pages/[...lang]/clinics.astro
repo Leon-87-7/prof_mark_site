@@ -65,10 +65,10 @@ const t = useTranslations(lang);
             ></iframe>
           </div>
           <hr />
-          <h5 class="clinic-services-title">
+          <!--<h5 class="clinic-services-title">
             {t('clinics.haifa.services_title')}
           </h5>
-          <div class="clinic-item-services">
+           <div class="clinic-item-services">
             <ul>
               <li>{t('clinics.haifa.services.facility')}</li>
               <li>{t('clinics.haifa.services.pt_rooms')}</li>
@@ -78,7 +78,7 @@ const t = useTranslations(lang);
               <li>{t('clinics.haifa.services.postop')}</li>
               <li>{t('clinics.haifa.services.accommodation')}</li>
             </ul>
-          </div>
+          </div> -->
           <BookingButton
             client:visible
             text={t('clinics.haifa.cta')}
@@ -127,7 +127,7 @@ const t = useTranslations(lang);
             ></iframe>
           </div>
           <hr />
-          <h5 class="clinic-services-title">
+          <!-- <h5 class="clinic-services-title">
             {t('clinics.kiryat_motzkin.services_title')}
           </h5>
           <div class="clinic-item-services">
@@ -140,7 +140,7 @@ const t = useTranslations(lang);
               <li>{t('clinics.kiryat_motzkin.services.education')}</li>
               <li>{t('clinics.kiryat_motzkin.services.wellness')}</li>
             </ul>
-          </div>
+          </div> -->
           <BookingButton
             client:visible
             text={t('clinics.kiryat_motzkin.cta')}
@@ -152,28 +152,30 @@ const t = useTranslations(lang);
       </div>
     </div>
 
-    <div class="section">
-      <h2 class="section-title">{t('clinics.virtual.title')}</h2>
-      <p class="section-subtitle">
-        {t('clinics.virtual.subtitle')}
-      </p>
-      <div class="feature-box">
-        <h3>{t('clinics.virtual.perfect_for_title')}</h3>
-        <ul style="margin-bottom: 1rem;">
-          <li>{t('clinics.virtual.perfect_for.international')}</li>
-          <li>{t('clinics.virtual.perfect_for.pre_surgery')}</li>
-          <li>{t('clinics.virtual.perfect_for.post_op')}</li>
-          <li>{t('clinics.virtual.perfect_for.second_opinion')}</li>
-        </ul>
-        <BookingButton
-          client:visible
-          text={t('clinics.virtual.cta')}
-          phone="+97248732227"
-          className="btn btn-secondary"
-          tooltipClass= "tooltip-below"
-        />
+    {(lang === 'en' || lang === 'ru') && (
+      <div class="section">
+        <h2 class="section-title">{t('clinics.virtual.title')}</h2>
+        <p class="section-subtitle">
+          {t('clinics.virtual.subtitle')}
+        </p>
+        <div class="feature-box">
+          <h3>{t('clinics.virtual.perfect_for_title')}</h3>
+          <ul style="margin-bottom: 1rem;">
+            <li>{t('clinics.virtual.perfect_for.international')}</li>
+            <li>{t('clinics.virtual.perfect_for.pre_surgery')}</li>
+            <li>{t('clinics.virtual.perfect_for.post_op')}</li>
+            <li>{t('clinics.virtual.perfect_for.second_opinion')}</li>
+          </ul>
+          <BookingButton
+            client:visible
+            text={t('clinics.virtual.cta')}
+            phone="+97248732227"
+            className="btn btn-secondary"
+            tooltipClass= "tooltip-below"
+          />
+        </div>
       </div>
-    </div>
+    )}
   </div>
 </BaseLayout>
 
