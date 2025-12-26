@@ -25,19 +25,39 @@ const t = useTranslations(lang);
 
   <main class="page-active">
   <div class="container about-page">
-    <header class="section about-header">
+    <header class="section about-header two-column">
       <div >
       <h1 class="section-title">{t('about.title')}</h1>
       <p>
         {t('about.intro')}
       </p>
-      <section class="expertise">
+      <!--  
         <h2>{t('about.expertise.title')}</h2>
         <p>
           {t('about.expertise.text')}
         </p>
+        </section> -->
+    
+      
+      <div class="content-sections">
+        
+        <section class="section ">
+          <h3 class="section-title">{t('about.specializations.title')}</h3>
+          <div class="specializations feature-box">
+            <ul>
+              <li><strong>{t('about.specializations.limb_lengthening.title')}</strong><br>
+                <span class="text">{t('about.specializations.limb_lengthening.description')}</span></li>
+              <li><strong>{t('about.specializations.clubfoot.title')}</strong><br>
+                  <span class="text">{t('about.specializations.clubfoot.description')}</span></li>
+              <li><strong>{t('about.specializations.pelvic.title')}</strong><br>
+                    <span class="text">{t('about.specializations.pelvic.description')}</span></li>
+              <li><strong>{t('about.specializations.trauma.title')}</strong><br>
+                      <span class="text">{t('about.specializations.trauma.description')}</span></li>
+            </ul>
+          </div>
         </section>
-    </div>
+        </div>
+      </div>
       <ResponsivePicture
         src={aboutImage}
         alt="Prof. Mark Eidelman"
@@ -49,28 +69,8 @@ const t = useTranslations(lang);
         class="about-profile-image"
       />
     </header>
-    <div class="content-sections">
-
-        <section class="section ">
-        <h3 class="section-title">{t('about.specializations.title')}</h3>
-        <div class="specializations feature-box two-column">
-          <ul>
-            <li><strong>{t('about.specializations.limb_lengthening.title')}</strong><br>
-              <span class="text">{t('about.specializations.limb_lengthening.description')}</span></li>
-              <li><strong>{t('about.specializations.clubfoot.title')}</strong><br>
-                <span class="text">{t('about.specializations.clubfoot.description')}</span></li>
-          </ul>
-          <ul>
-            <li><strong>{t('about.specializations.pelvic.title')}</strong><br>
-                  <span class="text">{t('about.specializations.pelvic.description')}</span></li>
-            <li><strong>{t('about.specializations.trauma.title')}</strong><br>
-                    <span class="text">{t('about.specializations.trauma.description')}</span></li>
-          </ul>
-                </div>
-      </section>
-      </div>
 <hr>
-    <article class="academic-contributions">
+    <!-- <article class="academic-contributions">
       <section class="section academia-research">
         <h2 class="section-title">{t('about.academic.title')}</h2>
         <p>
@@ -103,7 +103,7 @@ const t = useTranslations(lang);
           </div>
         </div>
       </section>
-    </article>
+    </article> -->
   </div>
 
 </main>
@@ -151,8 +151,8 @@ const t = useTranslations(lang);
 }
 
 .about-header {
-  display: flex;
-  justify-content: space-evenly;
+  /* display: flex; */
+  /* justify-content: space-evenly; */
 }
 
 .expertise {
