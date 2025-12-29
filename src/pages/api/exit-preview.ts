@@ -10,7 +10,13 @@ import { disablePreviewMode } from '../../lib/preview';
  */
 export const GET: APIRoute = async ({ request, cookies, redirect }) => {
   const url = new URL(request.url);
-  const returnUrl = url.searchParams.get('returnUrl') || '/';
+  let returnUrl = url.searchParams.get('returnUrl') || '/';
+
+  // Validate returnUrl to prevent open redirect attacks
+  // Only allow relative paths (starting with /) that don't have protocol-relative URLs
+  if (!returnUrl.startsWith('/') || returnUrl.startsWith('//')) {
+    returnUrl = '/';
+  }
 
   // Disable preview mode (removes cookie)
   disablePreviewMode(cookies);

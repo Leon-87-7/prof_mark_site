@@ -12,7 +12,13 @@ import { enablePreviewMode } from '../../lib/preview';
 export const GET: APIRoute = async ({ request, cookies, redirect }) => {
   const url = new URL(request.url);
   const secret = url.searchParams.get('secret');
-  const slug = url.searchParams.get('slug') || '/';
+  let slug = url.searchParams.get('slug') || '/';
+
+  // Validate slug to prevent open redirect attacks
+  // Only allow relative paths (starting with /) that don't have protocol-relative URLs
+  if (!slug.startsWith('/') || slug.startsWith('//')) {
+    slug = '/';
+  }
 
   // Get the preview secret from environment
   const previewSecret = import.meta.env.SANITY_PREVIEW_SECRET;
