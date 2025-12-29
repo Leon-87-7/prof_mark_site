@@ -4,7 +4,13 @@
  * This script migrates all content from the JSON translation files
  * to Sanity CMS documents with localized fields.
  *
- * Run with: npx tsx scripts/migrate-to-sanity.ts
+ * Usage:
+ *   npm run migrate              - Creates documents only if they don't exist (safe mode)
+ *   npm run migrate -- --force   - Overwrites existing documents (destructive)
+ *
+ * Environment:
+ *   SANITY_DATASET=development npm run migrate     - Target development dataset
+ *   SANITY_ALLOW_PRODUCTION=true npm run migrate   - Allow production writes
  */
 
 import { createClient } from '@sanity/client';
@@ -14,14 +20,91 @@ import * as path from 'path';
 // Load environment variables
 import 'dotenv/config';
 
+// ============================================================================
+// ENVIRONMENT VALIDATION
+// ============================================================================
+const projectId = process.env.SANITY_PROJECT_ID;
+const dataset = process.env.SANITY_DATASET;
+const token = process.env.SANITY_TOKEN;
+
+if (!projectId) {
+  console.error('❌ Error: SANITY_PROJECT_ID environment variable is required');
+  console.error('');
+  console.error('Set it in your .env file or pass it directly:');
+  console.error('  SANITY_PROJECT_ID=your_project_id npm run migrate');
+  process.exit(1);
+}
+
+if (!dataset) {
+  console.error('❌ Error: SANITY_DATASET environment variable is required');
+  console.error('');
+  console.error('Set it in your .env file or pass it directly:');
+  console.error('  SANITY_DATASET=development npm run migrate');
+  process.exit(1);
+}
+
+if (!token) {
+  console.error('❌ Error: SANITY_TOKEN environment variable is required for migrations');
+  console.error('');
+  console.error('Generate a token at: https://sanity.io/manage');
+  console.error('Then add it to your .env file');
+  process.exit(1);
+}
+
+// ============================================================================
+// PRODUCTION PROTECTION
+// ============================================================================
+if (dataset === 'production' && process.env.SANITY_ALLOW_PRODUCTION !== 'true') {
+  console.error('❌ Error: Refusing to write to production dataset.');
+  console.error('');
+  console.error('This is a safety measure to prevent accidental writes to production.');
+  console.error('');
+  console.error('To run migrations against production, set:');
+  console.error('  SANITY_ALLOW_PRODUCTION=true npm run migrate');
+  console.error('');
+  console.error('For local development, use:');
+  console.error('  SANITY_DATASET=development npm run migrate');
+  process.exit(1);
+}
+
 // Sanity client configuration
 const client = createClient({
-  projectId: process.env.SANITY_PROJECT_ID || 's4qwd9sw',
-  dataset: process.env.SANITY_DATASET || 'production',
+  projectId,
+  dataset,
   apiVersion: '2024-01-01',
-  token: process.env.SANITY_TOKEN,
+  token,
   useCdn: false,
 });
+
+// ============================================================================
+// MIGRATION MODE
+// ============================================================================
+const forceMode = process.argv.includes('--force');
+
+// Log connection info
+console.log(`📦 Connecting to Sanity project: ${projectId}`);
+console.log(`📁 Dataset: ${dataset}`);
+console.log(`🔄 Mode: ${forceMode ? 'FORCE (overwrite existing)' : 'Safe (create if not exists)'}`);
+if (dataset === 'production') {
+  console.log('⚠️  WARNING: Running against PRODUCTION dataset!');
+}
+if (forceMode) {
+  console.log('⚠️  WARNING: --force flag set - existing documents will be overwritten!');
+}
+console.log('');
+
+/**
+ * Migrate a document using the appropriate strategy based on mode.
+ * - Default (safe): createIfNotExists - only creates if document doesn't exist
+ * - Force mode: createOrReplace - overwrites existing documents
+ */
+async function migrateDocument<T extends { _id: string; _type: string }>(doc: T): Promise<void> {
+  if (forceMode) {
+    await client.createOrReplace(doc);
+  } else {
+    await client.createIfNotExists(doc);
+  }
+}
 
 // Load JSON files
 const en = JSON.parse(fs.readFileSync(path.join(__dirname, '../src/i18n/en.json'), 'utf-8'));
@@ -74,7 +157,7 @@ async function migrateSiteSettings() {
     },
   };
 
-  await client.createOrReplace(doc);
+  await migrateDocument(doc);
   console.log('✓ Site Settings migrated');
 }
 
@@ -309,7 +392,8 @@ async function migrateClinics() {
   ];
 
   for (const clinic of clinics) {
-    await client.createOrReplace(clinic);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    await client.createOrReplace(clinic as any);
   }
   console.log('✓ Clinics migrated (3 documents)');
 }

@@ -14,14 +14,18 @@ const singletonTypes = new Set([
 ]);
 
 // Define singleton document actions
-const singletonActions = new Set(['publish', 'discardChanges', 'restore']);
+const singletonActions = new Set([
+  'publish',
+  'discardChanges',
+  'restore',
+]);
 
 export default defineConfig({
   name: 'prof-mark-eidelman',
   title: 'Prof. Mark Eidelman Website',
 
-  projectId: 's4qwd9sw',
-  dataset: 'production',
+  projectId: process.env.SANITY_PROJECT_ID || 's4qwd9sw',
+  dataset: process.env.SANITY_DATASET || 'production',
 
   plugins: [
     structureTool({
@@ -113,19 +117,27 @@ export default defineConfig({
             S.listItem()
               .title('Innovations')
               .schemaType('innovation')
-              .child(S.documentTypeList('innovation').title('Innovations')),
+              .child(
+                S.documentTypeList('innovation').title('Innovations')
+              ),
 
             S.listItem()
               .title('Publications')
               .schemaType('publication')
-              .child(S.documentTypeList('publication').title('Publications')),
+              .child(
+                S.documentTypeList('publication').title(
+                  'Publications'
+                )
+              ),
 
             S.divider(),
 
             S.listItem()
               .title('Patient Guides')
               .schemaType('guide')
-              .child(S.documentTypeList('guide').title('Patient Guides')),
+              .child(
+                S.documentTypeList('guide').title('Patient Guides')
+              ),
 
             S.listItem()
               .title('FAQs')
@@ -135,12 +147,20 @@ export default defineConfig({
             S.listItem()
               .title('Study Content')
               .schemaType('studyContent')
-              .child(S.documentTypeList('studyContent').title('Study Content')),
+              .child(
+                S.documentTypeList('studyContent').title(
+                  'Study Content'
+                )
+              ),
 
             S.listItem()
               .title('Testimonials')
               .schemaType('testimonial')
-              .child(S.documentTypeList('testimonial').title('Testimonials')),
+              .child(
+                S.documentTypeList('testimonial').title(
+                  'Testimonials'
+                )
+              ),
           ]),
     }),
     visionTool(), // GROQ query playground
@@ -150,14 +170,18 @@ export default defineConfig({
     types: schemaTypes,
     // Prevent creating new singleton documents
     templates: (templates) =>
-      templates.filter(({ schemaType }) => !singletonTypes.has(schemaType)),
+      templates.filter(
+        ({ schemaType }) => !singletonTypes.has(schemaType)
+      ),
   },
 
   document: {
     // Restrict actions for singleton documents
     actions: (input, context) =>
       singletonTypes.has(context.schemaType)
-        ? input.filter(({ action }) => action && singletonActions.has(action))
+        ? input.filter(
+            ({ action }) => action && singletonActions.has(action)
+          )
         : input,
   },
 });
