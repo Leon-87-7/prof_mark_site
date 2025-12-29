@@ -24,15 +24,15 @@
       "description_closing": "Передовые методы. Глобальное наставничество.",
       "stats": {
         "experience": {
-          "number": "40+",
+          "number": "30+",
           "label": "Лет опыта"
         },
         "surgeries": {
-          "number": "3000+",
+          "number": "Тысячи",
           "label": "Операций"
         },
         "trained": {
-          "number": "50+",
+          "number": "Десятки",
           "label": "Обучено"
         }
       },
