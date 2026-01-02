@@ -131,9 +131,8 @@ export default defineType({
     },
     prepare({ title, emoji, isFeatured }) {
       return {
-        title: title || 'Untitled Service',
+        title: `${emoji || '🔧'} ${title || 'Untitled Service'}`,
         subtitle: isFeatured ? '⭐ Featured' : undefined,
-        media: () => emoji || '🔧',
       };
     },
   },

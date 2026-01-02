@@ -128,9 +128,8 @@ export default defineType({
         research: 'Research Paper',
       };
       return {
-        title: title || 'Untitled Content',
+        title: `${emoji || '📄'} ${title || 'Untitled Content'}`,
         subtitle: contentType ? (typeLabels[contentType] || contentType) : 'Unknown',
-        media: () => emoji || '📄',
       };
     },
   },

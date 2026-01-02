@@ -1,11 +1,16 @@
 import { createClient } from '@sanity/client';
 
 // Environment variables
-const projectId = import.meta.env.SANITY_PROJECT_ID || 's4qwd9sw';
-const dataset = import.meta.env.SANITY_DATASET || 'production';
+const projectId = import.meta.env.SANITY_PROJECT_ID;
+const dataset = import.meta.env.SANITY_DATASET;
 const apiVersion = import.meta.env.SANITY_API_VERSION || '2024-01-01';
 const token = import.meta.env.SANITY_TOKEN;
 
+if (!projectId || !dataset) {
+  throw new Error(
+    'SANITY_PROJECT_ID and SANITY_DATASET must be defined'
+  );
+}
 /**
  * Standard Sanity client - uses CDN for fast reads
  */
@@ -38,6 +43,49 @@ export function getClient(preview = false) {
 }
 
 /**
+ * Check if an error is recoverable (transient network issues, server errors)
+ * vs non-recoverable (auth failures, bad queries, client errors)
+ */
+function isRecoverableError(error: unknown): boolean {
+  if (error instanceof Error) {
+    const name = error.name.toLowerCase();
+    const message = error.message.toLowerCase();
+
+    // Network errors are recoverable
+    if (
+      name.includes('network') ||
+      name.includes('timeout') ||
+      name.includes('abort') ||
+      message.includes('network') ||
+      message.includes('timeout') ||
+      message.includes('econnrefused') ||
+      message.includes('econnreset')
+    ) {
+      return true;
+    }
+  }
+
+  // Check for HTTP status codes (Sanity client errors often have statusCode)
+  const statusCode =
+    (error as { statusCode?: number }).statusCode ??
+    (error as { status?: number }).status;
+
+  if (typeof statusCode === 'number') {
+    // 5xx server errors are recoverable (transient)
+    if (statusCode >= 500 && statusCode < 600) {
+      return true;
+    }
+    // 4xx client errors are NOT recoverable (bad request, auth, not found)
+    if (statusCode >= 400 && statusCode < 500) {
+      return false;
+    }
+  }
+
+  // Default: treat unknown errors as non-recoverable to surface issues
+  return false;
+}
+
+/**
  * Fetch data from Sanity with automatic error handling
  * @param query - GROQ query string
  * @param params - Query parameters
@@ -52,7 +100,26 @@ export async function sanityFetch<T = unknown>(
     const sanityClient = getClient(preview);
     return await sanityClient.fetch<T>(query, params);
   } catch (error) {
-    console.error('Sanity fetch error:', error);
-    return null;
+    // Build detailed context for debugging
+    const context = {
+      query: query.slice(0, 200) + (query.length > 200 ? '...' : ''),
+      params,
+      preview,
+      errorName: error instanceof Error ? error.name : 'Unknown',
+      errorMessage: error instanceof Error ? error.message : String(error),
+      statusCode:
+        (error as { statusCode?: number }).statusCode ??
+        (error as { status?: number }).status,
+    };
+
+    if (isRecoverableError(error)) {
+      // Log recoverable errors but return null to allow graceful degradation
+      console.warn('[Sanity] Recoverable fetch error (returning null):', context);
+      return null;
+    }
+
+    // Non-recoverable errors: log and rethrow so callers can handle
+    console.error('[Sanity] Non-recoverable fetch error:', context);
+    throw error;
   }
 }

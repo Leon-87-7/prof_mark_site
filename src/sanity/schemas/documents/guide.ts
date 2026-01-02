@@ -91,9 +91,8 @@ export default defineType({
       const categoryLabel = category ? (categoryLabels[category] || category) : 'Unknown';
 
       return {
-        title: title || 'Untitled Guide',
+        title: `${emoji || '📋'} ${title || 'Untitled Guide'}`,
         subtitle: categoryLabel,
-        media: () => emoji || '📋',
       };
     },
   },

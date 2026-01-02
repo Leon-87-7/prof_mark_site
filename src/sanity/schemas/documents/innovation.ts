@@ -61,8 +61,7 @@ export default defineType({
     },
     prepare({ title, emoji }) {
       return {
-        title: title || 'Untitled Innovation',
-        media: () => emoji || '🔬',
+        title: `${emoji || '🔬'} ${title || 'Untitled Innovation'}`,
       };
     },
   },

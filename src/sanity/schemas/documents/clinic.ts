@@ -117,9 +117,8 @@ export default defineType({
     },
     prepare({ title, identifier, emoji }) {
       return {
-        title: title || identifier || 'Untitled Clinic',
+        title: `${emoji || '🏥'} ${title || identifier || 'Untitled Clinic'}`,
         subtitle: identifier,
-        media: () => emoji || '🏥',
       };
     },
   },
