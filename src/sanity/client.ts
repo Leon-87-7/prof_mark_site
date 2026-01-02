@@ -1,8 +1,9 @@
 import { createClient } from '@sanity/client';
 
 // Environment variables
-const projectId = import.meta.env.SANITY_PROJECT_ID;
-const dataset = import.meta.env.SANITY_DATASET;
+// Using PUBLIC_ prefixed variables as they're defined in .env
+const projectId = import.meta.env.PUBLIC_SANITY_PROJECT_ID || import.meta.env.SANITY_PROJECT_ID;
+const dataset = import.meta.env.PUBLIC_SANITY_DATASET || import.meta.env.SANITY_DATASET;
 const apiVersion = import.meta.env.SANITY_API_VERSION || '2024-01-01';
 const token = import.meta.env.SANITY_TOKEN;
 

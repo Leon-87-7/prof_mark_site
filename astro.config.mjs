@@ -3,6 +3,10 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import sanity from '@sanity/astro';
 import node from '@astrojs/node';
+import dotenv from 'dotenv';
+
+// Load environment variables from .env file
+dotenv.config();
 
 // https://astro.build/config
 export default defineConfig({
