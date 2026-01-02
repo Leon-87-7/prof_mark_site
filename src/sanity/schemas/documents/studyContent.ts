@@ -5,17 +5,6 @@ import { defineType, defineField } from 'sanity';
  * Articles, case studies, lectures, and research papers
  */
 
-const CONTENT_TYPES = [
-  { title: 'Article', value: 'article' },
-  { title: 'Case Study', value: 'case_study' },
-  { title: 'Video Lecture', value: 'lecture' },
-  { title: 'Research Paper', value: 'research' },
-] as const;
-
-const CONTENT_TYPE_LABELS = Object.fromEntries(
-  CONTENT_TYPES.map(({ value, title }) => [value, title])
-);
-
 export default defineType({
   name: 'studyContent',
   title: 'Study Content',
@@ -43,7 +32,12 @@ export default defineType({
       title: 'Content Type',
       type: 'string',
       options: {
-        list: CONTENT_TYPES,
+        list: [
+          { title: 'Article', value: 'article' },
+          { title: 'Case Study', value: 'case_study' },
+          { title: 'Video Lecture', value: 'lecture' },
+          { title: 'Research Paper', value: 'research' },
+        ],
         layout: 'radio',
       },
       validation: (Rule) => Rule.required(),
@@ -137,10 +131,16 @@ export default defineType({
       emoji?: string;
       contentType?: string;
     }) {
+      const typeLabels: Record<string, string> = {
+        article: 'Article',
+        case_study: 'Case Study',
+        lecture: 'Video Lecture',
+        research: 'Research Paper',
+      };
       return {
         title: `${emoji || '📄'} ${title || 'Untitled Content'}`,
         subtitle: contentType
-          ? CONTENT_TYPE_LABELS[contentType] || contentType
+          ? typeLabels[contentType] || contentType
           : 'Unknown',
       };
     },

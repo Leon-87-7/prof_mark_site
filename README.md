@@ -166,7 +166,7 @@ prof_mark_site/
 
 ### Implemented Optimizations
 
-- ✅ **Astro Server Side Rendering ** - Pre-rendered HTML for instant page loads
+- ✅ **Astro Server-Side Rendering ** - Pre-rendered HTML for instant page loads
 - ✅ **React Islands with `client:idle`** - Deferred hydration for Navigation & LanguageSelector
 - ✅ **Terser JS minification** - Removes console.logs, debuggers, and dead code
 - ✅ **LightningCSS** - Fast CSS minification and processing
