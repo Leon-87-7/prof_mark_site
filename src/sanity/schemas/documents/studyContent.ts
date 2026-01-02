@@ -4,6 +4,18 @@ import { defineType, defineField } from 'sanity';
  * Study Content - Educational content items (Collection)
  * Articles, case studies, lectures, and research papers
  */
+
+const CONTENT_TYPES = [
+  { title: 'Article', value: 'article' },
+  { title: 'Case Study', value: 'case_study' },
+  { title: 'Video Lecture', value: 'lecture' },
+  { title: 'Research Paper', value: 'research' },
+] as const;
+
+const CONTENT_TYPE_LABELS = Object.fromEntries(
+  CONTENT_TYPES.map(({ value, title }) => [value, title])
+);
+
 export default defineType({
   name: 'studyContent',
   title: 'Study Content',
@@ -31,12 +43,7 @@ export default defineType({
       title: 'Content Type',
       type: 'string',
       options: {
-        list: [
-          { title: 'Article', value: 'article' },
-          { title: 'Case Study', value: 'case_study' },
-          { title: 'Video Lecture', value: 'lecture' },
-          { title: 'Research Paper', value: 'research' },
-        ],
+        list: CONTENT_TYPES,
         layout: 'radio',
       },
       validation: (Rule) => Rule.required(),
@@ -56,7 +63,8 @@ export default defineType({
       name: 'dateLabel',
       title: 'Date Label',
       type: 'localizedString',
-      description: 'Formatted date display (e.g., "Published January 2024")',
+      description:
+        'Formatted date display (e.g., "Published January 2024")',
     }),
     defineField({
       name: 'duration',
@@ -120,16 +128,20 @@ export default defineType({
       emoji: 'emoji',
       contentType: 'contentType',
     },
-    prepare({ title, emoji, contentType }: { title?: string; emoji?: string; contentType?: string }) {
-      const typeLabels: Record<string, string> = {
-        article: 'Article',
-        case_study: 'Case Study',
-        lecture: 'Video Lecture',
-        research: 'Research Paper',
-      };
+    prepare({
+      title,
+      emoji,
+      contentType,
+    }: {
+      title?: string;
+      emoji?: string;
+      contentType?: string;
+    }) {
       return {
         title: `${emoji || '📄'} ${title || 'Untitled Content'}`,
-        subtitle: contentType ? (typeLabels[contentType] || contentType) : 'Unknown',
+        subtitle: contentType
+          ? CONTENT_TYPE_LABELS[contentType] || contentType
+          : 'Unknown',
       };
     },
   },

@@ -19,7 +19,7 @@ This is the official website for Professor Mark Eidelman, a distinguished orthop
 
 - 🏥 Multi-page medical practice website
 - 📱 Fully responsive mobile-first design
-- ⚡ Static Site Generation (SSG) for optimal performance
+- ⚡ Server Side Rendering (SSR) for optimal performance
 - 🎨 Interactive React islands for dynamic components
 - 🖼️ Optimized image delivery (WebP/AVIF)
 - 🌍 Multi-language support (English/Hebrew)
@@ -151,12 +151,14 @@ prof_mark_site/
 ### Production Lighthouse Scores (markeidelman.com)
 
 #### Mobile
+
 - **Performance: 78/100** 📱
 - **Accessibility: 98/100** ✅
 - **Best Practices: 100/100** 💯
 - **SEO: 100/100** 💯
 
 #### Desktop
+
 - **Performance: 97/100** 🚀
 - **Accessibility: 94/100** ✅
 - **Best Practices: 100/100** 💯
@@ -164,7 +166,7 @@ prof_mark_site/
 
 ### Implemented Optimizations
 
-- ✅ **Astro Static Site Generation** - Pre-rendered HTML for instant page loads
+- ✅ **Astro Server Side Rendering ** - Pre-rendered HTML for instant page loads
 - ✅ **React Islands with `client:idle`** - Deferred hydration for Navigation & LanguageSelector
 - ✅ **Terser JS minification** - Removes console.logs, debuggers, and dead code
 - ✅ **LightningCSS** - Fast CSS minification and processing
@@ -182,6 +184,7 @@ prof_mark_site/
 **After Optimization Push (Dec 15):** Mobile 78/100, Desktop 97/100
 
 **Key Achievements:**
+
 - 12-point mobile performance improvement
 - Desktop score near-perfect at 97/100
 - Perfect Best Practices & SEO scores on both mobile and desktop

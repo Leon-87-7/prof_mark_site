@@ -7,6 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is Professor Mark's website built with **Astro 5** using **Server-Side Rendering (SSR)** with the Node.js adapter. The site uses Astro components for pages and layout, with React islands for interactive components (Navigation, LanguageSelector, BookingButton). Content is managed via **Sanity CMS** with an embedded Studio at `/studio`. Images are optimized using Sharp.
 
 ### Tech Stack
+
 - **Framework**: Astro 5 (SSR mode)
 - **CMS**: Sanity v3 (embedded Studio)
 - **Runtime**: Node.js (standalone adapter)
@@ -38,12 +39,13 @@ npm run astro
 - **Adapter**: Node.js standalone (`@astrojs/node`)
 - **Integrations**: React (for interactive islands), Sitemap, Sanity
 - **Image optimization**: Sharp service for automatic image processing
-- **Site URL**: https://markeidelman.com
+- **Site URL**: [https://markeidelman.com](https://markeidelman.com)
 - **CMS Studio**: Embedded at `/studio` route
 
 ### Deployment
 
 Deployed on **Vercel** which auto-detects the Node.js adapter:
+
 - No infrastructure changes required vs SSG
 - Vercel handles the Node.js runtime automatically
 - Static pages can still be prerendered using `export const prerender = true`
@@ -51,6 +53,7 @@ Deployed on **Vercel** which auto-detects the Node.js adapter:
 ### Page Structure
 
 Multi-page site with Astro file-based routing (SSR with optional prerendering):
+
 - **Pages**: Located in `src/pages/` (`.astro` files)
   - [index.astro](src/pages/index.astro) - Home page
   - [about.astro](src/pages/about.astro) - About page
@@ -109,11 +112,13 @@ Multi-page site with Astro file-based routing (SSR with optional prerendering):
 ### Astro Config ([astro.config.mjs](astro.config.mjs))
 
 **SSR Configuration:**
+
 - `output: 'server'` - Server-side rendering mode
 - `adapter: node({ mode: 'standalone' })` - Node.js runtime adapter
 - Static pages can opt-in with `export const prerender = true`
 
 **Build optimizations:**
+
 - `inlineStylesheets: 'auto'` - Inlines critical CSS automatically
 - CSS minification: LightningCSS (faster than cssnano)
 - JS minification: Terser with optimizations:
@@ -121,12 +126,14 @@ Multi-page site with Astro file-based routing (SSR with optional prerendering):
   - `drop_debugger: true` - Removes debugger statements
 
 **Image optimization:**
+
 - Service: Sharp (high-performance image processing)
 - Remote patterns: Sanity CDN (`cdn.sanity.io`), Google (`**.googleusercontent.com`)
 
 ### Vite Integration
 
 Astro uses Vite under the hood. Custom Vite config in `astro.config.mjs`:
+
 - Terser for better JS minification (vs esbuild default)
 - LightningCSS for faster CSS processing
 
@@ -141,6 +148,7 @@ Astro uses Vite under the hood. Custom Vite config in `astro.config.mjs`:
 ### Current Performance Issues (Mobile: 66/100)
 
 Based on Lighthouse audit:
+
 1. **Text compression disabled** - Est savings: 2,596 KiB
 2. **JS not minified enough** - Est savings: 1,892 KiB
 3. **Unused JavaScript** - Est savings: 586 KiB
@@ -184,6 +192,7 @@ Based on Lighthouse audit:
 ### Image Optimization
 
 Use Astro's built-in `<Image>` component or custom wrappers:
+
 - [OptimizedImage.astro](src/components/OptimizedImage.astro) for single images
 - [ResponsivePicture.astro](src/components/ResponsivePicture.astro) for responsive images
 - Automatically generates WebP/AVIF formats
@@ -199,12 +208,14 @@ Use Astro's built-in `<Image>` component or custom wrappers:
 ### Working with Sanity Content
 
 1. **Fetching data** - Use `sanityFetch()` from [src/sanity/client.ts](src/sanity/client.ts):
+
    ```typescript
    import { sanityFetch } from '../sanity/client';
    const data = await sanityFetch<MyType>(groqQuery, params);
    ```
 
 2. **Image URLs** - Use helpers from [src/sanity/image.ts](src/sanity/image.ts):
+
    ```typescript
    import { urlFor, getOptimizedUrl } from '../sanity/image';
    const imageUrl = urlFor(sanityImage).width(800).url();
