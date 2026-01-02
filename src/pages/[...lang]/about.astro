@@ -4,6 +4,8 @@ import ResponsivePicture from '@/components/ResponsivePicture.astro';
 import aboutImage from '@/images/about_image_mark.jpg';
 import { useTranslations, getLangFromUrl  } from '@/i18n/utils';
 
+export const prerender = true;
+
 export function getStaticPaths() {
   return [
     { params: { lang: undefined}}, // Default language
@@ -25,19 +27,32 @@ const t = useTranslations(lang);
 
   <main class="page-active">
   <div class="container about-page">
-    <header class="section about-header">
+    <header class="section about-header two-column">
       <div >
       <h1 class="section-title">{t('about.title')}</h1>
       <p>
         {t('about.intro')}
       </p>
-      <section class="expertise">
-        <h2>{t('about.expertise.title')}</h2>
-        <p>
-          {t('about.expertise.text')}
-        </p>
+      
+      <div class="content-sections">
+        
+        <section class="section ">
+          <h3 class="section-title">{t('about.specializations.title')}</h3>
+          <div class="specializations feature-box">
+            <ul>
+              <li><strong>{t('about.specializations.limb_lengthening.title')}</strong><br>
+                <span class="text">{t('about.specializations.limb_lengthening.description')}</span></li>
+              <li><strong>{t('about.specializations.clubfoot.title')}</strong><br>
+                  <span class="text">{t('about.specializations.clubfoot.description')}</span></li>
+              <li><strong>{t('about.specializations.pelvic.title')}</strong><br>
+                    <span class="text">{t('about.specializations.pelvic.description')}</span></li>
+              <li><strong>{t('about.specializations.trauma.title')}</strong><br>
+                      <span class="text">{t('about.specializations.trauma.description')}</span></li>
+            </ul>
+          </div>
         </section>
-    </div>
+        </div>
+      </div>
       <ResponsivePicture
         src={aboutImage}
         alt="Prof. Mark Eidelman"
@@ -49,61 +64,8 @@ const t = useTranslations(lang);
         class="about-profile-image"
       />
     </header>
-    <div class="content-sections">
-
-        <section class="section ">
-        <h3 class="section-title">{t('about.specializations.title')}</h3>
-        <div class="specializations feature-box two-column">
-          <ul>
-            <li><strong>{t('about.specializations.limb_lengthening.title')}</strong><br>
-              <span class="text">{t('about.specializations.limb_lengthening.description')}</span></li>
-              <li><strong>{t('about.specializations.clubfoot.title')}</strong><br>
-                <span class="text">{t('about.specializations.clubfoot.description')}</span></li>
-          </ul>
-          <ul>
-            <li><strong>{t('about.specializations.pelvic.title')}</strong><br>
-                  <span class="text">{t('about.specializations.pelvic.description')}</span></li>
-            <li><strong>{t('about.specializations.trauma.title')}</strong><br>
-                    <span class="text">{t('about.specializations.trauma.description')}</span></li>
-          </ul>
-                </div>
-      </section>
-      </div>
 <hr>
-    <article class="academic-contributions">
-      <section class="section academia-research">
-        <h2 class="section-title">{t('about.academic.title')}</h2>
-        <p>
-          {t('about.academic.paragraph_1')}
-        </p>
-        <p>
-          {t('about.academic.paragraph_2')}
-        </p>
-      </section>
-
-      <section class="section education-affiliations ">
-        <h2 class="section-title">{t('about.education_affiliations.title')}</h2>
-        <div class="two-column">
-          <div>
-            <div class="education-details ">
-              <h3>{t('about.education_affiliations.education.title')}</h3>
-              <ul>
-                <li>{t('about.education_affiliations.education.medical_school')}</li>
-                <li>{t('about.education_affiliations.education.residency')}</li>
-                <li>{t('about.education_affiliations.education.fellowship')}</li>
-              </ul>
-            </div>
-          </div>
-          <div>
-              <h3>{t('about.education_affiliations.memberships.title')}</h3>
-              <ul>
-                <li>{t('about.education_affiliations.memberships.member_1')}</li>
-                <li>{t('about.education_affiliations.memberships.member_2')}</li>
-              </ul>
-          </div>
-        </div>
-      </section>
-    </article>
+    
   </div>
 
 </main>
@@ -148,11 +110,6 @@ const t = useTranslations(lang);
   max-width: 50ch;
   color: var(--text-sub-dark);
   padding-inline-start: 1.2rem;
-}
-
-.about-header {
-  display: flex;
-  justify-content: space-evenly;
 }
 
 .expertise {
