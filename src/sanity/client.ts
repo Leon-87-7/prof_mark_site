@@ -2,10 +2,13 @@ import { createClient } from '@sanity/client';
 
 // Environment variables
 // Using PUBLIC_ prefixed variables as they're defined in .env
+// - PUBLIC_* variables are exposed to the client-side bundle (safe for Sanity projectId/dataset)
+// - Non-PUBLIC_* variables are server-only (used for sensitive tokens)
+// - Fallback pattern ensures compatibility in both SSR and client contexts
 const projectId = import.meta.env.PUBLIC_SANITY_PROJECT_ID || import.meta.env.SANITY_PROJECT_ID;
 const dataset = import.meta.env.PUBLIC_SANITY_DATASET || import.meta.env.SANITY_DATASET;
 const apiVersion = import.meta.env.SANITY_API_VERSION || '2024-01-01';
-const token = import.meta.env.SANITY_TOKEN;
+const token = import.meta.env.SANITY_TOKEN; // Server-only: never use PUBLIC_ prefix for tokens
 
 if (!projectId || !dataset) {
   throw new Error(
