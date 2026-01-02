@@ -5,6 +5,8 @@ import MapPinLineDuotone from 'phosphor-astro/MapPinLineDuotone.astro';
 import TimerDuotone from 'phosphor-astro/TimerDuotone.astro';
 import { useTranslations, getLangFromUrl  } from '@/i18n/utils';
 
+export const prerender = true;
+
 export function getStaticPaths() {
   return [
     { params: { lang: undefined}}, // Default language

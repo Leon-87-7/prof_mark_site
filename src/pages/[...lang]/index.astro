@@ -4,6 +4,9 @@ import { Image } from 'astro:assets';
 import heroImage from '@/images/hero_image_mark_02.jpg';
 import { useTranslations, getPathPrefix, getLangFromUrl  } from '@/i18n/utils';
 
+// Prerender this page as static HTML for better performance
+export const prerender = true;
+
 export function getStaticPaths() {
   return [
     { params: { lang: undefined}}, // Default language
