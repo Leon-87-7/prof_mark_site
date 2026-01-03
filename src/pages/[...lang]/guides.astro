@@ -4,6 +4,8 @@ import ComingSoonBtn from '@/components/ComingSoonBtn.astro';
 import DownloadBtn from '@/components/DownloadBtn.astro';
 import { useTranslations, getLangFromUrl } from '@/i18n/utils';
 
+export const prerender = true;
+
 export function getStaticPaths() {
   return [
     { params: { lang: undefined}}, // Default language

@@ -1,14 +1,46 @@
 import { defineConfig, fontProviders } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
+import sanity from '@sanity/astro';
+import vercel from '@astrojs/vercel/serverless';
+import dotenv from 'dotenv';
+
+// Load environment variables from .env file
+dotenv.config();
+
+// Validate Sanity configuration early
+if (!process.env.SANITY_PROJECT_ID) {
+  throw new Error(
+    'SANITY_PROJECT_ID is required. Please copy .env.example to .env and configure it.'
+  );
+}
+
+if (!process.env.SANITY_DATASET) {
+  throw new Error(
+    'SANITY_DATASET is required. Please copy .env.example to .env and configure it.'
+  );
+}
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
     react(), // For React islands (Navigation, LanguageSelector, BookingButton)
-    sitemap(), // Auto-generates sitemap.xml
+    sitemap({
+      // Exclude studio from sitemap
+      filter: (page) => !page.includes('/studio'),
+    }),
+    sanity({
+      projectId: process.env.SANITY_PROJECT_ID || process.env.PUBLIC_SANITY_PROJECT_ID,
+      dataset: process.env.SANITY_DATASET || process.env.PUBLIC_SANITY_DATASET,
+      apiVersion: '2024-01-01',
+      useCdn: true,
+      studioBasePath: '/studio',
+    }),
   ],
-  output: 'static', // Static Site Generation (SSG)
+  // Server mode with prerendering for static pages
+  // The Sanity Studio requires server-side rendering
+  output: 'server',
+  adapter: vercel(), // Use Vercel adapter for deployment
   site: 'https://markeidelman.com', // Your production URL
   build: {
     inlineStylesheets: 'auto', // Inline critical CSS
@@ -23,15 +55,20 @@ export default defineConfig({
         protocol: 'https',
         hostname: '**.googleusercontent.com', // For Google Maps images if needed
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io', // Sanity CDN for images
+      },
     ],
   },
   vite: {
+    // Build optimizations (only applied during production build)
     build: {
-      cssMinify: 'lightningcss', // Faster CSS minification
-      minify: 'terser', // Better JavaScript minification than esbuild
+      cssMinify: 'lightningcss',
+      minify: 'terser',
       terserOptions: {
         compress: {
-          drop_console: true, // Remove console.logs in production
+          drop_console: true,
           drop_debugger: true,
         },
       },

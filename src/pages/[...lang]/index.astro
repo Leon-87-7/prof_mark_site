@@ -4,6 +4,9 @@ import { Image } from 'astro:assets';
 import heroImage from '@/images/hero_image_mark_02.jpg';
 import { useTranslations, getPathPrefix, getLangFromUrl  } from '@/i18n/utils';
 
+// Prerender this page as static HTML for better performance
+export const prerender = true;
+
 export function getStaticPaths() {
   return [
     { params: { lang: undefined}}, // Default language
@@ -37,16 +40,9 @@ const t = useTranslations(lang);
       <div class="hero-wrapper">
         <div class="hero-content">
           <h1>{t('home.hero.title')}</h1>
-          <h3>
-            {t('home.hero.subtitle')}
-          </h3>
           <p>
-            <b>{t('home.hero.description_line1')}</b> {t('home.hero.description_line2')}{' '}
-            <b>{t('home.hero.description_line3')}</b> {t('home.hero.description_line4')}{' '}
-            <span class="highlighted-text">
-              {t('home.hero.description_highlighted')}
-            </span>{' '}
-            {t('home.hero.description_closing')}
+            {t('home.hero.description_line1')} {t('home.hero.description_line2')}{' '}
+            
           </p>
 
           <div class="hero-stats">
@@ -102,7 +98,6 @@ const t = useTranslations(lang);
       </div>
     </div>
 
-    <div class="testimonials-wrapper">
       <h2 class="section-title">{t('home.testimonials.title')}</h2>
       <div class="testimonials">
         <div class="testimonial">
@@ -127,7 +122,7 @@ const t = useTranslations(lang);
           </div>
         </div>
       </div>
-    </div>
+    </div> 
   </div>
 </BaseLayout>
 
