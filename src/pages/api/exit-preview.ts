@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { disablePreviewMode } from '../../lib/preview';
+import { validateRedirectUrl } from '../../lib/url-validator';
 
 /**
  * API Route: Exit preview mode
@@ -10,13 +11,10 @@ import { disablePreviewMode } from '../../lib/preview';
  */
 export const GET: APIRoute = async ({ request, cookies, redirect }) => {
   const url = new URL(request.url);
-  let returnUrl = url.searchParams.get('returnUrl') || '/';
+  const rawReturnUrl = url.searchParams.get('returnUrl') || '/';
 
   // Validate returnUrl to prevent open redirect attacks
-  // Only allow relative paths (starting with /) that don't have protocol-relative URLs
-  if (!returnUrl.startsWith('/') || returnUrl.startsWith('//')) {
-    returnUrl = '/';
-  }
+  const returnUrl = validateRedirectUrl(rawReturnUrl, '/');
 
   // Disable preview mode (removes cookie)
   disablePreviewMode(cookies);

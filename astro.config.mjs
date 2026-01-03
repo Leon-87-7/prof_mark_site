@@ -8,6 +8,19 @@ import dotenv from 'dotenv';
 // Load environment variables from .env file
 dotenv.config();
 
+// Validate Sanity configuration early
+if (!process.env.SANITY_PROJECT_ID) {
+  throw new Error(
+    'SANITY_PROJECT_ID is required. Please copy .env.example to .env and configure it.'
+  );
+}
+
+if (!process.env.SANITY_DATASET) {
+  throw new Error(
+    'SANITY_DATASET is required. Please copy .env.example to .env and configure it.'
+  );
+}
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
