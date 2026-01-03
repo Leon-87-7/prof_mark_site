@@ -12,7 +12,12 @@ const token = import.meta.env.SANITY_TOKEN; // Server-only: never use PUBLIC_ pr
 
 if (!projectId || !dataset) {
   throw new Error(
-    'SANITY_PROJECT_ID and SANITY_DATASET must be defined'
+    'Sanity configuration error: SANITY_PROJECT_ID and SANITY_DATASET must be defined.\n' +
+    'Please ensure your .env file is properly configured:\n' +
+    '1. Copy .env.example to .env\n' +
+    '2. Set SANITY_PROJECT_ID from https://sanity.io/manage\n' +
+    '3. Set SANITY_DATASET (e.g., "production" or "development")\n' +
+    'See .env.example for full configuration template.'
   );
 }
 /**

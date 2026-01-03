@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { enablePreviewMode } from '../../lib/preview';
+import { validateRedirectUrl } from '../../lib/url-validator';
 
 /**
  * API Route: Enter preview mode
@@ -12,13 +13,11 @@ import { enablePreviewMode } from '../../lib/preview';
 export const GET: APIRoute = async ({ request, cookies, redirect }) => {
   const url = new URL(request.url);
   const secret = url.searchParams.get('secret');
-  let slug = url.searchParams.get('slug') || '/';
+  const rawSlug = url.searchParams.get('slug') || '/';
 
   // Validate slug to prevent open redirect attacks
-  // Only allow relative paths (starting with /) that don't have protocol-relative URLs
-  if (!slug.startsWith('/') || slug.startsWith('//')) {
-    slug = '/';
-  }
+  // Preserve query/hash to maintain preview context (e.g., /about?view=draft#section)
+  const slug = validateRedirectUrl(rawSlug, '/', true);
 
   // Get the preview secret from environment
   const previewSecret = import.meta.env.SANITY_PREVIEW_SECRET;

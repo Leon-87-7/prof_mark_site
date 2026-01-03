@@ -3,6 +3,26 @@ import { structureTool } from 'sanity/structure';
 import { visionTool } from '@sanity/vision';
 import { schemaTypes } from './src/sanity/schemas';
 
+// Validate required environment variables
+const projectId = process.env.SANITY_PROJECT_ID;
+const dataset = process.env.SANITY_DATASET;
+
+if (!projectId) {
+  throw new Error(
+    'SANITY_PROJECT_ID environment variable is required.\n' +
+    'Please set it in your .env file.\n' +
+    'Get your project ID from https://sanity.io/manage'
+  );
+}
+
+if (!dataset) {
+  throw new Error(
+    'SANITY_DATASET environment variable is required.\n' +
+    'Please set it in your .env file (e.g., "production", "development").\n' +
+    'For local development, use a non-production dataset.'
+  );
+}
+
 // Define singleton document IDs
 const singletonTypes = new Set([
   'siteSettings',
@@ -24,8 +44,8 @@ export default defineConfig({
   name: 'prof-mark-eidelman',
   title: 'Prof. Mark Eidelman Website',
 
-  projectId: process.env.SANITY_PROJECT_ID || 's4qwd9sw',
-  dataset: process.env.SANITY_DATASET || 'production',
+  projectId,
+  dataset,
 
   plugins: [
     structureTool({

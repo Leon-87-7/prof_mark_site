@@ -2,11 +2,24 @@ import { defineConfig, fontProviders } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import sanity from '@sanity/astro';
-import node from '@astrojs/node';
+import vercel from '@astrojs/vercel/serverless';
 import dotenv from 'dotenv';
 
 // Load environment variables from .env file
 dotenv.config();
+
+// Validate Sanity configuration early
+if (!process.env.SANITY_PROJECT_ID) {
+  throw new Error(
+    'SANITY_PROJECT_ID is required. Please copy .env.example to .env and configure it.'
+  );
+}
+
+if (!process.env.SANITY_DATASET) {
+  throw new Error(
+    'SANITY_DATASET is required. Please copy .env.example to .env and configure it.'
+  );
+}
 
 // https://astro.build/config
 export default defineConfig({
@@ -27,9 +40,7 @@ export default defineConfig({
   // Server mode with prerendering for static pages
   // The Sanity Studio requires server-side rendering
   output: 'server',
-  adapter: node({
-    mode: 'standalone',
-  }),
+  adapter: vercel(), // Use Vercel adapter for deployment
   site: 'https://markeidelman.com', // Your production URL
   build: {
     inlineStylesheets: 'auto', // Inline critical CSS
