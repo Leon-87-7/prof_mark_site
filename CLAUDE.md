@@ -94,6 +94,12 @@ Multi-page site with Astro file-based routing (SSR with optional prerendering):
 - **API Version**: 2024-01-01
 - **CDN**: Enabled for fast reads (disabled for preview mode)
 
+⚠️ **IMPORTANT - Environment Variables**:
+- `sanity.config.ts` runs in the **browser** (not Node.js) and must use `import.meta.env.PUBLIC_*`
+- Never use `process.env` in `sanity.config.ts` - it will cause "process is not defined" errors
+- Project ID and dataset are **safe to expose** (public identifiers, not secrets)
+- Secrets like `SANITY_TOKEN` must stay server-side only
+
 ### Key Files
 
 - [src/sanity/client.ts](src/sanity/client.ts) - Sanity client with error handling
