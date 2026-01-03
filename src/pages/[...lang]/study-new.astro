@@ -1,0 +1,496 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { useTranslations, getLangFromUrl } from '@/i18n/utils';
+import { client } from '@/sanity/client';
+import { urlFor, type SanityImageSource } from '@/sanity/image';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: undefined } }, // Default language
+    { params: { lang: 'en' } },
+    { params: { lang: 'ru' } },
+  ];
+}
+
+const lang = getLangFromUrl(Astro.url) || 'he';
+const t = useTranslations(lang);
+
+// Fetch study page content from Sanity
+const studyPage = await client.fetch(
+  `*[_type == "studyPage"][0]{
+    title,
+    subtitle,
+    search,
+    subscribe
+  }`
+);
+
+// Fetch all study content
+const allContent = await client.fetch(
+  `*[_type == "studyContent"] | order(order asc, date desc){
+    _id,
+    identifier,
+    emoji,
+    title,
+    contentType,
+    typeLabel,
+    date,
+    dateLabel,
+    duration,
+    description,
+    featuredImage,
+    isFeatured,
+    ctaText,
+    link,
+    cardColor
+  }`
+);
+
+// Separate featured and regular content
+const featuredContent = allContent.filter((item: any) => item.isFeatured);
+const regularContent = allContent.filter((item: any) => !item.isFeatured);
+
+// Helper to truncate text
+function truncate(text: string, maxLength = 150) {
+  if (!text || text.length <= maxLength) return text;
+  return text.slice(0, maxLength).trim() + '...';
+}
+
+// Helper to get card header color class
+function getCardColorClass(color: string) {
+  const colorMap: Record<string, string> = {
+    blue: 'card-header-blue',
+    red: 'card-header-red',
+    orange: 'card-header-orange',
+    green: 'card-header-green',
+    purple: 'card-header-purple',
+    teal: 'card-header-teal',
+  };
+  return colorMap[color] || 'card-header-blue';
+}
+---
+
+<BaseLayout
+  title={studyPage?.title?.[lang] || t('study.title')}
+  description={studyPage?.subtitle?.[lang] || t('study.subtitle')}
+  image="images/study_image_mark.jpg"
+  lang={lang}
+>
+  <div class="page active">
+    <div class="section">
+      <h2 class="section-title">{studyPage?.title?.[lang] || t('study.title')}</h2>
+      <p class="section-subtitle">
+        {studyPage?.subtitle?.[lang] || t('study.subtitle')}
+      </p>
+    </div>
+
+    <!-- Search and Filters -->
+    <div class="search-container">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder={studyPage?.search?.placeholder?.[lang] || t('study.search.placeholder')}
+        class="search-input"
+      />
+      <div class="filter-buttons">
+        <button class="btn btn-secondary filter-btn active" data-filter="all">
+          {studyPage?.search?.filters?.all?.[lang] || t('study.search.filters.all')}
+        </button>
+        <button class="btn btn-secondary filter-btn" data-filter="article">
+          {studyPage?.search?.filters?.articles?.[lang] || t('study.search.filters.articles')}
+        </button>
+        <button class="btn btn-secondary filter-btn" data-filter="case_study">
+          {studyPage?.search?.filters?.caseStudies?.[lang] || t('study.search.filters.case_studies')}
+        </button>
+        <button class="btn btn-secondary filter-btn" data-filter="lecture">
+          {studyPage?.search?.filters?.lectures?.[lang] || t('study.search.filters.lectures')}
+        </button>
+        <button class="btn btn-secondary filter-btn" data-filter="research">
+          {studyPage?.search?.filters?.research?.[lang] || t('study.search.filters.research')}
+        </button>
+      </div>
+    </div>
+
+    <!-- Featured Articles (Hero Section) -->
+    {
+      featuredContent.length > 0 && (
+        <div class="featured-section">
+          <div class="featured-grid">
+            {featuredContent.slice(0, 2).map((item: any) => (
+              <div class="featured-card" data-type={item.contentType}>
+                {item.featuredImage && (
+                  <div class="featured-image">
+                    <img
+                      src={urlFor(item.featuredImage as SanityImageSource)
+                        .width(800)
+                        .height(400)
+                        .url()}
+                      alt={item.title?.[lang] || ''}
+                    />
+                  </div>
+                )}
+                <div class="featured-content">
+                  <div class="featured-meta">
+                    <span class="featured-emoji">{item.emoji}</span>
+                    <span class="featured-type">{item.typeLabel?.[lang] || item.contentType}</span>
+                    {item.dateLabel?.[lang] && (
+                      <span class="featured-date"> • {item.dateLabel[lang]}</span>
+                    )}
+                  </div>
+                  <h3 class="featured-title">{item.title?.[lang]}</h3>
+                  <p class="featured-description">{item.description?.[lang]}</p>
+                  {item.link && (
+                    <a href={item.link} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                      {item.ctaText?.[lang] || 'Read More'}
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    <!-- Regular Articles Grid -->
+    <div class="colored-headers-cards study-cards" id="articlesGrid">
+      {
+        regularContent.map((item: any) => (
+          <div class="card" data-type={item.contentType}>
+            <div class={`card-header card-header-rounded ${getCardColorClass(item.cardColor)}`}>
+              {item.emoji}
+            </div>
+            <div class="card-content">
+              <h3>{item.title?.[lang]}</h3>
+              <p class="card-meta">
+                <strong>{item.typeLabel?.[lang] || item.contentType}</strong>
+                {item.duration?.[lang] && <span> • {item.duration[lang]}</span>}
+                {item.dateLabel?.[lang] && <span> • {item.dateLabel[lang]}</span>}
+              </p>
+              <p class="card-description">{truncate(item.description?.[lang] || '', 150)}</p>
+              {item.link ? (
+                <a href={item.link} class="card-link" target="_blank" rel="noopener noreferrer">
+                  {item.ctaText?.[lang] || 'Read More'} →
+                </a>
+              ) : (
+                <span class="card-link-disabled">{t('footer.comingSoon')}</span>
+              )}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Subscribe Section -->
+    <div class="feature-box">
+      <h3>{studyPage?.subscribe?.title?.[lang] || t('study.subscribe.title')}</h3>
+      <p>{studyPage?.subscribe?.description?.[lang] || t('study.subscribe.description')}</p>
+      <div class="subscribe-form">
+        <input
+          type="email"
+          placeholder={studyPage?.subscribe?.placeholder?.[lang] || t('study.subscribe.placeholder')}
+          class="subscribe-input"
+        />
+        <button class="btn btn-cta btn-primary">
+          {studyPage?.subscribe?.ctaText?.[lang] || t('study.subscribe.cta')}
+        </button>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Client-side filtering functionality
+  const searchInput = document.getElementById('searchInput') as HTMLInputElement;
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const articlesGrid = document.getElementById('articlesGrid');
+  const cards = articlesGrid?.querySelectorAll('.card') || [];
+
+  let currentFilter = 'all';
+  let currentSearch = '';
+
+  function filterCards() {
+    cards.forEach((card) => {
+      const cardElement = card as HTMLElement;
+      const cardType = cardElement.dataset.type || '';
+      const cardText = cardElement.textContent?.toLowerCase() || '';
+
+      const matchesFilter = currentFilter === 'all' || cardType === currentFilter;
+      const matchesSearch = cardText.includes(currentSearch.toLowerCase());
+
+      if (matchesFilter && matchesSearch) {
+        cardElement.style.display = '';
+      } else {
+        cardElement.style.display = 'none';
+      }
+    });
+  }
+
+  // Filter button click handlers
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterButtons.forEach((btn) => btn.classList.remove('active'));
+      // Add active class to clicked button
+      button.classList.add('active');
+
+      currentFilter = (button as HTMLElement).dataset.filter || 'all';
+      filterCards();
+    });
+  });
+
+  // Search input handler
+  searchInput?.addEventListener('input', (e) => {
+    currentSearch = (e.target as HTMLInputElement).value;
+    filterCards();
+  });
+</script>
+
+<style>
+.search-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ecf0f1;
+  border-radius: 5px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  font-size: 0.875rem;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.filter-buttons .btn {
+  padding: 8px 15px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-buttons .btn.active {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+/* Featured Articles Section */
+.featured-section {
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 30px;
+}
+
+.featured-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.featured-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(210, 187, 113, 0.3);
+}
+
+.featured-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-content {
+  padding: 25px;
+}
+
+.featured-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.featured-emoji {
+  font-size: 1.5rem;
+}
+
+.featured-type {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.featured-title {
+  font-size: 1.5rem;
+  margin: 0 0 15px 0;
+  color: var(--text);
+}
+
+.featured-description {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Regular Cards Grid */
+.card {
+  /* border-top-color: transparent; */
+}
+
+.colored-headers-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: var(--card-gap);
+}
+
+.colored-headers-cards.study-cards .card {
+  border: none;
+  border-radius: 20px 20px 0 0;
+  border-bottom: var(--borderB) 1px solid;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.study-cards .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 8px rgba(210, 187, 113, 0.4);
+  border-color: var(--accent);
+}
+
+.card-header-rounded {
+  border-radius: 20px 20px 0 0;
+  font-size: 2rem;
+  padding: 20px;
+  text-align: center;
+}
+
+.card-header-blue {
+  background-color: var(--card-head-blue);
+}
+
+.card-header-red {
+  background-color: var(--card-head-red);
+}
+
+.card-header-orange {
+  background-color: var(--card-head-orange);
+}
+
+.card-header-green {
+  background-color: var(--card-head-green);
+}
+
+.card-header-purple {
+  background-color: var(--card-head-purple);
+}
+
+.card-header-teal {
+  background-color: var(--card-head-teal);
+}
+
+.card-meta {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 10px 0;
+}
+
+.card-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.card-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.card-link:hover {
+  color: var(--accent-dark);
+}
+
+.card-link-disabled {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Subscribe Section */
+.subscribe-form {
+  display: flex;
+  gap: 1.4em;
+  margin-top: 20px;
+}
+
+.subscribe-form .btn-cta {
+  padding-block: 16px;
+}
+
+.subscribe-input {
+  flex: 1;
+  min-width: 250px;
+  max-width: 60ch;
+  padding-inline-start: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  font-size: 0.875rem;
+}
+
+.subscribe-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 5px var(--accent);
+}
+
+@media (max-width: 1024px) {
+  .colored-headers-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .colored-headers-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .subscribe-form {
+    flex-direction: column;
+  }
+
+  .subscribe-input {
+    width: 100%;
+    padding-block: 0.8rem;
+  }
+}
+</style>

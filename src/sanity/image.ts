@@ -22,7 +22,7 @@ interface SanityImageReference {
  * - Direct asset ID string
  * - Partial reference with optional asset
  */
-type SanityImageSource =
+export type SanityImageSource =
   | SanityImageReference
   | string
   | { asset?: { _ref?: string } };

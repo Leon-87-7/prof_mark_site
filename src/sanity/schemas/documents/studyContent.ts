@@ -71,6 +71,23 @@ export default defineType({
       name: 'description',
       title: 'Description',
       type: 'localizedString',
+      description: 'Article description - first ~150 characters will show in card previews',
+    }),
+    defineField({
+      name: 'featuredImage',
+      title: 'Featured Image',
+      type: 'image',
+      description: 'Optional thumbnail image for article cards',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'isFeatured',
+      title: 'Featured Content',
+      type: 'boolean',
+      description: 'Show this article in the hero section at the top of the study page',
+      initialValue: false,
     }),
     defineField({
       name: 'ctaText',
