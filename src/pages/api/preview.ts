@@ -16,7 +16,8 @@ export const GET: APIRoute = async ({ request, cookies, redirect }) => {
   const rawSlug = url.searchParams.get('slug') || '/';
 
   // Validate slug to prevent open redirect attacks
-  const slug = validateRedirectUrl(rawSlug, '/');
+  // Preserve query/hash to maintain preview context (e.g., /about?view=draft#section)
+  const slug = validateRedirectUrl(rawSlug, '/', true);
 
   // Get the preview secret from environment
   const previewSecret = import.meta.env.SANITY_PREVIEW_SECRET;

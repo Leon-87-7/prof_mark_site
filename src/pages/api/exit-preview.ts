@@ -14,7 +14,8 @@ export const GET: APIRoute = async ({ request, cookies, redirect }) => {
   const rawReturnUrl = url.searchParams.get('returnUrl') || '/';
 
   // Validate returnUrl to prevent open redirect attacks
-  const returnUrl = validateRedirectUrl(rawReturnUrl, '/');
+  // Preserve query/hash to return to exact location (e.g., /about?lang=en#section)
+  const returnUrl = validateRedirectUrl(rawReturnUrl, '/', true);
 
   // Disable preview mode (removes cookie)
   disablePreviewMode(cookies);

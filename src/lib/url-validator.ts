@@ -1,10 +1,14 @@
 /**
  * Validates that a URL is safe for redirection
  * Prevents open redirect attacks via encoding, protocol-relative URLs, etc.
+ * @param url - The URL to validate
+ * @param fallback - The fallback URL if validation fails (default: '/')
+ * @param preserveQueryAndHash - Whether to preserve query strings and hash fragments (default: false)
  */
 export function validateRedirectUrl(
   url: string,
-  fallback = '/'
+  fallback = '/',
+  preserveQueryAndHash = false
 ): string {
   const normalized = url.trim();
 
@@ -40,7 +44,9 @@ export function validateRedirectUrl(
       return fallback;
     }
 
-    return testUrl.pathname;
+    return preserveQueryAndHash
+      ? testUrl.pathname + testUrl.search + testUrl.hash
+      : testUrl.pathname;
   } catch {
     return fallback;
   }
