@@ -2,7 +2,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import sanity from '@sanity/astro';
-import node from '@astrojs/node';
+import vercel from '@astrojs/vercel/serverless';
 import dotenv from 'dotenv';
 
 // Load environment variables from .env file
@@ -40,9 +40,7 @@ export default defineConfig({
   // Server mode with prerendering for static pages
   // The Sanity Studio requires server-side rendering
   output: 'server',
-  adapter: node({
-    mode: 'standalone',
-  }),
+  adapter: vercel(), // Use Vercel adapter for deployment
   site: 'https://markeidelman.com', // Your production URL
   build: {
     inlineStylesheets: 'auto', // Inline critical CSS
