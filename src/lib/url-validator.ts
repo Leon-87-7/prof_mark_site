@@ -22,7 +22,7 @@ export function validateRedirectUrl(
   }
 
   // Block encoded characters that could bypass checks
-  if (/%2f|%5c|%3a|%40/i.test(normalized)) {
+  if (/%2f|%5c|%3a|%40|%25/i.test(normalized)) {
     return fallback;
   }
 

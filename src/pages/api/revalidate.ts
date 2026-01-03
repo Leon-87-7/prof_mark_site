@@ -24,8 +24,8 @@ function verifySignature(
     hmac.update(payload);
     const digest = hmac.digest('hex');
     // Convert to buffers once
-    const signatureBuffer = Buffer.from(signature, 'utf8');
-    const digestBuffer = Buffer.from(digest, 'utf8');
+    const signatureBuffer = Buffer.from(signature, 'hex');
+    const digestBuffer = Buffer.from(digest, 'hex');
 
     // Pre-check lengths to prevent timingSafeEqual from throwing
     if (signatureBuffer.length !== digestBuffer.length) {
